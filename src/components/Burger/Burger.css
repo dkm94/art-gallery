@@ -1,0 +1,52 @@
+.button-burger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 67px;
+    height: 60px;
+    align-self: center;
+    background: none;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    transition: rotate 0.5s ease-in-out, height 0.85s ease-in-out;
+}
+
+.button-burger:hover .button-burger__line {
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.button-burger_active {
+    rotate: -90deg;
+    align-items: end;
+    transition: rotate 0.3s ease-in-out, height 0.2s ease-in-out;
+}
+.button-burger_active .button-burger__line {
+    transition: rotate 0.5s ease-in-out, width 0.6s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+.button-burger_active .button-burger__line:first-child {
+    width: 40%;
+    rotate: 0deg;
+}
+.button-burger_active .button-burger__line:nth-child(2) {
+    width: 80%;
+    rotate: 0deg;
+}
+.button-burger_active .button-burger__line:nth-child(3) {
+    width: 40%;
+    rotate: 0deg;
+}
+.button-burger__line {
+    width: 100%;
+    height: 3px;
+    background-color: #f2ede6;
+    border-radius: 3px;
+    transition: rotate 0.8s ease-in-out, width 1s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+.button-burger__line:first-child {
+    /* width: 60%; */
+}
+.button-burger__line:nth-child(2) {
+    width: 60%;
+}
