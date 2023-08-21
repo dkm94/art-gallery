@@ -1,0 +1,29 @@
+.left-col, .right-col {
+    width: 20%;
+}
+
+.center-col {
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    min-height: 86vh;
+}
+
+.page-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translate(0px, 125px);
+}
+
+.page-title > h1 {
+   text-align: center;
+   font-weight: normal;
+   font-size: 13rem;
+   margin: 0;
+}

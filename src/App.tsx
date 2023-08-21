@@ -1,5 +1,5 @@
 import './App.css'
-import { Header } from './components'
+import { Header, Main } from './components'
 
 import { backgrounds } from './constants'
 
@@ -12,6 +12,7 @@ function App() {
   return (
     <div className='app' style={{ backgroundColor: backgrounds[background].color, backgroundImage: `url(${backgrounds[background].data})`}} >
       <Header />
+      <Main setBackground={setBackground} />
     </div>
   )
 }

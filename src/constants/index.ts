@@ -1,4 +1,4 @@
-import { Background } from "./../../types"
+import { Background, Section } from "./../../types"
 
 export const backgrounds: Background  = {
      "brown": {
@@ -14,3 +14,9 @@ export const backgrounds: Background  = {
         data: "https://www.transparenttextures.com/patterns/noisy.png"
     }
 }
+
+export const sections: Section[] = [
+    "Fashion",
+    "Artworks",
+    "Portraits"
+]
