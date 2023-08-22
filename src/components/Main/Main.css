@@ -33,9 +33,31 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    justify-content: space-around;
-    display: flex;
 }
+
+.prev-wrapper {
+    /* background: red; */
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0px;
+    left: 65px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.next-wrapper {
+    background: red;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0px;
+    right: 65px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .prev-btn {
     border: none;
     background: none;
@@ -43,17 +65,22 @@
     font-family: 'Prata', serif;
     text-transform: uppercase;
     position: absolute;
-    left: 100px;
 }
-.prev-btn::before {
+
+.prev-line::before {
     content: "";
     width: 40px;
     height: 1px;
     background-color: #f2ede6;
     position: absolute;
-    left: 65px;
-    top: 8px;
+    left: 70px;
 }
+.prev-line:hover::before {
+    transition-property: right;
+    transition-duration: 2s;
+    right: 0;
+}
+
 .next-btn {
     border: none;
     background: none;
@@ -61,14 +88,47 @@
     font-family: 'Prata', serif;
     text-transform: uppercase;
     position: absolute;
-    right: 100px;
 }
-.next-btn::before {
+
+.next-line::before {
     content: "";
     width: 40px;
     height: 1px;
     background-color: #f2ede6;
     position: absolute;
-    top: 8px;
-    right: 65px;
+    right: 70px;
 }
+.next-line:hover::before {
+    transition-property: left;
+    transition-duration: 2s;
+    left: 0;
+}
+
+.slide-right {
+    transition-property: left;
+    transition-duration: 2s;
+    left: 0;
+}
+
+.slide-left::before {
+    transition-property: left;
+    transition-duration: 2s;
+    left: 0px;
+}
+
+.slide-right:hover {
+    left: 65px;
+}
+
+/* .slide-left:hover::before{
+    animation: slideToTheLeft 2s forwards;
+} */
+
+/* @keyframes slideToTheRight {
+    100% { left: 65px; }
+}
+
+@keyframes slideToTheLeft {
+    100% { right: 165px; }
+}
+ */

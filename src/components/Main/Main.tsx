@@ -9,9 +9,8 @@ const Main = ({ setBackground }: IMainProps) => {
     const [section, setSection] = useState<string>('Fashion');
     const [gallery, setGallery] = useState("fashion");
     const [activeClass, setActiveClass] = useState<string>('');
-    // console.log("🚀 ~ file: Main.tsx:12 ~ Main ~ activeClass:", activeClass)
-
-    // const delay: number = 5;
+    const [slidePrev, setSlidePrev] = useState<boolean>(false);
+    const [slideNext, setSlideNext] = useState<boolean>(false);
 
     useEffect(() => {
       setActiveClass('rotate')
@@ -27,8 +26,16 @@ const Main = ({ setBackground }: IMainProps) => {
             <div className="carousel-wrapper">
               <Carousel gallery={gallery} activeClass={activeClass} />
               <div className="btns-wrapper">
-                <button className="prev-btn">Prev</button>
-                <button className="next-btn">Next</button>
+                <div className="prev-wrapper" onMouseEnter={() => setSlidePrev(true)} onMouseLeave={() => setSlidePrev(false)} >
+                  <button className={`prev-btn ${slidePrev ? "slide-right" : ""}`}>Prev</button>
+                  <div className={`prev-line ${slidePrev ? "slide-left" : ""}`}/>
+                </div>
+                <div className="next-wrapper" onMouseEnter={() => setSlideNext(true)} onMouseLeave={() => setSlideNext(false)} >
+                  <button className={`next-btn ${slideNext ? "slide-left" : ""}`}>Next</button>
+                  <div className={`next-line ${slideNext ? "slide-right" : ""}`}/>
+                </div>
+                
+                
               </div>
             </div>
         </section>
