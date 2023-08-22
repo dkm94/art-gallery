@@ -1,0 +1,36 @@
+.img {
+    position: absolute;
+    height: 100%;
+    padding: 50px;
+    width: 350px;
+}
+
+.rotate:nth-of-type(1) {
+    animation: 2s ease-in rotate forwards;
+    transform: rotate(10deg);
+}
+
+.rotate:nth-of-type(2) {
+    transform: rotate(5deg);
+    animation: 2s ease-in rotate forwards;
+
+}
+
+.rotate:nth-of-type(3) {
+    animation: 2s ease-in rotate forwards;
+    transform: rotate(-10deg);
+}
+
+.rotate:nth-of-type(4) {
+    animation: 2s ease-in rotate forwards;
+    transform: rotate(-5deg);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transition: transform 2s;
+    }
+}

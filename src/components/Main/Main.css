@@ -1,29 +1,74 @@
 .left-col, .right-col {
     width: 20%;
 }
-
 .center-col {
     width: 60%;
     position: relative;
     overflow: hidden;
 }
-
 .content {
     display: flex;
     flex-direction: row;
     min-height: 86vh;
 }
-
 .page-title {
     position: absolute;
     bottom: 0;
     width: 100%;
     transform: translate(0px, 125px);
 }
-
 .page-title > h1 {
-   text-align: center;
-   font-weight: normal;
-   font-size: 13rem;
-   margin: 0;
+    text-align: center;
+    font-weight: normal;
+    font-size: 13rem;
+    margin: 0;
+}
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+.btns-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+}
+.prev-btn {
+    border: none;
+    background: none;
+    color: #f2ede6;
+    font-family: 'Prata', serif;
+    text-transform: uppercase;
+    position: absolute;
+    left: 100px;
+}
+.prev-btn::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background-color: #f2ede6;
+    position: absolute;
+    left: 65px;
+    top: 8px;
+}
+.next-btn {
+    border: none;
+    background: none;
+    color: #f2ede6;
+    font-family: 'Prata', serif;
+    text-transform: uppercase;
+    position: absolute;
+    right: 100px;
+}
+.next-btn::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background-color: #f2ede6;
+    position: absolute;
+    top: 8px;
+    right: 65px;
 }

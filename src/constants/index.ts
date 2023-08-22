@@ -1,4 +1,4 @@
-import { Background, Section } from "./../../types"
+import { Artwork, Background, Fashion, Section } from "./../../types"
 
 export const backgrounds: Background  = {
      "brown": {
@@ -19,4 +19,42 @@ export const sections: Section[] = [
     "Fashion",
     "Artworks",
     "Portraits"
+]
+
+export const artwork: Artwork[] = [
+    {
+        id: 1,
+        img: "/src/assets/artwork/pexels-adrien-olichon-3137078.jpg"
+    },
+    {
+        id: 2,
+        img: "/src/assets/artwork/pexels-anni-roenkae-2832382.jpg"
+    },
+    {
+        id: 3,
+        img: "/src/assets/artwork/pexels-anni-roenkae-2983141.jpg"
+    },
+    {
+        id: 4,
+        img: "/src/assets/artwork/pexels-dids-2911540.jpg"
+    }
+]
+
+export const fashion: Fashion[] = [
+    {
+        id: 1,
+        img: "src/assets/fashion/pexels-cottonbro-studio-5582230.jpg"
+    },
+    {
+        id: 2,
+        img: "src/assets/fashion/pexels-cottonbro-studio-5582420.jpg"
+    },
+    {
+        id: 3,
+        img: "src/assets/fashion/pexels-cottonbro-studio-9861658.jpg"
+    },
+    {
+        id: 4,
+        img: "src/assets/fashion/pexels-harsh-kushwaha-1721558.jpg"
+    }
 ]
