@@ -27,15 +27,13 @@ const Main = ({ setBackground }: IMainProps) => {
               <Carousel gallery={gallery} activeClass={activeClass} />
               <div className="btns-wrapper">
                 <div className="prev-wrapper" onMouseEnter={() => setSlidePrev(true)} onMouseLeave={() => setSlidePrev(false)} >
-                  <button className={`prev-btn ${slidePrev ? "slide-right" : ""}`}>Prev</button>
-                  <div className={`prev-line ${slidePrev ? "slide-left" : ""}`}/>
+                  <button className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""}`}>Prev</button>
+                  <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
                 </div>
                 <div className="next-wrapper" onMouseEnter={() => setSlideNext(true)} onMouseLeave={() => setSlideNext(false)} >
-                  <button className={`next-btn ${slideNext ? "slide-left" : ""}`}>Next</button>
-                  <div className={`next-line ${slideNext ? "slide-right" : ""}`}/>
+                  <button className={`next-btn ${slideNext ? "next-btn-animation" : ""}`}>Next</button>
+                  <div className={`next-line ${slideNext ? "next-line-animation" : ""}`}/>
                 </div>
-                
-                
               </div>
             </div>
         </section>

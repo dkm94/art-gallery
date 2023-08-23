@@ -36,7 +36,6 @@
 }
 
 .prev-wrapper {
-    /* background: red; */
     height: 50px;
     width: 50px;
     position: absolute;
@@ -47,7 +46,6 @@
     align-items: center;
 }
 .next-wrapper {
-    background: red;
     height: 50px;
     width: 50px;
     position: absolute;
@@ -58,6 +56,7 @@
     align-items: center;
 }
 
+/* Previous button */
 .prev-btn {
     border: none;
     background: none;
@@ -65,22 +64,9 @@
     font-family: 'Prata', serif;
     text-transform: uppercase;
     position: absolute;
+    left: 0px;
 }
-
-.prev-line::before {
-    content: "";
-    width: 40px;
-    height: 1px;
-    background-color: #f2ede6;
-    position: absolute;
-    left: 70px;
-}
-.prev-line:hover::before {
-    transition-property: right;
-    transition-duration: 2s;
-    right: 0;
-}
-
+/* Next button */
 .next-btn {
     border: none;
     background: none;
@@ -88,47 +74,50 @@
     font-family: 'Prata', serif;
     text-transform: uppercase;
     position: absolute;
+    right: 0px;
 }
 
+/* Previous line */
+.prev-line::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background-color: #f2ede6;
+    position: absolute;
+    left: 55px;
+}
+/* Next line */
 .next-line::before {
     content: "";
     width: 40px;
     height: 1px;
     background-color: #f2ede6;
     position: absolute;
-    right: 70px;
+    right: 55px;
 }
-.next-line:hover::before {
+
+/* Previous button animation */
+.prev-btn-animation {
     transition-property: left;
-    transition-duration: 2s;
-    left: 0;
+    transition-duration: 1s;
+    left: 10px;
 }
-
-.slide-right {
+/* Previous line animation */
+.prev-line-animation::before {
     transition-property: left;
-    transition-duration: 2s;
-    left: 0;
+    transition-duration: 1s;
+    left: -35px;
 }
 
-.slide-left::before {
-    transition-property: left;
-    transition-duration: 2s;
-    left: 0px;
+/* Next button animation */
+.next-btn-animation {
+    transition-property: right;
+    transition-duration: 1s;
+    right: 10px;
 }
-
-.slide-right:hover {
-    left: 65px;
+/* Next line animation */
+.next-line-animation::before {
+    transition-property: right;
+    transition-duration: 1s;
+    right: -35px;
 }
-
-/* .slide-left:hover::before{
-    animation: slideToTheLeft 2s forwards;
-} */
-
-/* @keyframes slideToTheRight {
-    100% { left: 65px; }
-}
-
-@keyframes slideToTheLeft {
-    100% { right: 165px; }
-}
- */
