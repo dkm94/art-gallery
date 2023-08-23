@@ -3,11 +3,11 @@ export type BackgroundDetails = {
     data: string;
 }
 
-export type Background = {
-    [key: string]: BackgroundDetails
-}
-
-export type Section = string;
+export type Section = {
+    idx: number;
+    title: string;
+    background: BackgroundDetails;
+};
 
 export type Artwork = {
     id: number;
@@ -19,12 +19,18 @@ export type Fashion = {
     img: string;
 }
 
+export type Portrait = {
+    id: number;
+    img: string;
+}
+
 export interface IMainProps {
-    setBackground: React.Dispatch<React.SetStateAction<string>>;
+    setBackground: React.Dispatch<React.SetStateAction<number>>;
+    gallery: Section[];
 }
 
 export interface ICarouselProps {
-    gallery: string;
+    selectedGalleryName: string;
     activeClass: string;
 }
 

@@ -1,24 +1,36 @@
-import { Artwork, Background, Fashion, Section } from "./../../types"
+import { Artwork, Fashion, Portrait, Section, BackgroundDetails } from "./../../types"
 
-export const backgrounds: Background  = {
-     "brown": {
-        color: "#a77364",
-        data: "https://www.transparenttextures.com/patterns/noisy.png"
-     },
-    "black": {
+export const backgrounds: BackgroundDetails[]  = [
+    {
         color: "#000000",
         data: "https://www.transparenttextures.com/patterns/noisy.png"
     },
-    "mustard": {
+    {
         color: "#BB9C71",
         data: "https://www.transparenttextures.com/patterns/noisy.png"
-    }
-}
+    },
+    {
+        color: "#a77364",
+        data: "https://www.transparenttextures.com/patterns/noisy.png"
+    },
+]
 
-export const sections: Section[] = [
-    "Fashion",
-    "Artworks",
-    "Portraits"
+export const gallery: Section[] = [
+    {
+        idx: 0,
+        title: "Fashion",
+        background: backgrounds[0]
+    },
+    {
+        idx: 1,
+        title: "Artworks",
+        background: backgrounds[1]
+    },
+    {
+        idx: 2,
+        title: "Portraits",
+        background: backgrounds[2]
+    }
 ]
 
 export const artwork: Artwork[] = [
@@ -56,5 +68,24 @@ export const fashion: Fashion[] = [
     {
         id: 4,
         img: "src/assets/fashion/pexels-harsh-kushwaha-1721558.jpg"
+    }
+]
+
+export const portraits: Portrait[] = [
+    {
+        id: 1,
+        img: "src/assets/portraits/pexels-breston-kenya-4244305.jpg"
+    },
+    {
+        id: 2,
+        img: "src/assets/portraits/pexels-ike-louie-natividad-2709385.jpg"
+    },
+    {
+        id: 3,
+        img: "src/assets/portraits/pexels-ike-louie-natividad-3310695.jpg"
+    },
+    {
+        id: 4,
+        img: "src/assets/portraits/pexels-pixabay-511313.jpg"
     }
 ]
