@@ -22,7 +22,6 @@ const Carousel = ({ selectedGalleryName, setRotate, rotate, setSwipe, swipe, fad
         }
         setSwipe(false)
         setFadeOut(false)
-        console.log("useEffect");
     }, [selectedGalleryName, setFadeOut, setSwipe, rotate])
 
 

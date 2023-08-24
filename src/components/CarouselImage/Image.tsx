@@ -7,12 +7,18 @@ import { ICarouselImageProps } from "../../../types"
 const Image = ({ key, src, alt, setRotate, rotate, setSwipe, swipe, selectedGalleryName }: ICarouselImageProps) => {
 
   useEffect(() => {
-    console.log("useEffect", rotate);
-  }, [rotate, selectedGalleryName, setSwipe])
+    console.log("useEffect");
+    const timer = setTimeout(() => {
+      setRotate(true)
+    }, 100);
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [rotate, selectedGalleryName, setRotate, setSwipe])
   
 
   return (
-    <img key={key} src={src} alt={alt} onLoad={() => setRotate(true)} className={`img ${rotate ? "rotate" : ""} ${swipe ? "swipe-right" : ""}`} />
+    <img key={key} src={src} alt={alt} className={`img ${rotate ? "rotate" : ""} ${swipe ? "swipe-right" : ""}`} />
   )
 }
 
