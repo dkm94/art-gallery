@@ -13,21 +13,21 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [slidePrev, setSlidePrev] = useState<boolean>(false);
     const [slideNext, setSlideNext] = useState<boolean>(false);
 
-    const max = gallery.length;
+    const max:number = gallery.length;
 
     useEffect(() => {
       setActiveClass('rotate')
     }, [gallery])
 
-    const nextOne = () => {
+    const nextOne = ():void => {
       selectedGallery < max && setSelectedGallery(selectedGallery + 1);
       setSelectedGalleryName(gallery[selectedGallery]?.title);
       setBackground(selectedGallery)
     }
 
-    const prevOne = () => {
+    const prevOne = ():void => {
       selectedGallery > 0 && setSelectedGallery(selectedGallery - 1);
-      const x = selectedGallery - 1;
+      const x:number = selectedGallery - 1;
       setSelectedGalleryName(gallery[x - 1]?.title);
       setBackground(x - 1)
     }
