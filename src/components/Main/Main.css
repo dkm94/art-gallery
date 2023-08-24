@@ -35,6 +35,10 @@
     width: 100%;
 }
 
+.disable-btn {
+    opacity: 0.5;
+}
+
 .prev-wrapper {
     height: 50px;
     width: 50px;

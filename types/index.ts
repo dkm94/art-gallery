@@ -4,7 +4,7 @@ export type BackgroundDetails = {
 }
 
 export type Section = {
-    idx: number;
+    id: number;
     title: string;
     background: BackgroundDetails;
 };

@@ -17,17 +17,17 @@ export const backgrounds: BackgroundDetails[]  = [
 
 export const gallery: Section[] = [
     {
-        idx: 0,
+        id: 1,
         title: "Fashion",
         background: backgrounds[0]
     },
     {
-        idx: 1,
+        id: 2,
         title: "Artworks",
         background: backgrounds[1]
     },
     {
-        idx: 2,
+        id: 3,
         title: "Portraits",
         background: backgrounds[2]
     }
