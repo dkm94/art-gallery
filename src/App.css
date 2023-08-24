@@ -1,3 +1,7 @@
 body {
   
 }
+
+.bg-fade-out {
+    transition: background 1s ease;
+}
