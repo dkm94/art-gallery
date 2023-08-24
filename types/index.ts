@@ -5,7 +5,7 @@ export type BackgroundDetails = {
 
 export type Section = {
     id: number;
-    title: string;
+    title: "string";
     background: BackgroundDetails;
 };
 
@@ -31,12 +31,21 @@ export interface IMainProps {
 
 export interface ICarouselProps {
     selectedGalleryName: string;
-    activeClass: string;
+    setRotate: React.Dispatch<React.SetStateAction<boolean>>;
+    rotate: boolean;
+    setSwipe: React.Dispatch<React.SetStateAction<boolean>>;
+    swipe: boolean;
+    setFadeOut: React.Dispatch<React.SetStateAction<boolean>>;
+    fadeOut: boolean;
 }
 
 export interface ICarouselImageProps {
     key: number;
     alt: string;
     src: string;
-    activeClass: string;
+    setRotate: React.Dispatch<React.SetStateAction<boolean>>;
+    rotate: boolean;
+    setSwipe: React.Dispatch<React.SetStateAction<boolean>>;
+    swipe: boolean;
+    selectedGalleryName: string;
 }

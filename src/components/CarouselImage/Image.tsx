@@ -1,9 +1,17 @@
-import { ICarouselImageProps } from "../../../types"
 import "./Image.css"
 
-const Image = ({ key, src, alt, activeClass }: ICarouselImageProps) => {
+import { useEffect } from "react"
+
+import { ICarouselImageProps } from "../../../types"
+
+const Image = ({ key, src, alt, setRotate, rotate, setSwipe, swipe, selectedGalleryName }: ICarouselImageProps) => {
+
+  useEffect(() => {
+  }, [selectedGalleryName, setSwipe])
+  
+
   return (
-    <img key={key} src={src} alt={alt} className={`img ${activeClass}`} />
+    <img key={key} src={src} alt={alt} onLoad={() => setRotate(true)} className={`img ${rotate ? "rotate" : ""} ${swipe ? "swipe-right" : ""}`} />
   )
 }
 

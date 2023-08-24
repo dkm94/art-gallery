@@ -6,31 +6,54 @@
 }
 
 .rotate:nth-of-type(1) {
-    animation: 1s ease-in rotate forwards;
+    animation: 1s ease-in rotateAll forwards;
     transform: rotate(10deg);
 }
 
 .rotate:nth-of-type(2) {
     transform: rotate(5deg);
-    animation: 1s ease-in rotate forwards;
+    animation: 1s ease-in rotateAll forwards;
 
 }
 
 .rotate:nth-of-type(3) {
-    animation: 1s ease-in rotate forwards;
+    animation: 1s ease-in rotateAll forwards;
     transform: rotate(-10deg);
 }
 
 .rotate:nth-of-type(4) {
-    animation: 1s ease-in rotate forwards;
+    animation: 1s ease-in rotateAll forwards;
     transform: rotate(-5deg);
 }
 
-@keyframes rotate {
+/* Au clic de la dernière image, ajouter une classe d'animation */
+.swipe-right:last-of-type {
+    animation: 1s ease-in-out rotateX forwards;
+    transform: rotate(30deg) scale(0.9);
+    margin-left: 100px;
+}
+
+.swipe-left:last-of-type {
+    animation: 1s ease-in-out rotateX forwards;
+    transform: rotate(-30deg) scale(0.9);
+    margin-left: -100px;
+}
+
+@keyframes rotateAll {
     from {
         transform: rotate(0deg);
     }
     to {
         transition: transform 1s;
+    }
+}
+
+@keyframes rotateX {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transition: transform 1s;
+        opacity: 0;
     }
 }

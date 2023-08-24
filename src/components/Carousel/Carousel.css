@@ -4,3 +4,8 @@
     display: flex;
     justify-content: center;
 }
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s;
+}
