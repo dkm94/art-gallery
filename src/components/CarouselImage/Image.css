@@ -33,12 +33,6 @@
     margin-left: 100px;
 }
 
-.swipe-left:last-of-type {
-    animation: 1s ease-in-out rotateX forwards;
-    transform: rotate(-30deg) scale(0.9);
-    margin-left: -100px;
-}
-
 @keyframes rotateAll {
     from {
         transform: rotate(0deg);
@@ -54,6 +48,7 @@
     }
     to {
         transition: transform 1s;
+        margin-left: 400px;
         opacity: 0;
     }
 }

@@ -35,6 +35,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       setFadeOut(true);
       setSwipe(true);
       setTimeout(() => {
+        setRotate(false);
         selectedGallery > 0 && setSelectedGallery(selectedGallery - 1);
         const x:number = selectedGallery - 1;
         setSelectedGalleryName(gallery[x - 1]?.title);

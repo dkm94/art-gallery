@@ -7,7 +7,8 @@ import { ICarouselImageProps } from "../../../types"
 const Image = ({ key, src, alt, setRotate, rotate, setSwipe, swipe, selectedGalleryName }: ICarouselImageProps) => {
 
   useEffect(() => {
-  }, [selectedGalleryName, setSwipe])
+    console.log("useEffect", rotate);
+  }, [rotate, selectedGalleryName, setSwipe])
   
 
   return (
