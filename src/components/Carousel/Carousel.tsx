@@ -15,7 +15,7 @@ const Carousel = ({ selectedGalleryName, activeClass }: ICarouselProps) => {
             case "Portraits":
                 return portraits.map((item, index) => <Image key={index} src={item.img} alt="portraits" activeClass={activeClass} />)
             default:
-                return null
+                return "No data available"
         }
     }
 
