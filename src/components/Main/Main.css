@@ -15,9 +15,13 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    transform: translate(0px, 125px);
+    height: 250px;
+    transform: translate(0px, 100px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
-.page-title > h1 {
+.page-title > span {
     text-align: center;
     font-weight: normal;
     font-size: 13rem;

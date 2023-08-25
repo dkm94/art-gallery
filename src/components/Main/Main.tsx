@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { IMainProps } from "../../../types";
 
-import { Carousel } from "..";
+import { Carousel, CarouselTitle } from "..";
 
 const Main = ({ setBackground, gallery }: IMainProps) => {
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
@@ -24,6 +24,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       setFadeOut(true);
       setSwipe(true);
       setTimeout(() => {
+        changeTitle("next");
         setRotate(false);
         selectedGallery < max && setSelectedGallery(selectedGallery + 1);
         setSelectedGalleryName(gallery[selectedGallery]?.title);
@@ -35,6 +36,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       setFadeOut(true);
       setSwipe(true);
       setTimeout(() => {
+        changeTitle("prev");
         setRotate(false);
         selectedGallery > 0 && setSelectedGallery(selectedGallery - 1);
         const x:number = selectedGallery - 1;
@@ -43,13 +45,35 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       }, 500);
     }
 
+    const [slideTransition, setSlideTransition] = useState<string>("");
+
+    let activeSlideIndex: number = selectedGallery - 1;
+
+    const slideLenght:number = gallery.length;
+    const slideHeight: number = 280;
+    
+    const changeTitle = (direction: string): void => {
+      
+        if(direction === "next"){
+            activeSlideIndex++;
+            if(activeSlideIndex === slideLenght){
+                activeSlideIndex = 0;
+            }
+            setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
+        } else if(direction === "prev"){
+            activeSlideIndex--;
+            if(activeSlideIndex < 0){
+                activeSlideIndex = slideLenght - 1;
+            }
+            setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
+        }
+    }
+
   return (
     <div className='content'>
         <section className='left-col'>Left</section>
         <section className='center-col'>
-            <div className="page-title">
-                <h1>{selectedGalleryName}</h1>
-            </div>
+            <CarouselTitle slideTransition={slideTransition} />
             <div className="carousel-wrapper">
               <Carousel selectedGalleryName={selectedGalleryName} setRotate={setRotate} rotate={rotate} setSwipe={setSwipe} swipe={swipe} fadeOut={fadeOut} setFadeOut={setFadeOut} />
               <div className="btns-wrapper">

@@ -5,7 +5,7 @@ export type BackgroundDetails = {
 
 export type Section = {
     id: number;
-    title: "string";
+    title: string;
     background: BackgroundDetails;
 };
 
@@ -48,4 +48,8 @@ export interface ICarouselImageProps {
     setSwipe: React.Dispatch<React.SetStateAction<boolean>>;
     swipe: boolean;
     selectedGalleryName: string;
+}
+
+export interface ICarouselTitleProps {
+    slideTransition: string;
 }
