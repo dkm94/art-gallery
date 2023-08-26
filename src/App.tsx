@@ -1,19 +1,22 @@
-import './App.css'
-import { Header, Main } from './components'
+import './App.css';
 
-import { backgrounds, gallery } from './constants'
+import { useState } from "react";
 
-import { useState } from "react"
+import { Header, Main } from './components';
+import { BackgroundCtx } from './context';
+import { backgrounds, gallery } from './constants';
+
 
 function App() {
-
   const [background, setBackground] = useState<number>(0);
   
   return (
-    <div className={`app bg-fade-out`} style={{ backgroundColor: backgrounds[background].color, backgroundImage: `url(${backgrounds[background].data})`}} >
-      <Header />
-      <Main setBackground={setBackground} gallery={gallery} />
-    </div>
+    <BackgroundCtx.Provider value={{ background }}>
+      <div className={`app bg-fade-out`} style={{ backgroundColor: backgrounds[background].color, backgroundImage: `url(${backgrounds[background].data})`}} >
+        <Header />
+        <Main setBackground={setBackground} gallery={gallery} />
+      </div>
+    </BackgroundCtx.Provider>
   )
 }
 

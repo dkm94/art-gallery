@@ -2,9 +2,8 @@ import "./Main.css";
 
 import { useEffect, useState } from "react";
 
-import { IMainProps } from "../../../types";
-
-import { Carousel, CarouselTitle, ProgressBar } from "..";
+import { DisplayMode, IMainProps } from "../../../types";
+import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 
 const Main = ({ setBackground, gallery }: IMainProps) => {
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
@@ -14,8 +13,15 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [slideNext, setSlideNext] = useState<boolean>(false);
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
+    const [slideTransition, setSlideTransition] = useState<string>("");
+    const [activePageTransition, setActivePageTransition] = useState<string>("");
+    const [display, setDisplay] = useState<DisplayMode>("card");
 
     const max:number = gallery.length;
+    let activeSlideIndex: number = selectedGallery - 1;
+    const slideLength:number = gallery.length;
+    const slideHeight: number = 280;
+    const activePageHeight: number = 22;
 
     useEffect(() => {
     }, [selectedGalleryName])
@@ -44,18 +50,8 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
         setBackground(x - 1)
       }, 500);
     }
-
-    const [slideTransition, setSlideTransition] = useState<string>("");
-    const [activePageTransition, setActivePageTransition] = useState<string>("");
-
-    let activeSlideIndex: number = selectedGallery - 1;
-
-    const slideLength:number = gallery.length;
-    const slideHeight: number = 280;
-    const activePageHeight: number = 22;
     
     const changeTitle = (direction: string): void => {
-      
         if(direction === "next"){
             activeSlideIndex++;
             if(activeSlideIndex === slideLength){
@@ -94,7 +90,9 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
               </div>
             </div>
         </section>
-        <section className='right-col'>Right</section>
+        <section className='right-col'>
+          <CardToGrid display={display} setDisplay={setDisplay} />
+        </section>
     </div>
   )
 }

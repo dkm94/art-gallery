@@ -7,7 +7,6 @@ import { ICarouselImageProps } from "../../../types"
 const Image = ({ key, src, alt, setRotate, rotate, setSwipe, swipe, selectedGalleryName }: ICarouselImageProps) => {
 
   useEffect(() => {
-    console.log("useEffect");
     const timer = setTimeout(() => {
       setRotate(true)
     }, 100);

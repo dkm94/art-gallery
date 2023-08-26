@@ -1,9 +1,8 @@
 .left-col, .right-col {
     width: 20%;
-}
-.left-col {
     position: relative;
 }
+
 .center-col {
     width: 60%;
     position: relative;
@@ -13,6 +12,9 @@
     display: flex;
     flex-direction: row;
     min-height: 86vh;
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .page-title {
     position: absolute;

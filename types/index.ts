@@ -24,6 +24,12 @@ export type Portrait = {
     img: string;
 }
 
+export type DisplayMode = "card" | "grid"
+export type DisplayTitle = "Card" | "Grid"
+
+export interface ICurrentBackgroundCtx {
+    background: number;
+}
 export interface IMainProps {
     setBackground: React.Dispatch<React.SetStateAction<number>>;
     gallery: Section[];
@@ -58,4 +64,15 @@ export interface IProgressBarProps {
     slideLength: number;
     activePageTransition: string;
     activeSlideIndex: number;
+}
+
+export interface ICardToGridProps {
+    display: DisplayMode;
+    setDisplay: React.Dispatch<React.SetStateAction<DisplayMode>>;
+}
+
+export interface ICardToGridBtnProps extends ICardToGridProps {
+    mode: DisplayMode;
+    title: DisplayTitle;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

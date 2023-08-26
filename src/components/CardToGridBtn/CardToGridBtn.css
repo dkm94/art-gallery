@@ -1,0 +1,32 @@
+.active-mode {
+    color: transparent;
+    background-color: #FFFFFF;
+    border: unset;
+    border-radius: 16px;
+    padding: 4px 16px;
+    line-height: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.mode {
+    color: #FFFFFF;
+    background-color: unset;
+    border: none;
+    padding: 4px 16px;
+}
