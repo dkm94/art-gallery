@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { IMainProps } from "../../../types";
 
-import { Carousel, CarouselTitle } from "..";
+import { Carousel, CarouselTitle, ProgressBar } from "..";
 
 const Main = ({ setBackground, gallery }: IMainProps) => {
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
@@ -46,32 +46,38 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     }
 
     const [slideTransition, setSlideTransition] = useState<string>("");
+    const [activePageTransition, setActivePageTransition] = useState<string>("");
 
     let activeSlideIndex: number = selectedGallery - 1;
 
-    const slideLenght:number = gallery.length;
+    const slideLength:number = gallery.length;
     const slideHeight: number = 280;
+    const activePageHeight: number = 22;
     
     const changeTitle = (direction: string): void => {
       
         if(direction === "next"){
             activeSlideIndex++;
-            if(activeSlideIndex === slideLenght){
+            if(activeSlideIndex === slideLength){
                 activeSlideIndex = 0;
             }
             setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
+            setActivePageTransition(`translateY(-${activeSlideIndex * activePageHeight}px)`);
         } else if(direction === "prev"){
             activeSlideIndex--;
             if(activeSlideIndex < 0){
-                activeSlideIndex = slideLenght - 1;
+                activeSlideIndex = slideLength - 1;
             }
             setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
+            setActivePageTransition(`translateY(-${activeSlideIndex * activePageHeight}px)`);
         }
     }
 
   return (
     <div className='content'>
-        <section className='left-col'>Left</section>
+        <section className='left-col'>
+          <ProgressBar slideLength={slideLength} activePageTransition={activePageTransition} activeSlideIndex={activeSlideIndex} />
+        </section>
         <section className='center-col'>
             <CarouselTitle slideTransition={slideTransition} />
             <div className="carousel-wrapper">

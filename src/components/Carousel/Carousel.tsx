@@ -3,12 +3,12 @@ import "./Carousel.css";
 import { useEffect, useState } from "react";
 
 import { Image } from "..";
-import { ICarouselProps } from "../../../types";
+import { Artwork, Fashion, ICarouselProps, Portrait } from "../../../types";
 import { artwork, fashion, portraits } from "../../constants";
 
 const Carousel = ({ selectedGalleryName, setRotate, rotate, setSwipe, swipe, fadeOut, setFadeOut }: ICarouselProps) => {
-
-    const [array, setArray] = useState<any[] | string>([] || "No data available")
+    
+    const [array, setArray] = useState<Fashion[] | Artwork[] | Portrait[] | string>([] || "No data available")
 
     useEffect(() => {
         if(selectedGalleryName === "Artworks") {

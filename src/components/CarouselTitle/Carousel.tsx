@@ -1,6 +1,5 @@
 import "./Carousel.css";
 
-import React from 'react'
 import { ICarouselTitleProps } from '../../../types';
 import { gallery } from "../../constants";
 

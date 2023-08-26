@@ -53,3 +53,9 @@ export interface ICarouselImageProps {
 export interface ICarouselTitleProps {
     slideTransition: string;
 }
+
+export interface IProgressBarProps {
+    slideLength: number;
+    activePageTransition: string;
+    activeSlideIndex: number;
+}

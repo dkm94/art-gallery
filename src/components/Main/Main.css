@@ -1,6 +1,9 @@
 .left-col, .right-col {
     width: 20%;
 }
+.left-col {
+    position: relative;
+}
 .center-col {
     width: 60%;
     position: relative;
