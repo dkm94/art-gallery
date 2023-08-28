@@ -1,4 +1,4 @@
-import { Artwork, Fashion, Portrait, Section, BackgroundDetails } from "./../../types"
+import { Artwork, Fashion, Portrait, Nature, Wildlife, Wedding, Section, BackgroundDetails } from "./../../types"
 
 export const backgrounds: BackgroundDetails[]  = [
     {
@@ -46,10 +46,10 @@ export const artwork: Artwork[] = [
         id: 3,
         img: "/src/assets/artwork/pexels-anni-roenkae-2983141.jpg"
     },
-    {
-        id: 4,
-        img: "/src/assets/artwork/pexels-dids-2911540.jpg"
-    }
+    // {
+    //     id: 4,
+    //     img: "/src/assets/artwork/pexels-dids-2911540.jpg"
+    // }
 ]
 
 export const fashion: Fashion[] = [
@@ -65,10 +65,10 @@ export const fashion: Fashion[] = [
         id: 3,
         img: "src/assets/fashion/pexels-cottonbro-studio-9861658.jpg"
     },
-    {
-        id: 4,
-        img: "src/assets/fashion/pexels-harsh-kushwaha-1721558.jpg"
-    }
+    // {
+    //     id: 4,
+    //     img: "src/assets/fashion/pexels-harsh-kushwaha-1721558.jpg"
+    // }
 ]
 
 export const portraits: Portrait[] = [
@@ -84,8 +84,53 @@ export const portraits: Portrait[] = [
         id: 3,
         img: "src/assets/portraits/pexels-ike-louie-natividad-3310695.jpg"
     },
+    // {
+    //     id: 4,
+    //     img: "src/assets/portraits/pexels-pixabay-511313.jpg"
+    // }
+]
+
+export const nature: Nature[] = [
     {
-        id: 4,
-        img: "src/assets/portraits/pexels-pixabay-511313.jpg"
+        id: 1,
+        img: "src/assets/nature/pexels-jonatas-tinoco-4318822.jpg"
+    },
+    {
+        id: 2,
+        img: "src/assets/nature/pexels-marlon-martinez-1450082.jpg"
+    },
+    {
+        id: 3,
+        img: "src/assets/nature/pexels-michael-block-3225517.jpg"
+    }
+]
+
+export const wildlife: Wildlife[] = [
+    {
+        id: 1,
+        img: "src/assets/wildlife/pexels-alex-andrews-2295744.jpg"
+    },
+    {
+        id: 2,
+        img: "src/assets/wildlife/pexels-pixabay-53125.jpg"
+    },
+    {
+        id: 3,
+        img: "src/assets/wildlife/pexels-richard-verbeek-572861.jpg"
+    }
+]
+
+export const wedding: Wedding[] = [
+    {
+        id: 1,
+        img: "src/assets/wedding/pexels-orione-conceição-3014764.jpg"
+    },
+    {
+        id: 2,
+        img: "src/assets/wedding/pexels-orione-conceição-3014934.jpg"
+    },
+    {
+        id: 3,
+        img: "src/assets/wedding/pexels-orione-conceição-3014937.jpg"
     }
 ]

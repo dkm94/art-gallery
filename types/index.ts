@@ -9,20 +9,17 @@ export type Section = {
     background: BackgroundDetails;
 };
 
-export type Artwork = {
+export type Gallery = {
     id: number;
     img: string;
 }
 
-export type Fashion = {
-    id: number;
-    img: string;
-}
-
-export type Portrait = {
-    id: number;
-    img: string;
-}
+export type Artwork = Gallery;
+export type Fashion = Gallery;
+export type Portrait = Gallery;
+export type Nature = Gallery;
+export type Wildlife = Gallery;
+export type Wedding = Gallery;
 
 export type DisplayMode = "card" | "grid"
 export type DisplayTitle = "Card" | "Grid"

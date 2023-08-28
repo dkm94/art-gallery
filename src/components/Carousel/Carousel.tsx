@@ -8,6 +8,7 @@ import { artwork, fashion, portraits } from "../../constants";
 
 const Carousel = ({ selectedGalleryName, setRotate, rotate, setSwipe, swipe, fadeOut, setFadeOut }: ICarouselProps) => {
     
+    // const [array, setArray] = useState<Fashion[] | Artwork[] | Portrait[] | string>([] || "No data available")
     const [array, setArray] = useState<Fashion[] | Artwork[] | Portrait[] | string>([] || "No data available")
 
     useEffect(() => {
