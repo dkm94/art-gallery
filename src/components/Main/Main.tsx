@@ -2,7 +2,7 @@ import "./Main.css";
 
 import { useEffect, useState } from "react";
 
-import { DisplayMode, IMainProps } from "../../../types";
+import { DisplayMode, IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 
 const Main = ({ setBackground, gallery }: IMainProps) => {
@@ -13,10 +13,13 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [slideNext, setSlideNext] = useState<boolean>(false);
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
+    const [moveToBack, setMoveToBack] = useState<boolean>(false);
     const [slideTransition, setSlideTransition] = useState<string>("");
     const [activePageTransition, setActivePageTransition] = useState<string>("");
     const [display, setDisplay] = useState<DisplayMode>("card");
 
+    const [array, setArray] = useState<Gallery[]>([]);
+    
     const max:number = gallery.length;
     let activeSlideIndex: number = selectedGallery - 1;
     const slideLength:number = gallery.length;
@@ -24,25 +27,48 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const activePageHeight: number = 22;
 
     useEffect(() => {
-    }, [selectedGalleryName])
+      console.log(activeSlideIndex);
+      console.log("🚀 ~ file: Main.tsx:32 ~ Main ~ array:", array)
+    }, [activeSlideIndex, array, selectedGalleryName])
+
+    const moveCardToBack = ():void => {
+      if(array.length > 0){
+        const toIndex = 0;
+        const fromIndex = array.length - 1;
+        const elementToMove = array.splice(fromIndex, 1)[0];
+        array.splice(toIndex, 0, elementToMove);
+      }
+    }
+
+    const bringCardToFront = ():void => {
+      if(array.length > 0){
+        const fromIndex = 0;
+        const toIndex  = array.length - 1;
+        const elementToMove = array.splice(fromIndex, 1)[0];
+        array.splice(toIndex, 0, elementToMove);
+      }
+    }
 
     const nextOne = ():void => {
       setFadeOut(true);
       setSwipe(true);
+      setMoveToBack(true);
       setTimeout(() => {
         changeTitle("next");
         setRotate(false);
+        moveCardToBack()
         selectedGallery < max && setSelectedGallery(selectedGallery + 1);
         setSelectedGalleryName(gallery[selectedGallery]?.title);
         setBackground(selectedGallery)
       }, 500);
     }
-
+    
     const prevOne = ():void => {
       setFadeOut(true);
       setSwipe(true);
       setTimeout(() => {
         changeTitle("prev");
+        bringCardToFront()
         setRotate(false);
         selectedGallery > 0 && setSelectedGallery(selectedGallery - 1);
         const x:number = selectedGallery - 1;
@@ -77,7 +103,19 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
         <section className='center-col'>
             <CarouselTitle slideTransition={slideTransition} />
             <div className="carousel-wrapper">
-              <Carousel selectedGalleryName={selectedGalleryName} setRotate={setRotate} rotate={rotate} setSwipe={setSwipe} swipe={swipe} fadeOut={fadeOut} setFadeOut={setFadeOut} />
+              <Carousel 
+                selectedGalleryName={selectedGalleryName} 
+                setRotate={setRotate} 
+                rotate={rotate} 
+                setSwipe={setSwipe} 
+                swipe={swipe} 
+                fadeOut={fadeOut} 
+                setFadeOut={setFadeOut} 
+                setMoveToBack={setMoveToBack} 
+                moveToBack={moveToBack}
+                array={array}
+                setArray={setArray}
+              />
               <div className="btns-wrapper">
                 <div className="prev-wrapper" onMouseOver={() => setSlidePrev(true)} onMouseOut={() => setSlidePrev(false)} >
                   <button className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} onClick={prevOne} disabled={selectedGallery < 2}>Prev</button>

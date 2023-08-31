@@ -1,34 +1,47 @@
 import "./Carousel.css";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 import { Image } from "..";
-import { Artwork, Fashion, ICarouselProps, Portrait } from "../../../types";
-import { artwork, fashion, portraits } from "../../constants";
+import { ICarouselProps, Gallery } from "../../../types";
+import { artwork, fashion, portraits, wildlife, nature, wedding } from "../../constants";
 
-const Carousel = ({ selectedGalleryName, setRotate, rotate, setSwipe, swipe, fadeOut, setFadeOut }: ICarouselProps) => {
+const Carousel = ({ 
+    selectedGalleryName, 
+    setRotate, 
+    rotate, 
+    setSwipe, 
+    swipe, 
+    fadeOut, 
+    setFadeOut, 
+    moveToBack, 
+    setMoveToBack,
+    array,
+    setArray,
+}: ICarouselProps) => {
+
+    const arrays = useMemo(() => [fashion, artwork, portraits, wildlife, nature, wedding], []);
     
-    // const [array, setArray] = useState<Fashion[] | Artwork[] | Portrait[] | string>([] || "No data available")
-    const [array, setArray] = useState<Fashion[] | Artwork[] | Portrait[] | string>([] || "No data available")
+    const [errorMessage, setErrorMessage] = useState<string>("");
+
+    if(!fashion || !wildlife){
+        setErrorMessage("No data available");
+    }
 
     useEffect(() => {
-        if(selectedGalleryName === "Artworks") {
-            setArray(artwork)
-        } else if(selectedGalleryName === "Fashion") {
-            setArray(fashion)
-        } else if(selectedGalleryName === "Portraits") {
-            setArray(portraits)
-        } else {
-            setArray("No data available")
-        }
+        const getCovers = arrays.map((array: any[]) => (array.length > 0 ? array[0] : null)).reverse();
+        setArray(getCovers)
+    }, [arrays, setArray])
+
+    useEffect(() => {
         setSwipe(false)
         setFadeOut(false)
-    }, [selectedGalleryName, setFadeOut, setSwipe, rotate])
-
+    }, [selectedGalleryName, setFadeOut, setSwipe, rotate, arrays, setArray])
 
     return (
         <div className={`carousel ${fadeOut ? "fade-out" : ""}`}>
-            {array?.map((item: any, index) => <Image key={index} src={item.img} alt="artwork" setRotate={setRotate} rotate={rotate} setSwipe={setSwipe} swipe={swipe} selectedGalleryName={selectedGalleryName} />)}
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
+            {array?.map((item: any, index) => <Image index={index} src={item.img} alt="gallery" setRotate={setRotate} rotate={rotate} setSwipe={setSwipe} swipe={swipe} selectedGalleryName={selectedGalleryName} moveToBack={moveToBack} setMoveToBack={setMoveToBack} />)}
         </div>
     )
 }

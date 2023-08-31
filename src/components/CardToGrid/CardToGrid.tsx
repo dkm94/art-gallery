@@ -8,12 +8,14 @@ const CardToGrid = ({ display, setDisplay }: ICardToGridProps) => {
     <div className="card-to-grid">
         <div className="card-to-grid__btn">
             <CardToGridBtn 
+              key={"card"}
               display={display} 
               setDisplay={setDisplay} 
               mode={"card"} 
               title={"Card"} 
             />
             <CardToGridBtn 
+              key={"grid"}
               display={display} 
               setDisplay={setDisplay} 
               mode={"grid"} 

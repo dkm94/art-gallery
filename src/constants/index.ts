@@ -13,6 +13,18 @@ export const backgrounds: BackgroundDetails[]  = [
         color: "#a77364",
         data: "https://www.transparenttextures.com/patterns/noisy.png"
     },
+    {
+        color: "#8b0000",
+        data: "https://www.transparenttextures.com/patterns/noisy.png"
+    },
+    {
+        color: "#81a4c6",
+        data: "https://www.transparenttextures.com/patterns/noisy.png"
+    },
+    {
+        color: "#4e9680",
+        data: "https://www.transparenttextures.com/patterns/noisy.png"
+    },
 ]
 
 export const gallery: Section[] = [
@@ -30,6 +42,21 @@ export const gallery: Section[] = [
         id: 3,
         title: "Portraits",
         background: backgrounds[2]
+    },
+    {
+        id: 4,
+        title: "Wildlife",
+        background: backgrounds[3]
+    },
+    {
+        id: 5,
+        title: "Nature",
+        background: backgrounds[4]
+    },
+    {
+        id: 6,
+        title: "Wedding",
+        background: backgrounds[5]
     }
 ]
 
@@ -46,10 +73,6 @@ export const artwork: Artwork[] = [
         id: 3,
         img: "/src/assets/artwork/pexels-anni-roenkae-2983141.jpg"
     },
-    // {
-    //     id: 4,
-    //     img: "/src/assets/artwork/pexels-dids-2911540.jpg"
-    // }
 ]
 
 export const fashion: Fashion[] = [
@@ -65,10 +88,6 @@ export const fashion: Fashion[] = [
         id: 3,
         img: "src/assets/fashion/pexels-cottonbro-studio-9861658.jpg"
     },
-    // {
-    //     id: 4,
-    //     img: "src/assets/fashion/pexels-harsh-kushwaha-1721558.jpg"
-    // }
 ]
 
 export const portraits: Portrait[] = [
@@ -84,10 +103,6 @@ export const portraits: Portrait[] = [
         id: 3,
         img: "src/assets/portraits/pexels-ike-louie-natividad-3310695.jpg"
     },
-    // {
-    //     id: 4,
-    //     img: "src/assets/portraits/pexels-pixabay-511313.jpg"
-    // }
 ]
 
 export const nature: Nature[] = [

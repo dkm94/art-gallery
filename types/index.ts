@@ -40,10 +40,14 @@ export interface ICarouselProps {
     swipe: boolean;
     setFadeOut: React.Dispatch<React.SetStateAction<boolean>>;
     fadeOut: boolean;
+    setMoveToBack: React.Dispatch<React.SetStateAction<boolean>>;
+    moveToBack: boolean;
+    array: Gallery[];
+    setArray: React.Dispatch<React.SetStateAction<Gallery[]>>;
 }
 
 export interface ICarouselImageProps {
-    key: number;
+    index: number;
     alt: string;
     src: string;
     setRotate: React.Dispatch<React.SetStateAction<boolean>>;
@@ -51,6 +55,8 @@ export interface ICarouselImageProps {
     setSwipe: React.Dispatch<React.SetStateAction<boolean>>;
     swipe: boolean;
     selectedGalleryName: string;
+    setMoveToBack: React.Dispatch<React.SetStateAction<boolean>>;
+    moveToBack: boolean;
 }
 
 export interface ICarouselTitleProps {

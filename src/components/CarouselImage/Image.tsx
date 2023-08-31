@@ -4,7 +4,7 @@ import { useEffect } from "react"
 
 import { ICarouselImageProps } from "../../../types"
 
-const Image = ({ key, src, alt, setRotate, rotate, setSwipe, swipe, selectedGalleryName }: ICarouselImageProps) => {
+const Image = ({ index, src, alt, setRotate, rotate, setSwipe, swipe, selectedGalleryName, moveToBack, setMoveToBack }: ICarouselImageProps) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,10 +14,15 @@ const Image = ({ key, src, alt, setRotate, rotate, setSwipe, swipe, selectedGall
       clearTimeout(timer)
     }
   }, [rotate, selectedGalleryName, setRotate, setSwipe])
-  
 
   return (
-    <img key={key} src={src} alt={alt} className={`img ${rotate ? "rotate" : ""} ${swipe ? "swipe-right" : ""}`} />
+    <img 
+      key={index} 
+      src={src} 
+      alt={alt} 
+      className={`img ${rotate ? "rotate" : ""} ${swipe ? "swipe-right" : ""} ${moveToBack ? "move" : ""}`}
+      style={index === 0 || index === 1 ? { display: "none" } : { display: "block" }}
+      />
   )
 }
 
