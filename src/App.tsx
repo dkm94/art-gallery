@@ -9,9 +9,9 @@ import { backgrounds, gallery } from './constants';
 
 function App() {
   const [background, setBackground] = useState<number>(0);
-  
+  // modifier le contexte et passer toute la gallery
   return (
-    <BackgroundCtx.Provider value={{ background }}>
+    <BackgroundCtx.Provider value={{ background }}> 
       <div className={`app bg-fade-out`} style={{ backgroundColor: backgrounds[background].color, backgroundImage: `url(${backgrounds[background].data})`}} >
         <Header />
         <Main setBackground={setBackground} gallery={gallery} />

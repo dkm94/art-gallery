@@ -27,39 +27,6 @@ export const backgrounds: BackgroundDetails[]  = [
     },
 ]
 
-export const gallery: Section[] = [
-    {
-        id: 1,
-        title: "Fashion",
-        background: backgrounds[0]
-    },
-    {
-        id: 2,
-        title: "Artworks",
-        background: backgrounds[1]
-    },
-    {
-        id: 3,
-        title: "Portraits",
-        background: backgrounds[2]
-    },
-    {
-        id: 4,
-        title: "Wildlife",
-        background: backgrounds[3]
-    },
-    {
-        id: 5,
-        title: "Nature",
-        background: backgrounds[4]
-    },
-    {
-        id: 6,
-        title: "Wedding",
-        background: backgrounds[5]
-    }
-]
-
 export const artwork: Gallery[] = [
     {
         id: 1,
@@ -147,5 +114,44 @@ export const wedding: Gallery[] = [
     {
         id: 3,
         img: "src/assets/wedding/pexels-orione-conceição-3014937.jpg"
+    }
+]
+
+export const gallery: Section[] = [
+    {
+        id: 1,
+        title: "Fashion",
+        background: backgrounds[0],
+        gallery: fashion
+    },
+    {
+        id: 2,
+        title: "Artworks",
+        background: backgrounds[1],
+        gallery: artwork
+    },
+    {
+        id: 3,
+        title: "Portraits",
+        background: backgrounds[2],
+        gallery: portraits
+    },
+    {
+        id: 4,
+        title: "Wildlife",
+        background: backgrounds[3],
+        gallery: wildlife
+    },
+    {
+        id: 5,
+        title: "Nature",
+        background: backgrounds[4],
+        gallery: nature
+    },
+    {
+        id: 6,
+        title: "Wedding",
+        background: backgrounds[5],
+        gallery: wedding
     }
 ]

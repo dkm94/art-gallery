@@ -7,6 +7,7 @@ import { ICarouselImageProps } from "../../../types";
 
 const Image = ({ 
   index, 
+  galleryId,
   src, 
   alt, 
   setRotate, 
@@ -42,7 +43,7 @@ const Image = ({
       onMouseEnter={() => setShowViewBtn(true)}
       onMouseLeave={() => setShowViewBtn(false)}
       />
-      <ViewBtn showViewBtn={showViewBtn} index={index} showView={showView} />
+      <ViewBtn showViewBtn={showViewBtn} index={index} showView={showView} galleryId={galleryId} />
     </>
   )
 }

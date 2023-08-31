@@ -3,10 +3,13 @@ import "./Carousel.css";
 import { useEffect, useState, useMemo } from "react";
 
 import { Image } from "..";
-import { Gallery, ICarouselProps } from "../../../types";
+import { Gallery, ICarouselProps, Section } from "../../../types";
 import { artwork, fashion, portraits, wildlife, nature, wedding } from "../../constants";
 
 const Carousel = ({ 
+    gallery,
+    formattedArray,
+    setFormattedArray,
     selectedGalleryName, 
     setRotate, 
     rotate, 
@@ -31,14 +34,23 @@ const Carousel = ({
     if(!fashion || !wildlife){
         setErrorMessage("No data available");
     }
-
-    useEffect(() => {
-        const getCovers = arrays.map((array: any[]) => (array.length > 0 ? array[0] : null)).reverse();
-        setArray(getCovers)
-    }, [arrays, setArray])
-
-    console.log(arrays);
     
+    useEffect(() => {
+        const formattedGallery = gallery.map((item: Section) => {
+            return {
+                id: item.id,
+                values: item.gallery
+            }})
+        setFormattedArray(formattedGallery);
+        const getCoversWithId = formattedGallery.map((array: any) => {
+            return {
+                id: array.id,
+                img: array.values.length > 0 ? array.values[0].img : null
+            }
+        }).reverse();
+        setArray(getCoversWithId)
+    }, [gallery, setArray, setFormattedArray])
+
 
     useEffect(() => {
         setSwipe(false)
@@ -48,9 +60,10 @@ const Carousel = ({
     return (
         <div className={`carousel ${fadeOut ? "fade-out" : ""}`}>
             {errorMessage && <div className="error-message">{errorMessage}</div>}
-            {array?.map((item: Gallery, index) => (
+            {array?.map((item: any, index) => (
                 <Image 
-                    index={index} 
+                    index={index}
+                    galleryId={item.id}
                     src={item.img} 
                     alt="gallery" 
                     setRotate={setRotate} 

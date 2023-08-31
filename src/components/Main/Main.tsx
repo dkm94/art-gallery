@@ -7,6 +7,7 @@ import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 
 const Main = ({ setBackground, gallery }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
+    const [formattedArray, setFormattedArray] = useState<any[]>([]);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
     const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0].title);
     const [rotate, setRotate] = useState<boolean>(false);
@@ -27,6 +28,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const activePageHeight: number = 22;
 
     useEffect(() => {
+      console.log(array);
     }, [activeSlideIndex, array, selectedGalleryName])
 
     const moveCardToBack = ():void => {
@@ -75,9 +77,10 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       }, 500);
     }
 
-    const showView = (index:number) => {
-      console.log("🚀 ~ file: Main.tsx:79 ~ showView ~ index:", index)
-      // rajouter des ids aux Gallery et faire une fonction qui récupère l'id de la gallery et qui renvoie le bon index
+    const showView = (id:number) => {
+      console.log("🚀 ~ file: Main.tsx:81 ~ showView ~ id:", id)
+      // afficher la galerie qui correspond à l'id
+      // issue: le component image est trigger au clic du bouton View => le rotate se redéclanche 
       // animation
       setRotate(false)
       // click
@@ -110,6 +113,9 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
             <CarouselTitle slideTransition={slideTransition} />
             <div className="carousel-wrapper">
               <Carousel 
+                gallery={gallery}
+                formattedArray={formattedArray}
+                setFormattedArray={setFormattedArray}
                 selectedGalleryName={selectedGalleryName} 
                 setRotate={setRotate} 
                 rotate={rotate} 
