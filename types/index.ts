@@ -14,13 +14,6 @@ export type Gallery = {
     img: string;
 }
 
-export type Artwork = Gallery;
-export type Fashion = Gallery;
-export type Portrait = Gallery;
-export type Nature = Gallery;
-export type Wildlife = Gallery;
-export type Wedding = Gallery;
-
 export type DisplayMode = "card" | "grid"
 export type DisplayTitle = "Card" | "Grid"
 

@@ -1,4 +1,4 @@
-import { Artwork, Fashion, Portrait, Nature, Wildlife, Wedding, Section, BackgroundDetails } from "./../../types"
+import { Section, BackgroundDetails, Gallery } from "./../../types"
 
 export const backgrounds: BackgroundDetails[]  = [
     {
@@ -60,7 +60,7 @@ export const gallery: Section[] = [
     }
 ]
 
-export const artwork: Artwork[] = [
+export const artwork: Gallery[] = [
     {
         id: 1,
         img: "/src/assets/artwork/pexels-adrien-olichon-3137078.jpg"
@@ -75,7 +75,7 @@ export const artwork: Artwork[] = [
     },
 ]
 
-export const fashion: Fashion[] = [
+export const fashion: Gallery[] = [
     {
         id: 1,
         img: "src/assets/fashion/pexels-cottonbro-studio-5582230.jpg"
@@ -90,7 +90,7 @@ export const fashion: Fashion[] = [
     },
 ]
 
-export const portraits: Portrait[] = [
+export const portraits: Gallery[] = [
     {
         id: 1,
         img: "src/assets/portraits/pexels-breston-kenya-4244305.jpg"
@@ -105,7 +105,7 @@ export const portraits: Portrait[] = [
     },
 ]
 
-export const nature: Nature[] = [
+export const nature: Gallery[] = [
     {
         id: 1,
         img: "src/assets/nature/pexels-jonatas-tinoco-4318822.jpg"
@@ -120,7 +120,7 @@ export const nature: Nature[] = [
     }
 ]
 
-export const wildlife: Wildlife[] = [
+export const wildlife: Gallery[] = [
     {
         id: 1,
         img: "src/assets/wildlife/pexels-alex-andrews-2295744.jpg"
@@ -135,7 +135,7 @@ export const wildlife: Wildlife[] = [
     }
 ]
 
-export const wedding: Wedding[] = [
+export const wedding: Gallery[] = [
     {
         id: 1,
         img: "src/assets/wedding/pexels-orione-conceição-3014764.jpg"

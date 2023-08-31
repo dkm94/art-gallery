@@ -3,7 +3,7 @@ import "./Carousel.css";
 import { useEffect, useState, useMemo } from "react";
 
 import { Image } from "..";
-import { ICarouselProps, Gallery } from "../../../types";
+import { Gallery, ICarouselProps } from "../../../types";
 import { artwork, fashion, portraits, wildlife, nature, wedding } from "../../constants";
 
 const Carousel = ({ 
@@ -41,7 +41,7 @@ const Carousel = ({
     return (
         <div className={`carousel ${fadeOut ? "fade-out" : ""}`}>
             {errorMessage && <div className="error-message">{errorMessage}</div>}
-            {array?.map((item: any, index) => <Image index={index} src={item.img} alt="gallery" setRotate={setRotate} rotate={rotate} setSwipe={setSwipe} swipe={swipe} selectedGalleryName={selectedGalleryName} moveToBack={moveToBack} setMoveToBack={setMoveToBack} />)}
+            {array?.map((item: Gallery, index) => <Image index={index} src={item.img} alt="gallery" setRotate={setRotate} rotate={rotate} setSwipe={setSwipe} swipe={swipe} selectedGalleryName={selectedGalleryName} moveToBack={moveToBack} setMoveToBack={setMoveToBack} />)}
         </div>
     )
 }
