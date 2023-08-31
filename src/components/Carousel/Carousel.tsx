@@ -20,7 +20,8 @@ const Carousel = ({
     setArray,
     showViewBtn,
     setShowViewBtn,
-    activeSlideIndex
+    activeSlideIndex,
+    showView
 }: ICarouselProps) => {
 
     const arrays = useMemo(() => [fashion, artwork, portraits, wildlife, nature, wedding], []);
@@ -35,6 +36,9 @@ const Carousel = ({
         const getCovers = arrays.map((array: any[]) => (array.length > 0 ? array[0] : null)).reverse();
         setArray(getCovers)
     }, [arrays, setArray])
+
+    console.log(arrays);
+    
 
     useEffect(() => {
         setSwipe(false)
@@ -59,6 +63,7 @@ const Carousel = ({
                     showViewBtn={showViewBtn}
                     setShowViewBtn={setShowViewBtn}
                     activeSlideIndex={activeSlideIndex}
+                    showView={showView}
                     />))}
                 </div>
             )

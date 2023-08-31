@@ -75,8 +75,11 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       }, 500);
     }
 
-    const showView = () => {
+    const showView = (index:number) => {
+      console.log("🚀 ~ file: Main.tsx:79 ~ showView ~ index:", index)
+      // rajouter des ids aux Gallery et faire une fonction qui récupère l'id de la gallery et qui renvoie le bon index
       // animation
+      setRotate(false)
       // click
     }
     
@@ -121,6 +124,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 showViewBtn={showViewBtn}
                 setShowViewBtn={setShowViewBtn}
                 activeSlideIndex={activeSlideIndex}
+                showView={showView}
               />
               <div className="btns-wrapper">
                 <div className="prev-wrapper" onMouseOver={() => setSlidePrev(true)} onMouseOut={() => setSlidePrev(false)} >

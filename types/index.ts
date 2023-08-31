@@ -40,6 +40,7 @@ export interface ICarouselProps {
     showViewBtn: boolean
     setShowViewBtn: React.Dispatch<React.SetStateAction<boolean>>;
     activeSlideIndex: number;
+    showView:(index: number) => void;
 }
 
 export interface ICarouselImageProps {
@@ -56,6 +57,7 @@ export interface ICarouselImageProps {
     showViewBtn: boolean
     setShowViewBtn: React.Dispatch<React.SetStateAction<boolean>>;
     activeSlideIndex: number;
+    showView:(index: number) => void;
 }
 
 export interface ICarouselTitleProps {
@@ -79,4 +81,4 @@ export interface ICardToGridBtnProps extends ICardToGridProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index"> {}
+export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index" | "showView"> {}

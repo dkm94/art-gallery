@@ -18,7 +18,8 @@ const Image = ({
   setMoveToBack,
   showViewBtn,
   setShowViewBtn,
-  activeSlideIndex
+  activeSlideIndex,
+  showView
 }: ICarouselImageProps) => {
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const Image = ({
       onMouseEnter={() => setShowViewBtn(true)}
       onMouseLeave={() => setShowViewBtn(false)}
       />
-      <ViewBtn showViewBtn={showViewBtn} index={index}  />
+      <ViewBtn showViewBtn={showViewBtn} index={index} showView={showView} />
     </>
   )
 }
