@@ -1,8 +1,9 @@
+import { IViewBtnProps } from "../../../types";
 import "./ViewBtn.css";
 
-const ViewBtn = () => {
+const ViewBtn = ({ showViewBtn, index }: IViewBtnProps) => {
   return (
-    <div className="view-btn">View</div>
+    <div className="view-btn" style={{ display: showViewBtn && index === 5 ? "flex" : "none"}}>View</div>
   )
 }
 

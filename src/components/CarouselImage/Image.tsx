@@ -41,7 +41,7 @@ const Image = ({
       onMouseEnter={() => setShowViewBtn(true)}
       onMouseLeave={() => setShowViewBtn(false)}
       />
-      {showViewBtn && index === 5 && <ViewBtn />}
+      <ViewBtn showViewBtn={showViewBtn} index={index}  />
     </>
   )
 }

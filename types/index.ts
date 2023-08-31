@@ -78,3 +78,5 @@ export interface ICardToGridBtnProps extends ICardToGridProps {
     title: DisplayTitle;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
+
+export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index"> {}
