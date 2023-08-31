@@ -1,10 +1,25 @@
 import "./Image.css"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
-import { ICarouselImageProps } from "../../../types"
+import { ViewBtn } from "..";
+import { ICarouselImageProps } from "../../../types";
 
-const Image = ({ index, src, alt, setRotate, rotate, setSwipe, swipe, selectedGalleryName, moveToBack, setMoveToBack }: ICarouselImageProps) => {
+const Image = ({ 
+  index, 
+  src, 
+  alt, 
+  setRotate, 
+  rotate, 
+  setSwipe, 
+  swipe, 
+  selectedGalleryName, 
+  moveToBack, 
+  setMoveToBack,
+  showViewBtn,
+  setShowViewBtn,
+  activeSlideIndex
+}: ICarouselImageProps) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -16,13 +31,18 @@ const Image = ({ index, src, alt, setRotate, rotate, setSwipe, swipe, selectedGa
   }, [rotate, selectedGalleryName, setRotate, setSwipe])
 
   return (
-    <img 
+    <>
+      <img 
       key={index} 
       src={src} 
       alt={alt} 
       className={`img ${rotate ? "rotate" : ""} ${swipe ? "swipe-right" : ""} ${moveToBack ? "move" : ""}`}
       style={index === 0 || index === 1 ? { display: "none" } : { display: "block" }}
+      onMouseEnter={() => setShowViewBtn(true)}
+      onMouseLeave={() => setShowViewBtn(false)}
       />
+      {showViewBtn && index === 5 && <ViewBtn />}
+    </>
   )
 }
 

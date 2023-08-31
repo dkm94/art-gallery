@@ -7,5 +7,17 @@ import CarouselTitle from "./CarouselTitle/Carousel";
 import ProgressBar from "./ProgressBar/ProgressBar";
 import CardToGrid from "./CardToGrid/CardToGrid";
 import CardToGridBtn from "./CardToGridBtn/CardToGridBtn";
+import ViewBtn from "./ViewBtn/ViewBtn";
 
-export { Header, Burger, Main, Carousel, Image, CarouselTitle, ProgressBar, CardToGrid, CardToGridBtn }
+export { 
+    Header, 
+    Burger, 
+    Main, 
+    Carousel, 
+    Image, 
+    CarouselTitle, 
+    ProgressBar, 
+    CardToGrid, 
+    CardToGridBtn, 
+    ViewBtn 
+}

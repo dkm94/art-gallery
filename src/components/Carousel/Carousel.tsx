@@ -18,6 +18,9 @@ const Carousel = ({
     setMoveToBack,
     array,
     setArray,
+    showViewBtn,
+    setShowViewBtn,
+    activeSlideIndex
 }: ICarouselProps) => {
 
     const arrays = useMemo(() => [fashion, artwork, portraits, wildlife, nature, wedding], []);
@@ -41,9 +44,24 @@ const Carousel = ({
     return (
         <div className={`carousel ${fadeOut ? "fade-out" : ""}`}>
             {errorMessage && <div className="error-message">{errorMessage}</div>}
-            {array?.map((item: Gallery, index) => <Image index={index} src={item.img} alt="gallery" setRotate={setRotate} rotate={rotate} setSwipe={setSwipe} swipe={swipe} selectedGalleryName={selectedGalleryName} moveToBack={moveToBack} setMoveToBack={setMoveToBack} />)}
-        </div>
-    )
+            {array?.map((item: Gallery, index) => (
+                <Image 
+                    index={index} 
+                    src={item.img} 
+                    alt="gallery" 
+                    setRotate={setRotate} 
+                    rotate={rotate} 
+                    setSwipe={setSwipe} 
+                    swipe={swipe} 
+                    selectedGalleryName={selectedGalleryName} 
+                    moveToBack={moveToBack} 
+                    setMoveToBack={setMoveToBack}
+                    showViewBtn={showViewBtn}
+                    setShowViewBtn={setShowViewBtn}
+                    activeSlideIndex={activeSlideIndex}
+                    />))}
+                </div>
+            )
 }
 
 export default Carousel

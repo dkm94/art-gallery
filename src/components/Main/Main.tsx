@@ -6,6 +6,7 @@ import { DisplayMode, IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 
 const Main = ({ setBackground, gallery }: IMainProps) => {
+    const [array, setArray] = useState<Gallery[]>([]);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
     const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0].title);
     const [rotate, setRotate] = useState<boolean>(false);
@@ -14,12 +15,11 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
     const [moveToBack, setMoveToBack] = useState<boolean>(false);
+    const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
     const [slideTransition, setSlideTransition] = useState<string>("");
     const [activePageTransition, setActivePageTransition] = useState<string>("");
     const [display, setDisplay] = useState<DisplayMode>("card");
 
-    const [array, setArray] = useState<Gallery[]>([]);
-    
     const max:number = gallery.length;
     let activeSlideIndex: number = selectedGallery - 1;
     const slideLength:number = gallery.length;
@@ -27,8 +27,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const activePageHeight: number = 22;
 
     useEffect(() => {
-      console.log(activeSlideIndex);
-      console.log("🚀 ~ file: Main.tsx:32 ~ Main ~ array:", array)
     }, [activeSlideIndex, array, selectedGalleryName])
 
     const moveCardToBack = ():void => {
@@ -76,6 +74,11 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
         setBackground(x - 1)
       }, 500);
     }
+
+    const showView = () => {
+      // animation
+      // click
+    }
     
     const changeTitle = (direction: string): void => {
         if(direction === "next"){
@@ -115,6 +118,9 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 moveToBack={moveToBack}
                 array={array}
                 setArray={setArray}
+                showViewBtn={showViewBtn}
+                setShowViewBtn={setShowViewBtn}
+                activeSlideIndex={activeSlideIndex}
               />
               <div className="btns-wrapper">
                 <div className="prev-wrapper" onMouseOver={() => setSlidePrev(true)} onMouseOut={() => setSlidePrev(false)} >

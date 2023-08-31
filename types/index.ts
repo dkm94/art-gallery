@@ -37,6 +37,9 @@ export interface ICarouselProps {
     moveToBack: boolean;
     array: Gallery[];
     setArray: React.Dispatch<React.SetStateAction<Gallery[]>>;
+    showViewBtn: boolean
+    setShowViewBtn: React.Dispatch<React.SetStateAction<boolean>>;
+    activeSlideIndex: number;
 }
 
 export interface ICarouselImageProps {
@@ -50,6 +53,9 @@ export interface ICarouselImageProps {
     selectedGalleryName: string;
     setMoveToBack: React.Dispatch<React.SetStateAction<boolean>>;
     moveToBack: boolean;
+    showViewBtn: boolean
+    setShowViewBtn: React.Dispatch<React.SetStateAction<boolean>>;
+    activeSlideIndex: number;
 }
 
 export interface ICarouselTitleProps {
