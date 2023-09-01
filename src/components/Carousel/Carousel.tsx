@@ -63,9 +63,9 @@ const Carousel = ({
             {array?.map((item: any, index) => (
                 <Image 
                     index={index}
+                    key={item.id}
                     galleryId={item.id}
                     src={item.img} 
-                    alt="gallery" 
                     setRotate={setRotate} 
                     rotate={rotate} 
                     setSwipe={setSwipe} 

@@ -51,7 +51,6 @@ export interface ICarouselProps {
 export interface ICarouselImageProps {
     index: number;
     galleryId: number;
-    alt: string;
     src: string;
     setRotate: React.Dispatch<React.SetStateAction<boolean>>;
     rotate: boolean;
@@ -87,4 +86,4 @@ export interface ICardToGridBtnProps extends ICardToGridProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index" | "showView" | "galleryId" > {}
+export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index" | "showView" | "galleryId" | "setShowViewBtn" > {}

@@ -9,7 +9,6 @@ const Image = ({
   index, 
   galleryId,
   src, 
-  alt, 
   setRotate, 
   rotate, 
   setSwipe, 
@@ -22,6 +21,13 @@ const Image = ({
   activeSlideIndex,
   showView
 }: ICarouselImageProps) => {
+  
+  const [coverId, setCoverId] = useState<number>(0);
+  const [selectedImage, setSelectedImage] = useState<number>(0);
+  
+  const imageList = document.querySelectorAll(".img");
+  const firstCover = imageList[imageList.length - 1];
+  const firstImageId = firstCover?.getAttribute("data-id");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -32,19 +38,42 @@ const Image = ({
     }
   }, [rotate, selectedGalleryName, setRotate, setSwipe])
 
+  useEffect(() => {
+  }, [selectedImage])
+  
+  useEffect(() => {
+    console.log("useEffect");
+    setCoverId(Number(firstImageId)); // Id 1ère image de couverture, change à chaque clic de NEXT
+  }, [firstImageId])
+  
+  const displayBtn = ():void => {
+    if(galleryId === coverId) {
+      setSelectedImage(galleryId)
+      setShowViewBtn(true)
+    }
+  }  
+
+  const hideBtn = (selectedId: number):void => {
+    const previousValue = selectedImage;
+    setSelectedImage(selectedId)
+    // if(selectedImage !== coverId) {
+    //   setShowViewBtn(false)
+    // }
+    setShowViewBtn(false)
+
+  }
+
   return (
-    <>
-      <img 
-      key={index} 
-      src={src} 
-      alt={alt} 
-      className={`img ${rotate ? "rotate" : ""} ${swipe ? "swipe-right" : ""} ${moveToBack ? "move" : ""}`}
-      style={index === 0 || index === 1 ? { display: "none" } : { display: "block" }}
-      onMouseEnter={() => setShowViewBtn(true)}
-      onMouseLeave={() => setShowViewBtn(false)}
-      />
-      <ViewBtn showViewBtn={showViewBtn} index={index} showView={showView} galleryId={galleryId} />
-    </>
+    <div
+    key={index} 
+    data-id={galleryId}
+    className={`img ${rotate ? "rotate" : ""} ${swipe ? "swipe-right" : ""} ${moveToBack ? "move" : ""}`}
+    style={{backgroundImage: `url(${src})`, backgroundSize: "cover", display: index === 0 || index === 1 ? "none" : "block"}}
+    onMouseOver={displayBtn}
+    onMouseOut={() => hideBtn(selectedImage)}
+    >
+      {showViewBtn && <ViewBtn showViewBtn={showViewBtn} setShowViewBtn={setShowViewBtn} index={index} showView={showView} galleryId={galleryId} />}
+    </div>
   )
 }
 
