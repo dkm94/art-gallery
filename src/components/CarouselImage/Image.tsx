@@ -37,9 +37,6 @@ const Image = ({
       clearTimeout(timer)
     }
   }, [rotate, selectedGalleryName, setRotate, setSwipe])
-
-  useEffect(() => {
-  }, [selectedImage])
   
   useEffect(() => {
     console.log("useEffect");
@@ -56,12 +53,11 @@ const Image = ({
   const hideBtn = (selectedId: number):void => {
     const previousValue = selectedImage;
     setSelectedImage(selectedId)
-    // if(selectedImage !== coverId) {
-    //   setShowViewBtn(false)
-    // }
     setShowViewBtn(false)
-
   }
+
+  // Créer deux classes d'animations, pour rotate pour gérer le basculement de gauch à droite 
+  // .rotate-left et rotate-right
 
   return (
     <div

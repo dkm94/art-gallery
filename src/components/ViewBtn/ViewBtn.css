@@ -1,16 +1,40 @@
+
+.view-btn-container {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  mix-blend-mode: screen;
+  border: 1px solid #FFFFFF;
+
+}
 .view-btn {
-    width: 60px;
-    height: 60px;
-    background: #FFFFFF;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    color: black;
-    mix-blend-mode: screen;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(5deg);
+  background: #FFFFFF;
+  margin: 4px;
+}
+
+.slide-in {
+    animation-duration: 1s;
+    animation-name: slideIn;
+}
+
+@keyframes slideIn {
+    from {
+        bottom: 0;
+        left: 39%;
+      }
+      to {
+        bottom: 50%;
+        left: 44%;
+      }
 }

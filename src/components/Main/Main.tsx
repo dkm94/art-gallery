@@ -16,7 +16,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
     const [moveToBack, setMoveToBack] = useState<boolean>(false);
-    const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
+    const [showViewBtn, setShowViewBtn] = useState<boolean>(true);
     const [slideTransition, setSlideTransition] = useState<string>("");
     const [activePageTransition, setActivePageTransition] = useState<string>("");
     const [display, setDisplay] = useState<DisplayMode>("card");
