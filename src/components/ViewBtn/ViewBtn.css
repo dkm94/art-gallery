@@ -31,10 +31,8 @@
 @keyframes slideIn {
     from {
         bottom: 0;
-        left: 39%;
       }
       to {
         bottom: 50%;
-        left: 44%;
       }
 }

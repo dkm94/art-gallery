@@ -16,7 +16,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
     const [moveToBack, setMoveToBack] = useState<boolean>(false);
-    const [showViewBtn, setShowViewBtn] = useState<boolean>(true);
+    const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
     const [slideTransition, setSlideTransition] = useState<string>("");
     const [activePageTransition, setActivePageTransition] = useState<string>("");
     const [display, setDisplay] = useState<DisplayMode>("card");
@@ -28,8 +28,8 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const activePageHeight: number = 22;
 
     useEffect(() => {
-      console.log(array);
-    }, [activeSlideIndex, array, selectedGalleryName])
+      setRotate(true)
+    }, [])
 
     const moveCardToBack = ():void => {
       if(array.length > 0){
@@ -79,9 +79,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
 
     const showView = (id:number) => {
       console.log("🚀 ~ file: Main.tsx:81 ~ showView ~ id:", id)
-      // afficher la galerie qui correspond à l'id
-      // issue: le component image est trigger au clic du bouton View => le rotate se redéclanche 
-      // animation
       setRotate(false)
       // click
     }

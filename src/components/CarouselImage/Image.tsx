@@ -29,17 +29,18 @@ const Image = ({
   const firstCover = imageList[imageList.length - 1];
   const firstImageId = firstCover?.getAttribute("data-id");
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setRotate(true)
-    }, 100);
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [rotate, selectedGalleryName, setRotate, setSwipe])
+  // useEffect(() => {
+  //   console.log("rotate");
+    
+  //   const timer = setTimeout(() => {
+  //     setRotate(true)
+  //   }, 100);
+  //   return () => {
+  //     clearTimeout(timer)
+  //   }
+  // }, [rotate, selectedGalleryName, setRotate, setSwipe])
   
   useEffect(() => {
-    console.log("useEffect");
     setCoverId(Number(firstImageId)); // Id 1ère image de couverture, change à chaque clic de NEXT
   }, [firstImageId])
   
