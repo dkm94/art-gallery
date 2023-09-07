@@ -20,7 +20,8 @@ const Image = ({
   setShowViewBtn,
   activeSlideIndex,
   showView,
-  handleChangeRotation
+  handleChangeRotation,
+  rotationDegree
 }: ICarouselImageProps) => {
   
   const [coverId, setCoverId] = useState<number>(0);
@@ -29,10 +30,12 @@ const Image = ({
   const imageList = document.querySelectorAll(".img");
   const firstCover = imageList[imageList.length - 1];
   const firstImageId = firstCover?.getAttribute("data-id");
+
+  useEffect(() => {
+    setCoverId(Number(firstImageId)); // Id 1ère image de couverture, change à chaque clic de NEXT
+  }, [firstImageId])
   
   useEffect(() => {
-    console.log("here");
-    setCoverId(Number(firstImageId)); // Id 1ère image de couverture, change à chaque clic de NEXT
     setRotate(true)
     const timer = setTimeout(() => {
       setRotate(true)
@@ -86,7 +89,7 @@ const Image = ({
     onMouseOver={displayBtn}
     onMouseOut={() => hideBtn(selectedImage)}
     >
-      {showViewBtn && <ViewBtn showViewBtn={showViewBtn} setShowViewBtn={setShowViewBtn} index={index} showView={showView} galleryId={galleryId} />}
+      {showViewBtn && <ViewBtn showViewBtn={showViewBtn} setShowViewBtn={setShowViewBtn} index={index} showView={showView} galleryId={galleryId} rotationDegree={rotationDegree} />}
     </div>
   )
 }

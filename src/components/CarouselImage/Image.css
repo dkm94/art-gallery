@@ -72,7 +72,7 @@
         transform: rotate(0deg);
     }
     to {
-        transition: transform 1s;
+        transition: transform 0.5s;
         margin-left: 400px;
         opacity: 0;
     }

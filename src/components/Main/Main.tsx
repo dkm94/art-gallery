@@ -7,7 +7,7 @@ import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 
 const Main = ({ setBackground, gallery }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
-    const [index, setIndex] = useState<undefined>(undefined);
+    const [rotationDegree, setRotationDegree] = useState<undefined | number>(undefined);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [formattedArray, setFormattedArray] = useState<any[]>([]);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
@@ -18,7 +18,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
     const [moveToBack, setMoveToBack] = useState<boolean>(false);
-    const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
+    const [showViewBtn, setShowViewBtn] = useState<boolean>(true);
     const [slideTransition, setSlideTransition] = useState<string>("");
     const [activePageTransition, setActivePageTransition] = useState<string>("");
     const [display, setDisplay] = useState<DisplayMode>("card");
@@ -59,12 +59,16 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       oppositeDegree ? array = oppositeRotationDegree : array = rotationDegre;
       switch(index){
         case  5:
+          setRotationDegree(array[0]);
           return `rotate(${array[0]}deg)`;
         case  4:
+          setRotationDegree(array[1])
           return `rotate(${array[1]}deg)`
         case 3:
+          setRotationDegree(array[2])
           return `rotate(${array[2]}deg)`
         case 2:
+          setRotationDegree(array[3])
           return `rotate(${array[3]}deg)`
         default:
           return ""
@@ -102,7 +106,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     }
 
     const showView = (id:number) => {
-      console.log("🚀 ~ file: Main.tsx:81 ~ showView ~ id:", id)
+      // console.log("🚀 ~ file: Main.tsx:81 ~ showView ~ id:", id)
       // setRotate(false)
       // click
     }
@@ -153,6 +157,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 activeSlideIndex={activeSlideIndex}
                 showView={showView}
                 handleChangeRotation={handleChangeRotation}
+                rotationDegree={rotationDegree}
               />
               <div className="btns-wrapper">
                 <div className="prev-wrapper" onMouseOver={() => setSlidePrev(true)} onMouseOut={() => setSlidePrev(false)} >
