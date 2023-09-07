@@ -4,33 +4,45 @@
     width: 340px;
 }
 
-.rotate:nth-of-type(3) {
-    animation: 1s ease-in rotateAll forwards;
-    transform: rotate(10deg);
+/* .rotate-1:nth-of-type(3) {
+    animation: 1s ease-in rotate1 forwards;
 }
 
-.rotate:nth-of-type(4) {
-    transform: rotate(5deg);
+.rotate-1:nth-of-type(4) {
+    animation: 1s ease-in rotate1 forwards;
+}
+
+.rotate-1:nth-of-type(5) {
+    animation: 1s ease-in rotate1 forwards;
+}
+
+.rotate-1:nth-of-type(6) {
+    animation: 1s ease-in rotate1 forwards;
+} */
+
+/* .rotate-2:nth-of-type(3) {
+    animation: 1s ease-in rotateAll forwards;
+}
+
+.rotate-2:nth-of-type(4) {
     animation: 1s ease-in rotateAll forwards;
 
 }
 
-.rotate:nth-of-type(5) {
+.rotate-2:nth-of-type(5) {
     animation: 1s ease-in rotateAll forwards;
-    transform: rotate(-10deg);
 }
 
-.rotate:nth-of-type(6) {
+.rotate-2:nth-of-type(6) {
     animation: 1s ease-in rotateAll forwards;
-    transform: rotate(-5deg);
-}
+} */
 
 /* Au clic de la dernière image, ajouter une classe d'animation */
 .swipe-right:last-of-type {
-    animation: opacity 0.5s ease-in forwards;
+    /* animation: opacity 0.5s ease-in forwards; */
     animation: 0.5s ease-in-out rotateX forwards;
-    transform: rotate(30deg) scale(0.9);
-    margin-left: 100px;
+    /* transform: rotate(30deg) scale(0.9);
+    margin-left: 100px; */
 }
 
 .move-to-back:last-of-type {
@@ -46,7 +58,7 @@
     }
 }
 
-@keyframes rotateAll {
+@keyframes rotate1 {
     from {
         transform: rotate(0deg);
     }

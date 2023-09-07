@@ -46,6 +46,7 @@ export interface ICarouselProps {
     setShowViewBtn: React.Dispatch<React.SetStateAction<boolean>>;
     activeSlideIndex: number;
     showView:(id: number) => void;
+    handleChangeRotation: (index: number) => string;
 }
 
 export interface ICarouselImageProps {
@@ -63,6 +64,7 @@ export interface ICarouselImageProps {
     setShowViewBtn: React.Dispatch<React.SetStateAction<boolean>>;
     activeSlideIndex: number;
     showView:(id: number) => void;
+    handleChangeRotation: (index: number) => string;
 }
 
 export interface ICarouselTitleProps {

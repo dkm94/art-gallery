@@ -24,7 +24,8 @@ const Carousel = ({
     showViewBtn,
     setShowViewBtn,
     activeSlideIndex,
-    showView
+    showView,
+    handleChangeRotation
 }: ICarouselProps) => {
 
     const arrays = useMemo(() => [fashion, artwork, portraits, wildlife, nature, wedding], []);
@@ -53,8 +54,13 @@ const Carousel = ({
 
 
     useEffect(() => {
-        setSwipe(false)
+        const timer = setTimeout(() => {
+            setSwipe(false)
+        }, 500);
         setFadeOut(false)
+        return () => {
+            clearTimeout(timer)
+        }
     }, [selectedGalleryName, setFadeOut, setSwipe, rotate, arrays, setArray])
 
     return (
@@ -77,6 +83,7 @@ const Carousel = ({
                     setShowViewBtn={setShowViewBtn}
                     activeSlideIndex={activeSlideIndex}
                     showView={showView}
+                    handleChangeRotation={handleChangeRotation}
                     />))}
                 </div>
             )

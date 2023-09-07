@@ -19,7 +19,8 @@ const Image = ({
   showViewBtn,
   setShowViewBtn,
   activeSlideIndex,
-  showView
+  showView,
+  handleChangeRotation
 }: ICarouselImageProps) => {
   
   const [coverId, setCoverId] = useState<number>(0);
@@ -28,21 +29,18 @@ const Image = ({
   const imageList = document.querySelectorAll(".img");
   const firstCover = imageList[imageList.length - 1];
   const firstImageId = firstCover?.getAttribute("data-id");
-
-  // useEffect(() => {
-  //   console.log("rotate");
-    
-  //   const timer = setTimeout(() => {
-  //     setRotate(true)
-  //   }, 100);
-  //   return () => {
-  //     clearTimeout(timer)
-  //   }
-  // }, [rotate, selectedGalleryName, setRotate, setSwipe])
   
   useEffect(() => {
+    console.log("here");
     setCoverId(Number(firstImageId)); // Id 1ère image de couverture, change à chaque clic de NEXT
-  }, [firstImageId])
+    setRotate(true)
+    const timer = setTimeout(() => {
+      setRotate(true)
+    }, 1000);
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [])
   
   const displayBtn = ():void => {
     if(galleryId === coverId) {
@@ -51,21 +49,40 @@ const Image = ({
     }
   }  
 
+  // const handleRotation = (index: number): string => {
+  //   switch(index){
+  //     case  5:
+  //       return "rotate(-5deg)";
+  //     case  4:
+  //       return "rotate(5deg)"
+  //     case 3:
+  //       return "rotate(-10deg)"
+  //     case 2:
+  //       return "rotate(10deg)"
+  //     default:
+  //       return ""
+  //   }
+  // }
+
   const hideBtn = (selectedId: number):void => {
     const previousValue = selectedImage;
     setSelectedImage(selectedId)
     setShowViewBtn(false)
   }
-
-  // Créer deux classes d'animations, pour rotate pour gérer le basculement de gauch à droite 
-  // .rotate-left et rotate-right
-
+  
   return (
     <div
     key={index} 
     data-id={galleryId}
-    className={`img ${rotate ? "rotate" : ""} ${swipe ? "swipe-right" : ""} ${moveToBack ? "move" : ""}`}
-    style={{backgroundImage: `url(${src})`, backgroundSize: "cover", display: index === 0 || index === 1 ? "none" : "block"}}
+    className={`img ${swipe ? "swipe-right" : ""} ${moveToBack ? "move" : ""}`}
+    style={{ 
+      animation: `${rotate ? "rotate1 1s" : ""}`, 
+      transform: `${handleChangeRotation(index)}`,
+      transition: "transform 1s ease-in-out",
+      backgroundImage: `url(${src})`, 
+      backgroundSize: "cover", 
+      display: index === 0 || index === 1 ? "none" : "block"
+    }}
     onMouseOver={displayBtn}
     onMouseOut={() => hideBtn(selectedImage)}
     >
