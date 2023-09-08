@@ -3,10 +3,11 @@ import { useEffect } from "react";
 import { IViewBtnProps } from "../../../types";
 import "./ViewBtn.css";
 
-const ViewBtn = ({ showViewBtn, index, showView, galleryId, setShowViewBtn, rotationDegree }: IViewBtnProps) => {
+const ViewBtn = ({ showViewBtn, index, showView, galleryId, setShowViewBtn, rotationDegree, setAnimation }: IViewBtnProps) => {
   
   const handleBtn = (galleryId: number) => {
     showView(galleryId);
+    setAnimation("fixcards")
   }
 
   useEffect(() => {
@@ -17,7 +18,7 @@ const ViewBtn = ({ showViewBtn, index, showView, galleryId, setShowViewBtn, rota
       <div 
       className={`view-btn-container ${showViewBtn ? "slide-in" : ""}`}
       onClick={() => handleBtn(galleryId)}
-      style={{ transform: rotationDegree === -5 ? `rotate(5deg) translate(-50%, -50%)` : `rotate(-5deg) translate(-50%, -50%)` }}
+      style={{ transform: rotationDegree === -5 ? `rotate(5deg)` : `rotate(-5deg)` }}
       >
       <div className="view-btn" >
       View

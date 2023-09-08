@@ -1,4 +1,3 @@
-import { gallery } from './../src/constants/index';
 export type BackgroundDetails = {
     color: string;
     data: string;
@@ -47,7 +46,9 @@ export interface ICarouselProps {
     activeSlideIndex: number;
     showView:(id: number) => void;
     handleChangeRotation: (index: number) => string;
-    rotationDegree: number;
+    rotationDegree: undefined | number;
+    setAnimation: React.Dispatch<React.SetStateAction<string>>;
+    animation: string;
 }
 
 export interface ICarouselImageProps {
@@ -66,7 +67,9 @@ export interface ICarouselImageProps {
     activeSlideIndex: number;
     showView:(id: number) => void;
     handleChangeRotation: (index: number) => string;
-    rotationDegree: number;
+    rotationDegree: undefined | number;
+    setAnimation: React.Dispatch<React.SetStateAction<string>>;
+    animation: string;
 }
 
 export interface ICarouselTitleProps {
@@ -90,4 +93,4 @@ export interface ICardToGridBtnProps extends ICardToGridProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index" | "showView" | "galleryId" | "setShowViewBtn" | "rotationDegree" > {}
+export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index" | "showView" | "galleryId" | "setShowViewBtn" | "rotationDegree" | "setAnimation" > {}

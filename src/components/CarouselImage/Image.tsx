@@ -21,7 +21,9 @@ const Image = ({
   activeSlideIndex,
   showView,
   handleChangeRotation,
-  rotationDegree
+  rotationDegree,
+  setAnimation,
+  animation
 }: ICarouselImageProps) => {
   
   const [coverId, setCoverId] = useState<number>(0);
@@ -52,21 +54,6 @@ const Image = ({
     }
   }  
 
-  // const handleRotation = (index: number): string => {
-  //   switch(index){
-  //     case  5:
-  //       return "rotate(-5deg)";
-  //     case  4:
-  //       return "rotate(5deg)"
-  //     case 3:
-  //       return "rotate(-10deg)"
-  //     case 2:
-  //       return "rotate(10deg)"
-  //     default:
-  //       return ""
-  //   }
-  // }
-
   const hideBtn = (selectedId: number):void => {
     const previousValue = selectedImage;
     setSelectedImage(selectedId)
@@ -77,10 +64,10 @@ const Image = ({
     <div
     key={index} 
     data-id={galleryId}
-    className={`img ${swipe ? "swipe-right" : ""} ${moveToBack ? "move" : ""}`}
+    className={`img ${swipe ? "swipe-right" : ""} ${animation === "fixcards" ? "fixcards" : ""}`}
     style={{ 
       animation: `${rotate ? "rotate1 1s" : ""}`, 
-      transform: `${handleChangeRotation(index)}`,
+      transform: `${animation === "" && handleChangeRotation(index)}`,
       transition: "transform 1s ease-in-out",
       backgroundImage: `url(${src})`, 
       backgroundSize: "cover", 
@@ -89,7 +76,7 @@ const Image = ({
     onMouseOver={displayBtn}
     onMouseOut={() => hideBtn(selectedImage)}
     >
-      {showViewBtn && <ViewBtn showViewBtn={showViewBtn} setShowViewBtn={setShowViewBtn} index={index} showView={showView} galleryId={galleryId} rotationDegree={rotationDegree} />}
+      {showViewBtn && <ViewBtn showViewBtn={showViewBtn} setShowViewBtn={setShowViewBtn} index={index} showView={showView} galleryId={galleryId} rotationDegree={rotationDegree} setAnimation={setAnimation} />}
     </div>
   )
 }

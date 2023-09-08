@@ -7,7 +7,7 @@ import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 
 const Main = ({ setBackground, gallery }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
-    const [rotationDegree, setRotationDegree] = useState<undefined | number>(undefined);
+    const [rotationDegree, setRotationDegree] = useState<number>(0);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [formattedArray, setFormattedArray] = useState<any[]>([]);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
@@ -18,10 +18,11 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
     const [moveToBack, setMoveToBack] = useState<boolean>(false);
-    const [showViewBtn, setShowViewBtn] = useState<boolean>(true);
+    const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
     const [slideTransition, setSlideTransition] = useState<string>("");
     const [activePageTransition, setActivePageTransition] = useState<string>("");
     const [display, setDisplay] = useState<DisplayMode>("card");
+    const [animation, setAnimation] = useState<string>("");
 
     const max:number = gallery.length;
     let activeSlideIndex: number = selectedGallery - 1;
@@ -33,7 +34,8 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const oppositeRotationDegree = rotationDegre.map(element => element * -1);
 
     useEffect(() => {
-      // setRotate(true)
+      setAnimation("")
+      console.log("here");
     }, [])
 
     const moveCardToBack = ():void => {
@@ -71,7 +73,8 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
           setRotationDegree(array[3])
           return `rotate(${array[3]}deg)`
         default:
-          return ""
+          setRotationDegree(0)
+          return `rotate(0deg)`
       }
     }
 
@@ -82,7 +85,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       setOppositeDegree(!oppositeDegree);
       setTimeout(() => {
         changeTitle("next");
-        // setRotate(false);
         moveCardToBack()
         selectedGallery < max && setSelectedGallery(selectedGallery + 1);
         setSelectedGalleryName(gallery[selectedGallery]?.title);
@@ -97,7 +99,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       setTimeout(() => {
         changeTitle("prev");
         bringCardToFront()
-        // setRotate(false);
         selectedGallery > 0 && setSelectedGallery(selectedGallery - 1);
         const x:number = selectedGallery - 1;
         setSelectedGalleryName(gallery[x - 1]?.title);
@@ -106,9 +107,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     }
 
     const showView = (id:number) => {
-      // console.log("🚀 ~ file: Main.tsx:81 ~ showView ~ id:", id)
-      // setRotate(false)
-      // click
+      console.log("🚀 ~ file: Main.tsx:81 ~ showView ~ id:", id)
     }
     
     const changeTitle = (direction: string): void => {
@@ -158,6 +157,8 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 showView={showView}
                 handleChangeRotation={handleChangeRotation}
                 rotationDegree={rotationDegree}
+                setAnimation={setAnimation}
+                animation={animation}
               />
               <div className="btns-wrapper">
                 <div className="prev-wrapper" onMouseOver={() => setSlidePrev(true)} onMouseOut={() => setSlidePrev(false)} >

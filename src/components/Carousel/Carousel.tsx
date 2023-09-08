@@ -26,7 +26,9 @@ const Carousel = ({
     activeSlideIndex,
     showView,
     handleChangeRotation,
-    rotationDegree
+    rotationDegree,
+    setAnimation,
+    animation
 }: ICarouselProps) => {
 
     const arrays = useMemo(() => [fashion, artwork, portraits, wildlife, nature, wedding], []);
@@ -86,6 +88,8 @@ const Carousel = ({
                     showView={showView}
                     handleChangeRotation={handleChangeRotation}
                     rotationDegree={rotationDegree}
+                    setAnimation={setAnimation}
+                    animation={animation}
                     />))}
                 </div>
             )

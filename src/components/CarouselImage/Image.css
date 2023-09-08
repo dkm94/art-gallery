@@ -45,8 +45,8 @@
     margin-left: 100px; */
 }
 
-.move-to-back:last-of-type {
-    
+.fixcards {
+    transform: rotate(0deg) !important;
 }
 
 @keyframes opacity {
@@ -75,5 +75,15 @@
         transition: transform 0.5s;
         margin-left: 400px;
         opacity: 0;
+    }
+}
+
+@keyframes fixcards {
+    from {
+        transform: rotate();
+    }
+    to {
+        transition: transform 1s;
+        transform: rotate(0deg)
     }
 }
