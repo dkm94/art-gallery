@@ -14,14 +14,11 @@ const Image = ({
   setSwipe, 
   swipe, 
   selectedGalleryName, 
-  moveToBack, 
-  setMoveToBack,
   showViewBtn,
   setShowViewBtn,
   activeSlideIndex,
   showView,
   handleChangeRotation,
-  rotationDegree,
   setAnimation,
   animation
 }: ICarouselImageProps) => {
@@ -55,7 +52,7 @@ const Image = ({
   }  
 
   const hideBtn = (selectedId: number):void => {
-    const previousValue = selectedImage;
+    // const previousValue = selectedImage;
     setSelectedImage(selectedId)
     setShowViewBtn(false)
   }

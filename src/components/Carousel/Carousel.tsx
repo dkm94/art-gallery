@@ -17,8 +17,6 @@ const Carousel = ({
     swipe, 
     fadeOut, 
     setFadeOut, 
-    moveToBack, 
-    setMoveToBack,
     array,
     setArray,
     showViewBtn,
@@ -26,7 +24,6 @@ const Carousel = ({
     activeSlideIndex,
     showView,
     handleChangeRotation,
-    rotationDegree,
     setAnimation,
     animation
 }: ICarouselProps) => {
@@ -80,14 +77,11 @@ const Carousel = ({
                     setSwipe={setSwipe} 
                     swipe={swipe} 
                     selectedGalleryName={selectedGalleryName} 
-                    moveToBack={moveToBack} 
-                    setMoveToBack={setMoveToBack}
                     showViewBtn={showViewBtn}
                     setShowViewBtn={setShowViewBtn}
                     activeSlideIndex={activeSlideIndex}
                     showView={showView}
                     handleChangeRotation={handleChangeRotation}
-                    rotationDegree={rotationDegree}
                     setAnimation={setAnimation}
                     animation={animation}
                     />))}

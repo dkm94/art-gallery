@@ -7,7 +7,6 @@ import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 
 const Main = ({ setBackground, gallery }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
-    const [rotationDegree, setRotationDegree] = useState<number>(0);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [formattedArray, setFormattedArray] = useState<any[]>([]);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
@@ -17,7 +16,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [slideNext, setSlideNext] = useState<boolean>(false);
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
-    const [moveToBack, setMoveToBack] = useState<boolean>(false);
     const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
     const [slideTransition, setSlideTransition] = useState<string>("");
     const [activePageTransition, setActivePageTransition] = useState<string>("");
@@ -76,7 +74,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const nextOne = ():void => {
       setFadeOut(true);
       setSwipe(true);
-      setMoveToBack(true);
       setOppositeDegree(!oppositeDegree);
       setTimeout(() => {
         changeTitle("next");
@@ -142,8 +139,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 swipe={swipe} 
                 fadeOut={fadeOut} 
                 setFadeOut={setFadeOut} 
-                setMoveToBack={setMoveToBack} 
-                moveToBack={moveToBack}
                 array={array}
                 setArray={setArray}
                 showViewBtn={showViewBtn}
@@ -151,7 +146,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 activeSlideIndex={activeSlideIndex}
                 showView={showView}
                 handleChangeRotation={handleChangeRotation}
-                rotationDegree={rotationDegree}
                 setAnimation={setAnimation}
                 animation={animation}
               />

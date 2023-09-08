@@ -3,17 +3,17 @@ export type BackgroundDetails = {
     data: string;
 }
 
+export type Gallery = {
+    id: number;
+    img: string;
+}
+
 export type Section = {
     id: number;
     title: string;
     background: BackgroundDetails;
     gallery: Gallery[];
 };
-
-export type Gallery = {
-    id: number;
-    img: string;
-}
 
 export type DisplayMode = "card" | "grid"
 export type DisplayTitle = "Card" | "Grid"
@@ -26,8 +26,7 @@ export interface IMainProps {
     gallery: Section[];
 }
 
-export interface ICarouselProps {
-    gallery: Section[];
+export interface ICarouselProps extends Pick<IMainProps, "gallery" > {
     formattedArray: any[];
     setFormattedArray: React.Dispatch<React.SetStateAction<any[]>>;
     selectedGalleryName: string;
@@ -37,8 +36,6 @@ export interface ICarouselProps {
     swipe: boolean;
     setFadeOut: React.Dispatch<React.SetStateAction<boolean>>;
     fadeOut: boolean;
-    setMoveToBack: React.Dispatch<React.SetStateAction<boolean>>;
-    moveToBack: boolean;
     array: Gallery[];
     setArray: React.Dispatch<React.SetStateAction<Gallery[]>>;
     showViewBtn: boolean
@@ -46,30 +43,14 @@ export interface ICarouselProps {
     activeSlideIndex: number;
     showView:(id: number) => void;
     handleChangeRotation: (index: number) => string;
-    rotationDegree: undefined | number;
     setAnimation: React.Dispatch<React.SetStateAction<string>>;
     animation: string;
 }
 
-export interface ICarouselImageProps {
+export interface ICarouselImageProps extends Omit<ICarouselProps, "gallery" | "formattedArray" | "setFormattedArray" | "setFadeOut" | "fadeOut" | "setArray" | "array" > {
     index: number;
     galleryId: number;
     src: string;
-    setRotate: React.Dispatch<React.SetStateAction<boolean>>;
-    rotate: boolean;
-    setSwipe: React.Dispatch<React.SetStateAction<boolean>>;
-    swipe: boolean;
-    selectedGalleryName: string;
-    setMoveToBack: React.Dispatch<React.SetStateAction<boolean>>;
-    moveToBack: boolean;
-    showViewBtn: boolean
-    setShowViewBtn: React.Dispatch<React.SetStateAction<boolean>>;
-    activeSlideIndex: number;
-    showView:(id: number) => void;
-    handleChangeRotation: (index: number) => string;
-    rotationDegree: undefined | number;
-    setAnimation: React.Dispatch<React.SetStateAction<string>>;
-    animation: string;
 }
 
 export interface ICarouselTitleProps {
