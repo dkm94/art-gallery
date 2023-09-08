@@ -61,14 +61,16 @@ export interface IProgressBarProps {
     slideLength: number;
     activePageTransition: string;
     activeSlideIndex: number;
+    animation: string;
 }
 
 export interface ICardToGridProps {
     display: DisplayMode;
     setDisplay: React.Dispatch<React.SetStateAction<DisplayMode>>;
+    animation: string;
 }
 
-export interface ICardToGridBtnProps extends ICardToGridProps {
+export interface ICardToGridBtnProps extends Omit<ICardToGridProps, "animation"> {
     mode: DisplayMode;
     title: DisplayTitle;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;

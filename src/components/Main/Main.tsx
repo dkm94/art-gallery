@@ -100,6 +100,12 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
 
     const showView = (id:number) => {
       console.log("🚀 ~ file: Main.tsx:81 ~ showView ~ id:", id)
+      // pendant l'animation fixcards, masquer la progressbar à gauche et les boutons à droit, les deux boutons prev et next
+      // masquer les 5 
+      // animation du titre
+      // selectionner la première image
+      // animation zoom
+
     }
     
     const changeTitle = (direction: string): void => {
@@ -123,7 +129,12 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
   return (
     <div className='content'>
         <section className='left-col'>
-          <ProgressBar slideLength={slideLength} activePageTransition={activePageTransition} activeSlideIndex={activeSlideIndex} />
+          <ProgressBar 
+          slideLength={slideLength} 
+          activePageTransition={activePageTransition} 
+          activeSlideIndex={activeSlideIndex} 
+          animation={animation}
+          />
         </section>
         <section className='center-col'>
             <CarouselTitle slideTransition={slideTransition} />
@@ -149,7 +160,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 setAnimation={setAnimation}
                 animation={animation}
               />
-              <div className="btns-wrapper">
+              <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
                 <div className="prev-wrapper" onMouseOver={() => setSlidePrev(true)} onMouseOut={() => setSlidePrev(false)} >
                   <button className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} onClick={prevOne} disabled={selectedGallery < 2}>Prev</button>
                   <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
@@ -162,7 +173,8 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
             </div>
         </section>
         <section className='right-col'>
-          <CardToGrid display={display} setDisplay={setDisplay} />
+          
+          <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />
         </section>
     </div>
   )

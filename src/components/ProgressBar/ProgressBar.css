@@ -1,3 +1,7 @@
+.progress-container {
+    position: relative;
+    top: 30%;
+}
 .active-page-container {
     position: relative;
     height: 23px;
@@ -53,4 +57,18 @@
 .page-count {
     position: absolute;
     left: 59px;
+}
+.fadeout {
+    animation-duration: 1s;
+    animation-name: opacity;
+    opacity: 0; /* final stage of animation */
+}
+
+@keyframes opacity {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+        transition: 0.5 ease-in forwards;
+    }
 }

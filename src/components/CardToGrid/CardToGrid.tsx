@@ -3,9 +3,9 @@ import "./CardToGrid.css";
 import { ICardToGridProps } from "../../../types"
 import { CardToGridBtn } from "..";
 
-const CardToGrid = ({ display, setDisplay }: ICardToGridProps) => {
+const CardToGrid = ({ display, setDisplay, animation }: ICardToGridProps) => {
   return (
-    <div className="card-to-grid">
+    <div className={`card-to-grid ${animation === "fixcards" ? "fadeout" : ""}`}>
         <div className="card-to-grid__btn">
             <CardToGridBtn 
               key={"card"}

@@ -1,7 +1,12 @@
 import { IProgressBarProps } from "../../../types";
 import "./ProgressBar.css";
 
-const ProgressBar = ({ slideLength, activePageTransition, activeSlideIndex }: IProgressBarProps) => {
+const ProgressBar = ({ 
+    slideLength, 
+    activePageTransition, 
+    activeSlideIndex, 
+    animation 
+}: IProgressBarProps) => {
     const array: number[] = [];
     
     for(let i = 1; i <= slideLength; i++){
@@ -13,8 +18,8 @@ const ProgressBar = ({ slideLength, activePageTransition, activeSlideIndex }: IP
       };
 
   return (
-    <>
-        <div className="active-page-container">
+    <div className={`progress-container ${animation === "fixcards" ? "fadeout" : "" }`}>
+        <div className={`active-page-container`}>
             <span className="active-page">
                 {array.map((item, index) => {
                     return (
@@ -34,7 +39,7 @@ const ProgressBar = ({ slideLength, activePageTransition, activeSlideIndex }: IP
         <div className="page-count-wrapper">
             <span className="page-count">{`0${slideLength}`}</span>
         </div>
-    </>
+    </div>
   )
 }
 
