@@ -1,0 +1,15 @@
+.title-opacity {
+    animation-name: title-opacity;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes title-opacity {
+    from {
+        opacity: 0.6;
+    } to {
+        color: azure;
+        opacity: 1;
+    }
+}

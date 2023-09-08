@@ -10,6 +10,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [formattedArray, setFormattedArray] = useState<any[]>([]);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
+    const [thisGallery, setThisGallery] = useState<Gallery[] | undefined>(undefined);
     const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0].title);
     const [rotate, setRotate] = useState<boolean>(false);
     const [slidePrev, setSlidePrev] = useState<boolean>(false);
@@ -99,13 +100,9 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     }
 
     const showView = (id:number) => {
-      console.log("🚀 ~ file: Main.tsx:81 ~ showView ~ id:", id)
-      // pendant l'animation fixcards, masquer la progressbar à gauche et les boutons à droit, les deux boutons prev et next
-      // masquer les 5 
-      // animation du titre
-      // selectionner la première image
-      // animation zoom
-
+      const thisGallery = gallery[id]
+      console.log("🚀 ~ file: Main.tsx:113 ~ showView ~ res:", thisGallery)
+      setThisGallery(thisGallery.gallery);
     }
     
     const changeTitle = (direction: string): void => {
@@ -126,6 +123,9 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
         }
     }
 
+    console.log(thisGallery);
+    
+
   return (
     <div className='content'>
         <section className='left-col'>
@@ -135,9 +135,12 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
           activeSlideIndex={activeSlideIndex} 
           animation={animation}
           />
+          {thisGallery && <div data-id={thisGallery[1].id} className={`first-image ${animation === "fixcards" ? "slide-first-img" : ""}`}>
+            <img src={thisGallery[1].img} alt="" />
+          </div>}
         </section>
         <section className='center-col'>
-            <CarouselTitle slideTransition={slideTransition} />
+            <CarouselTitle slideTransition={slideTransition} animation={animation} />
             <div className="carousel-wrapper">
               <Carousel 
                 gallery={gallery}
@@ -173,8 +176,10 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
             </div>
         </section>
         <section className='right-col'>
-          
           <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />
+          {thisGallery && <div data-id={thisGallery[2].id} className={`third-image ${animation === "fixcards" ? "slide-third-img" : ""}`}>
+            <img src={thisGallery[2].img} alt="" />
+          </div>}
         </section>
     </div>
   )

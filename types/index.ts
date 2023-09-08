@@ -55,6 +55,7 @@ export interface ICarouselImageProps extends Omit<ICarouselProps, "gallery" | "f
 
 export interface ICarouselTitleProps {
     slideTransition: string;
+    animation: string;
 }
 
 export interface IProgressBarProps {

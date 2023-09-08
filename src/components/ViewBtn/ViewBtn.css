@@ -28,8 +28,6 @@
 }
 
 .fixviewbtn {
-  /* transition: transform 1s !important;
-  transform: rotate(0deg) !important; */
   rotate: 0deg !important;
 }
 

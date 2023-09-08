@@ -64,7 +64,7 @@ const Carousel = ({
     }, [selectedGalleryName, setFadeOut, setSwipe, rotate, arrays, setArray])
 
     return (
-        <div className={`carousel ${fadeOut ? "fade-out" : ""}`}>
+        <div className={`carousel ${fadeOut ? "fade-out" : ""} ${animation ? "zoom-in" : ""}`}>
             {errorMessage && <div className="error-message">{errorMessage}</div>}
             {array?.map((item: any, index) => (
                 <Image 

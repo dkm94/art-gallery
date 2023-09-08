@@ -1,6 +1,7 @@
 .left-col, .right-col {
     width: 20%;
     position: relative;
+    overflow: hidden;
 }
 
 .center-col {
@@ -134,4 +135,61 @@
     transition-property: right;
     transition-duration: 1s;
     right: -35px;
+}
+.slide-to-top {
+    animation-name: slideToTop;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.first-image {
+    position: absolute;
+    /* top: 450px; */
+}
+.third-image {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+}
+
+.first-image > img, .third-image > img {
+    width: 100%;
+}
+
+.slide-first-img {
+    transform: translate(0px, 240px);
+    animation-name: slide-first-img;
+    animation-delay: 1s;
+    animation-duration: 1s;
+}
+.slide-third-img {
+    transform: translate(0px, 0px);
+    animation-name: slide-third-img;
+    animation-duration: 1s;
+    animation-delay: 1s;
+}
+
+@keyframes slideToTop {
+    from {
+        transform: translate(0px, 0px);
+    } to {
+        transform: translate(0px, -400px);
+        color: azure;
+    }
+}
+
+@keyframes slide-first-img {
+    from {
+        transform: translate(0px, 450px) ;
+    } to {
+        transform: translate(0px, 240px);
+    }
+}
+
+@keyframes slide-third-img {
+    from {
+        transform: translate(0px, 450px) ;
+    } to {
+        transform: translate(0px, 0px);
+    }
 }
