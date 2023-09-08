@@ -93,4 +93,6 @@ export interface ICardToGridBtnProps extends ICardToGridProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index" | "showView" | "galleryId" | "setShowViewBtn" | "rotationDegree" | "setAnimation" > {}
+export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index" | "showView" | "galleryId" | "setShowViewBtn" | "setAnimation" | "animation" > {
+    rotationDegree: string;
+}

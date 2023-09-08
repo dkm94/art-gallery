@@ -76,7 +76,18 @@ const Image = ({
     onMouseOver={displayBtn}
     onMouseOut={() => hideBtn(selectedImage)}
     >
-      {showViewBtn && <ViewBtn showViewBtn={showViewBtn} setShowViewBtn={setShowViewBtn} index={index} showView={showView} galleryId={galleryId} rotationDegree={rotationDegree} setAnimation={setAnimation} />}
+      {showViewBtn && 
+      <ViewBtn 
+      key={index} 
+      showViewBtn={showViewBtn} 
+      setShowViewBtn={setShowViewBtn} 
+      index={index} 
+      showView={showView} 
+      galleryId={galleryId} 
+      setAnimation={setAnimation}
+      rotationDegree={handleChangeRotation(index)}
+      animation={animation}
+      />}
     </div>
   )
 }

@@ -77,13 +77,3 @@
         opacity: 0;
     }
 }
-
-@keyframes fixcards {
-    from {
-        transform: rotate();
-    }
-    to {
-        transition: transform 1s;
-        transform: rotate(0deg)
-    }
-}

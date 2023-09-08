@@ -61,19 +61,14 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       oppositeDegree ? array = oppositeRotationDegree : array = rotationDegre;
       switch(index){
         case  5:
-          setRotationDegree(array[0]);
           return `rotate(${array[0]}deg)`;
         case  4:
-          setRotationDegree(array[1])
           return `rotate(${array[1]}deg)`
         case 3:
-          setRotationDegree(array[2])
           return `rotate(${array[2]}deg)`
         case 2:
-          setRotationDegree(array[3])
           return `rotate(${array[3]}deg)`
         default:
-          setRotationDegree(0)
           return `rotate(0deg)`
       }
     }
