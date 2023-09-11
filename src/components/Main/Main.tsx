@@ -31,7 +31,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const activePageHeight: number = 22;
 
     const rotationDegre: number[] = [-5, 5, -10, 10];
-    const oppositeRotationDegree = rotationDegre.map(element => element * -1);
+    const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
 
     useEffect(() => {
       setAnimation("")
@@ -40,18 +40,19 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
 
     const moveCardToBack = ():void => {
       if(array.length > 0){
-        const toIndex = 0;
-        const fromIndex = array.length - 1;
-        const elementToMove = array.splice(fromIndex, 1)[0];
+        const toIndex:number = 0;
+        const fromIndex:number = array.length - 1;
+        const elementToMove: Gallery = array.splice(fromIndex, 1)[0];
+        console.log("🚀 ~ file: Main.tsx:46 ~ moveCardToBack ~ elementToMove:", elementToMove)
         array.splice(toIndex, 0, elementToMove);
       }
     }
 
     const bringCardToFront = ():void => {
       if(array.length > 0){
-        const fromIndex = 0;
-        const toIndex  = array.length - 1;
-        const elementToMove = array.splice(fromIndex, 1)[0];
+        const fromIndex: number = 0;
+        const toIndex:number  = array.length - 1;
+        const elementToMove: Gallery = array.splice(fromIndex, 1)[0];
         array.splice(toIndex, 0, elementToMove);
       }
     }
