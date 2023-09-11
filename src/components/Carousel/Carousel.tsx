@@ -32,7 +32,7 @@ const Carousel = ({
     
     const [errorMessage, setErrorMessage] = useState<string>("");
 
-    if(!fashion || !wildlife){
+    if(!fashion || !wildlife || !artwork || !portraits || !nature || !wedding){
         setErrorMessage("No data available");
     }
     
@@ -64,9 +64,9 @@ const Carousel = ({
     }, [selectedGalleryName, setFadeOut, setSwipe, rotate, arrays, setArray])
 
     return (
-        <div className={`carousel ${fadeOut ? "fade-out" : ""} ${animation ? "zoom-in" : ""}`}>
+        <div className={`carousel ${fadeOut ? "fade-out" : ""} ${animation === "fixcards" ? "zoom-in" : animation === "zoom-out" ? "zoom-out" : ""}`}>
             {errorMessage && <div className="error-message">{errorMessage}</div>}
-            {array?.map((item: any, index) => (
+            {array?.map((item: Gallery, index) => (
                 <Image 
                     index={index}
                     key={item.id}

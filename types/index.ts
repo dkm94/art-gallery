@@ -83,8 +83,8 @@ export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" |
 
 export interface IPrevBtnProps {
     text: string;
-    setSlidePrev?: React.Dispatch<React.SetStateAction<boolean>>;
-    slidePrev?: boolean;
+    setSlidePrev?: React.Dispatch<React.SetStateAction<boolean>> | undefined;
+    slidePrev?: boolean | undefined;
     selectedGallery?: number;
     prevOne?: () => void;
     getBack?: () => void;

@@ -14,7 +14,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [thisGallery, setThisGallery] = useState<Gallery[] | undefined>(undefined);
     const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0].title);
     const [rotate, setRotate] = useState<boolean>(false);
-    const [slidePrev, setSlidePrev] = useState<boolean>(false);
+    const [slidePrev, setSlidePrev] = useState<boolean | undefined>(false);
     const [slideNext, setSlideNext] = useState<boolean>(false);
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
@@ -32,18 +32,12 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
 
     const rotationDegre: number[] = [-5, 5, -10, 10];
     const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
-
-    useEffect(() => {
-      setAnimation("")
-      console.log("here");
-    }, [])
-
+    
     const moveCardToBack = ():void => {
       if(array.length > 0){
         const toIndex:number = 0;
         const fromIndex:number = array.length - 1;
         const elementToMove: Gallery = array.splice(fromIndex, 1)[0];
-        console.log("🚀 ~ file: Main.tsx:46 ~ moveCardToBack ~ elementToMove:", elementToMove)
         array.splice(toIndex, 0, elementToMove);
       }
     }
@@ -58,6 +52,8 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     }
 
     const handleChangeRotation = (index: number) => {
+      // console.log("change rotation");
+      
       let array: number[] = [];
       oppositeDegree ? array = oppositeRotationDegree : array = rotationDegre;
       switch(index){
@@ -126,7 +122,13 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
 
     const getBack = () => {
       setThisGallery(undefined);
-      // handle animations when get back
+      setAnimation("zoom-out");
+      const timer = setTimeout(() => {
+        setAnimation("")
+      }, 1000);
+      return () => {
+        clearTimeout(timer)
+      }
     }
 
   return (

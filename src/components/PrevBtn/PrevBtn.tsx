@@ -17,7 +17,9 @@ const PrevBtn = ({ text, setSlidePrev, slidePrev, selectedGallery, prevOne, getB
       prevOne()
       return;
     }
-    getBack
+    if(typeof getBack !== "undefined"){
+      getBack()
+    }
   }
 
   const isDisabled = ():boolean => {

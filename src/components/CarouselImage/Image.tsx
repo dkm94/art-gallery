@@ -42,8 +42,8 @@ const Image = ({
     return () => {
       clearTimeout(timer)
     }
-  }, [])
-  
+  }, [setRotate])
+
   const displayBtn = ():void => {
     if(galleryId === coverId && animation === "") {
       setSelectedImage(galleryId)
