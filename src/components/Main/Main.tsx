@@ -52,8 +52,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     }
 
     const handleChangeRotation = (index: number) => {
-      // console.log("change rotation");
-      
       let array: number[] = [];
       oppositeDegree ? array = oppositeRotationDegree : array = rotationDegre;
       switch(index){

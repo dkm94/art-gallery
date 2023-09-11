@@ -44,6 +44,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    animation-name: btns-opacity;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .disable-btn {
@@ -193,5 +196,12 @@
         transform: translate(0px, 640px) ;
     } to {
         transform: translate(0px, 0px);
+    }
+}
+@keyframes btns-opacity {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
     }
 }
