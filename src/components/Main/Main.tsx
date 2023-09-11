@@ -14,7 +14,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [thisGallery, setThisGallery] = useState<Gallery[] | undefined>(undefined);
     const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0].title);
     const [rotate, setRotate] = useState<boolean>(false);
-    const [slidePrev, setSlidePrev] = useState<boolean | undefined>(false);
+    const [slidePrev, setSlidePrev] = useState<boolean>(false);
     const [slideNext, setSlideNext] = useState<boolean>(false);
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);

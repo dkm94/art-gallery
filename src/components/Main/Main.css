@@ -7,10 +7,6 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    /* padding-left: 50px; */
-}
-.right-col {
-    /* padding-right: 50px; */
 }
 .center-col {
     width: 60%;

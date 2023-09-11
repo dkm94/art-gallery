@@ -52,7 +52,6 @@ const Image = ({
   }  
 
   const hideBtn = (selectedId: number):void => {
-    // const previousValue = selectedImage;
     setSelectedImage(selectedId)
     setShowViewBtn(false)
   }
