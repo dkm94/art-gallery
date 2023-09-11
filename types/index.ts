@@ -5,7 +5,12 @@ export type BackgroundDetails = {
 
 export type Gallery = {
     id: number;
-    img: string;
+    img: string | null;
+}
+
+export type FormattedGallery = {
+    id: number;
+    values: Gallery[];
 }
 
 export type Section = {
@@ -47,7 +52,7 @@ export interface ICarouselProps extends Pick<IMainProps, "gallery" > {
 export interface ICarouselImageProps extends Pick<ICarouselProps, "setRotate" | "rotate" | "swipe" | "showViewBtn" | "setShowViewBtn" | "showView" | "handleChangeRotation" | "setAnimation" | "animation"  > {
     index: number;
     galleryId: number;
-    src: string;
+    src: string | null;
 }
 
 export interface ICarouselTitleProps {

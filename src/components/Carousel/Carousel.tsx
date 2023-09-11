@@ -3,7 +3,7 @@ import "./Carousel.css";
 import { useEffect, useState, useMemo } from "react";
 
 import { Image } from "..";
-import { Gallery, ICarouselProps, Section } from "../../../types";
+import { FormattedGallery, Gallery, ICarouselProps, Section } from "../../../types";
 import { artwork, fashion, portraits, wildlife, nature, wedding } from "../../constants";
 
 const Carousel = ({ 
@@ -39,7 +39,7 @@ const Carousel = ({
                 id: item.id,
                 values: item.gallery
             }})
-        const getCoversWithId = formattedGallery.map((array: any) => {
+        const getCoversWithId: Gallery[] = formattedGallery.map((array: FormattedGallery) => {
             return {
                 id: array.id,
                 img: array.values.length > 0 ? array.values[0].img : null
