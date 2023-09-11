@@ -8,8 +8,6 @@ import { artwork, fashion, portraits, wildlife, nature, wedding } from "../../co
 
 const Carousel = ({ 
     gallery,
-    formattedArray,
-    setFormattedArray,
     selectedGalleryName, 
     setRotate, 
     rotate, 
@@ -21,7 +19,6 @@ const Carousel = ({
     setArray,
     showViewBtn,
     setShowViewBtn,
-    activeSlideIndex,
     showView,
     handleChangeRotation,
     setAnimation,
@@ -42,7 +39,6 @@ const Carousel = ({
                 id: item.id,
                 values: item.gallery
             }})
-        setFormattedArray(formattedGallery);
         const getCoversWithId = formattedGallery.map((array: any) => {
             return {
                 id: array.id,
@@ -50,7 +46,7 @@ const Carousel = ({
             }
         }).reverse();
         setArray(getCoversWithId)
-    }, [gallery, setArray, setFormattedArray])
+    }, [gallery, setArray])
 
 
     useEffect(() => {
@@ -74,12 +70,9 @@ const Carousel = ({
                     src={item.img} 
                     setRotate={setRotate} 
                     rotate={rotate} 
-                    setSwipe={setSwipe} 
                     swipe={swipe} 
-                    selectedGalleryName={selectedGalleryName} 
                     showViewBtn={showViewBtn}
                     setShowViewBtn={setShowViewBtn}
-                    activeSlideIndex={activeSlideIndex}
                     showView={showView}
                     handleChangeRotation={handleChangeRotation}
                     setAnimation={setAnimation}

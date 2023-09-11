@@ -1,9 +1,18 @@
+import "./ViewBtn.css";
+
 import { useEffect } from "react";
 
 import { IViewBtnProps } from "../../../types";
-import "./ViewBtn.css";
 
-const ViewBtn = ({ showViewBtn, index, showView, galleryId, setShowViewBtn, rotationDegree, setAnimation, animation }: IViewBtnProps) => {
+const ViewBtn = ({ 
+  showViewBtn, 
+  showView, 
+  galleryId, 
+  setShowViewBtn, 
+  rotationDegree, 
+  setAnimation, 
+  animation 
+}: IViewBtnProps) => {
   
   const handleBtn = (galleryId: number) => {
     showView(galleryId);

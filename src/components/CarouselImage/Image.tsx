@@ -11,12 +11,9 @@ const Image = ({
   src, 
   setRotate, 
   rotate, 
-  setSwipe, 
   swipe, 
-  selectedGalleryName, 
   showViewBtn,
   setShowViewBtn,
-  activeSlideIndex,
   showView,
   handleChangeRotation,
   setAnimation,
@@ -77,7 +74,6 @@ const Image = ({
       key={index} 
       showViewBtn={showViewBtn} 
       setShowViewBtn={setShowViewBtn} 
-      index={index} 
       showView={showView} 
       galleryId={galleryId} 
       setAnimation={setAnimation}

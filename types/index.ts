@@ -27,8 +27,6 @@ export interface IMainProps {
 }
 
 export interface ICarouselProps extends Pick<IMainProps, "gallery" > {
-    formattedArray: any[];
-    setFormattedArray: React.Dispatch<React.SetStateAction<any[]>>;
     selectedGalleryName: string;
     setRotate: React.Dispatch<React.SetStateAction<boolean>>;
     rotate: boolean;
@@ -40,14 +38,13 @@ export interface ICarouselProps extends Pick<IMainProps, "gallery" > {
     setArray: React.Dispatch<React.SetStateAction<Gallery[]>>;
     showViewBtn: boolean
     setShowViewBtn: React.Dispatch<React.SetStateAction<boolean>>;
-    activeSlideIndex: number;
     showView:(id: number) => void;
     handleChangeRotation: (index: number) => string;
     setAnimation: React.Dispatch<React.SetStateAction<string>>;
     animation: string;
 }
 
-export interface ICarouselImageProps extends Omit<ICarouselProps, "gallery" | "formattedArray" | "setFormattedArray" | "setFadeOut" | "fadeOut" | "setArray" | "array" > {
+export interface ICarouselImageProps extends Pick<ICarouselProps, "setRotate" | "rotate" | "swipe" | "showViewBtn" | "setShowViewBtn" | "showView" | "handleChangeRotation" | "setAnimation" | "animation"  > {
     index: number;
     galleryId: number;
     src: string;
@@ -77,7 +74,7 @@ export interface ICardToGridBtnProps extends Omit<ICardToGridProps, "animation">
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index" | "showView" | "galleryId" | "setShowViewBtn" | "setAnimation" | "animation" > {
+export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "showView" | "galleryId" | "setShowViewBtn" | "setAnimation" | "animation" > {
     rotationDegree: string;
 }
 

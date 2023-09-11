@@ -9,7 +9,6 @@ import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 const Main = ({ setBackground, gallery }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
-    const [formattedArray, setFormattedArray] = useState<any[]>([]);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
     const [thisGallery, setThisGallery] = useState<Gallery[] | undefined>(undefined);
     const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0].title);
@@ -151,8 +150,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
             <div className="carousel-wrapper">
               <Carousel 
                 gallery={gallery}
-                formattedArray={formattedArray}
-                setFormattedArray={setFormattedArray}
                 selectedGalleryName={selectedGalleryName} 
                 setRotate={setRotate} 
                 rotate={rotate} 
@@ -164,7 +161,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 setArray={setArray}
                 showViewBtn={showViewBtn}
                 setShowViewBtn={setShowViewBtn}
-                activeSlideIndex={activeSlideIndex}
                 showView={showView}
                 handleChangeRotation={handleChangeRotation}
                 setAnimation={setAnimation}
