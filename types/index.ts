@@ -80,3 +80,18 @@ export interface ICardToGridBtnProps extends Omit<ICardToGridProps, "animation">
 export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "index" | "showView" | "galleryId" | "setShowViewBtn" | "setAnimation" | "animation" > {
     rotationDegree: string;
 }
+
+export interface INextBtnProps {
+    setSlidePrev: React.Dispatch<React.SetStateAction<boolean>>;
+    slidePrev: boolean;
+    selectedGallery: number;
+    prevOne: () => void;
+}
+
+export interface IPrevBtnProps {
+    setSlideNext: React.Dispatch<React.SetStateAction<boolean>>;
+    slideNext: boolean;
+    selectedGallery: number;
+    max: number;
+    nextOne: () => void;
+}

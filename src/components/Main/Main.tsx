@@ -2,6 +2,7 @@ import "./Main.css";
 
 import { useEffect, useState } from "react";
 
+import { NextBtn, PrevBtn } from "..";
 import { DisplayMode, IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 
@@ -101,7 +102,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
 
     const showView = (id:number) => {
       const thisGallery = gallery[id]
-      console.log("🚀 ~ file: Main.tsx:113 ~ showView ~ res:", thisGallery)
       setThisGallery(thisGallery.gallery);
     }
     
@@ -122,9 +122,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
             setActivePageTransition(`translateY(-${activeSlideIndex * activePageHeight}px)`);
         }
     }
-
-    console.log(thisGallery);
-    
 
   return (
     <div className='content'>
@@ -164,14 +161,8 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 animation={animation}
               />
               <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
-                <div className="prev-wrapper" onMouseOver={() => setSlidePrev(true)} onMouseOut={() => setSlidePrev(false)} >
-                  <button className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} onClick={prevOne} disabled={selectedGallery < 2}>Prev</button>
-                  <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
-                </div>
-                <div className="next-wrapper" onMouseOver={() => setSlideNext(true)} onMouseOut={() => setSlideNext(false)} >
-                  <button className={`next-btn ${slideNext ? "next-btn-animation" : ""} ${selectedGallery === max ? "disable-btn" : ""}`} onClick={nextOne} disabled={selectedGallery === max}>Next</button>
-                  <div className={`next-line ${slideNext ? "next-line-animation" : ""}`}/>
-                </div>
+                <NextBtn setSlidePrev={setSlidePrev} slidePrev={slidePrev} selectedGallery={selectedGallery} prevOne={prevOne} />
+                <PrevBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne}  />
               </div>
             </div>
         </section>
