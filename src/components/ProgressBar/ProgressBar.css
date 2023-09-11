@@ -1,10 +1,11 @@
 .progress-container {
     position: relative;
-    top: 30%;
+    top: 18%;
     left: 0px;
     animation-name: slide-in-progress;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    width: 30px;
 }
 .active-page-container {
     position: relative;
@@ -14,7 +15,6 @@
 }
 .active-page {
     position: absolute;
-    left: 62px;
     display: flex;
     flex-direction: column;
 }
@@ -42,6 +42,7 @@
     transform: rotate(90deg);
     position: absolute;
     top: 70px;
+    left: -62px;
 }
 .sr-only {
     position: absolute;
@@ -60,7 +61,6 @@
 }
 .page-count {
     position: absolute;
-    left: 59px;
 }
 .fadeout {
     animation-duration: 1s;
