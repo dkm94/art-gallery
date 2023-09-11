@@ -8,6 +8,7 @@ const ViewBtn = ({ showViewBtn, index, showView, galleryId, setShowViewBtn, rota
   const handleBtn = (galleryId: number) => {
     showView(galleryId);
     setAnimation("fixcards")
+    setShowViewBtn(false)
   }
 
   useEffect(() => {

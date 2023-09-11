@@ -45,7 +45,7 @@ const Image = ({
   }, [])
   
   const displayBtn = ():void => {
-    if(galleryId === coverId) {
+    if(galleryId === coverId && animation === "") {
       setSelectedImage(galleryId)
       setShowViewBtn(true)
     }
