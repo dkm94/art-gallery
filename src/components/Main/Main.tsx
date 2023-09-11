@@ -96,7 +96,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     }
 
     const showView = (id:number) => {
-      const thisGallery = gallery[id]
+      const thisGallery = gallery[id -1]
       setThisGallery(thisGallery.gallery);
     }
     
@@ -128,6 +128,9 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
         clearTimeout(timer)
       }
     }
+
+    console.log(thisGallery);
+    
 
   return (
     <div className='content'>

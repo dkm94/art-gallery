@@ -7,10 +7,10 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding-left: 50px;
+    /* padding-left: 50px; */
 }
 .right-col {
-    padding-right: 50px;
+    /* padding-right: 50px; */
 }
 .center-col {
     width: 60%;
@@ -20,7 +20,7 @@
 .content {
     display: flex;
     flex-direction: row;
-    min-height: 86vh;
+    min-height: 87vh;
     max-width: 1450px;
     margin-left: auto;
     margin-right: auto;
@@ -168,6 +168,7 @@
 
 .first-image > img, .third-image > img {
     width: 100%;
+    height: 100%;
 }
 
 .slide-first-img {
@@ -183,6 +184,7 @@
     animation-delay: 1s;
     animation-fill-mode: forwards;
     transform: translate(0px, 440px);
+    height: 350px;
 }
 
 @keyframes slideToTop {

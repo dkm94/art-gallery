@@ -6,12 +6,14 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
     width: 30px;
+    padding-left: 50px;
 }
 .active-page-container {
     position: relative;
     height: 23px;
     top: 28%;
     overflow: hidden;
+    width: 30px;
 }
 .active-page {
     position: absolute;
