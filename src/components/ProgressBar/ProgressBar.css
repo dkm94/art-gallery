@@ -1,6 +1,10 @@
 .progress-container {
     position: relative;
     top: 30%;
+    left: 0px;
+    animation-name: slide-in-progress;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 .active-page-container {
     position: relative;
@@ -70,5 +74,13 @@
     } to {
         opacity: 0;
         transition: 0.5 ease-in forwards;
+    }
+}
+
+@keyframes slide-in-progress {
+    from {
+        transform: translate(-140px, 0px);
+    } to {
+        transform: translate(0px, 0px);
     }
 }

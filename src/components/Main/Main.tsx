@@ -1,6 +1,6 @@
 import "./Main.css";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { NextBtn, PrevBtn } from "..";
 import { DisplayMode, IMainProps, Gallery } from "../../../types";
@@ -32,7 +32,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
 
     const rotationDegre: number[] = [-5, 5, -10, 10];
     const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
-    
+
     const moveCardToBack = ():void => {
       if(array.length > 0){
         const toIndex:number = 0;
