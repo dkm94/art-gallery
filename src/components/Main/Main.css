@@ -144,7 +144,7 @@
 
 .first-image {
     position: absolute;
-    /* top: 450px; */
+    top: 450px;
 }
 .third-image {
     position: absolute;
@@ -157,16 +157,18 @@
 }
 
 .slide-first-img {
-    transform: translate(0px, 240px);
     animation-name: slide-first-img;
     animation-delay: 1s;
     animation-duration: 1s;
+    animation-fill-mode: forwards;
+    transform: translate(0px, 240px);
 }
 .slide-third-img {
-    transform: translate(0px, 0px);
     animation-name: slide-third-img;
     animation-duration: 1s;
     animation-delay: 1s;
+    animation-fill-mode: forwards;
+    transform: translate(0px, 440px);
 }
 
 @keyframes slideToTop {
@@ -180,15 +182,15 @@
 
 @keyframes slide-first-img {
     from {
-        transform: translate(0px, 450px) ;
+        transform: translate(0px, 440px) ;
     } to {
-        transform: translate(0px, 240px);
+        transform: translate(0px, 0px);
     }
 }
 
 @keyframes slide-third-img {
     from {
-        transform: translate(0px, 450px) ;
+        transform: translate(0px, 640px) ;
     } to {
         transform: translate(0px, 0px);
     }
