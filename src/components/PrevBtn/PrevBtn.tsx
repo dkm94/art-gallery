@@ -1,10 +1,40 @@
 import { IPrevBtnProps } from "../../../types"
 
-const PrevBtn = ({ setSlideNext, slideNext, selectedGallery, max, nextOne }: IPrevBtnProps ) => {
+const PrevBtn = ({ text, setSlidePrev, slidePrev, selectedGallery, prevOne, getBack }: IPrevBtnProps ) => {
+  const handleMouseOver: React.MouseEventHandler<HTMLDivElement> = ():void => {
+    if(typeof setSlidePrev !== "undefined"){
+      setSlidePrev(true)
+    }
+  }
+  const handleMouseOut: React.MouseEventHandler<HTMLDivElement> = ():void => {
+    if(typeof setSlidePrev !== "undefined"){
+      setSlidePrev(false)
+    }
+  }
+
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = ():void => {
+    if(typeof prevOne !== "undefined"){
+      prevOne()
+      return;
+    }
+    getBack
+  }
+
+  const isDisabled = ():boolean => {
+    if(typeof selectedGallery !== "undefined" && selectedGallery < 2){
+      return true;
+    }
+    return false;
+  }
+
   return (
-    <div className="next-wrapper" onMouseOver={() => setSlideNext(true)} onMouseOut={() => setSlideNext(false)} >
-        <button className={`next-btn ${slideNext ? "next-btn-animation" : ""} ${selectedGallery === max ? "disable-btn" : ""}`} onClick={nextOne} disabled={selectedGallery === max}>Next</button>
-        <div className={`next-line ${slideNext ? "next-line-animation" : ""}`}/>
+    <div className="prev-wrapper" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >
+        <button 
+        className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} 
+        onClick={handleClick} 
+        disabled={isDisabled()}
+        >{text}</button>
+        <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
     </div>
   )
 }

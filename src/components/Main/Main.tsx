@@ -124,6 +124,11 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
         }
     }
 
+    const getBack = () => {
+      setThisGallery(undefined);
+      // handle animations when get back
+    }
+
   return (
     <div className='content'>
         <section className='left-col'>
@@ -136,6 +141,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
           {thisGallery && <div data-id={thisGallery[1].id} className={`first-image ${animation === "fixcards" ? "slide-first-img" : ""}`}>
             <img src={thisGallery[1].img} alt="" />
           </div>}
+          {thisGallery && <PrevBtn text="Back" getBack={getBack} />}
         </section>
         <section className='center-col'>
             <CarouselTitle slideTransition={slideTransition} animation={animation} />
@@ -162,8 +168,8 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 animation={animation}
               />
               <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
-                <NextBtn setSlidePrev={setSlidePrev} slidePrev={slidePrev} selectedGallery={selectedGallery} prevOne={prevOne} />
-                <PrevBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne}  />
+                <PrevBtn text="Prev" setSlidePrev={setSlidePrev} slidePrev={slidePrev} selectedGallery={selectedGallery} prevOne={prevOne} />
+                <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
               </div>
             </div>
         </section>

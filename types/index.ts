@@ -81,14 +81,16 @@ export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" |
     rotationDegree: string;
 }
 
-export interface INextBtnProps {
-    setSlidePrev: React.Dispatch<React.SetStateAction<boolean>>;
-    slidePrev: boolean;
-    selectedGallery: number;
-    prevOne: () => void;
+export interface IPrevBtnProps {
+    text: string;
+    setSlidePrev?: React.Dispatch<React.SetStateAction<boolean>>;
+    slidePrev?: boolean;
+    selectedGallery?: number;
+    prevOne?: () => void;
+    getBack?: () => void;
 }
 
-export interface IPrevBtnProps {
+export interface INextBtnProps {
     setSlideNext: React.Dispatch<React.SetStateAction<boolean>>;
     slideNext: boolean;
     selectedGallery: number;

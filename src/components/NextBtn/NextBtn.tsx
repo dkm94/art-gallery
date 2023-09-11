@@ -1,14 +1,14 @@
 import { INextBtnProps } from "../../../types"
 
-const NextBtn = ({ setSlidePrev, slidePrev, selectedGallery, prevOne }: INextBtnProps ) => {
+const NextBtn = ({ setSlideNext, slideNext, selectedGallery, max, nextOne }: INextBtnProps ) => {
+
   return (
-    <div className="prev-wrapper" onMouseOver={() => setSlidePrev(true)} onMouseOut={() => setSlidePrev(false)} >
+    <div className="next-wrapper" onMouseOver={() => setSlideNext(true)} onMouseOut={() => setSlideNext(false)} >
         <button 
-        className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} 
-        onClick={prevOne} 
-        disabled={selectedGallery < 2}
-        >Prev</button>
-        <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
+        className={`next-btn ${slideNext ? "next-btn-animation" : ""} ${selectedGallery === max ? "disable-btn" : ""}`} 
+        onClick={nextOne} 
+        disabled={selectedGallery === max}>Next</button>
+        <div className={`next-line ${slideNext ? "next-line-animation" : ""}`}/>
     </div>
   )
 }

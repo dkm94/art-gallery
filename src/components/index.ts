@@ -8,8 +8,8 @@ import ProgressBar from "./ProgressBar/ProgressBar";
 import CardToGrid from "./CardToGrid/CardToGrid";
 import CardToGridBtn from "./CardToGridBtn/CardToGridBtn";
 import ViewBtn from "./ViewBtn/ViewBtn";
-import NextBtn from "./NextBtn/NextBtn";
 import PrevBtn from "./PrevBtn/PrevBtn";
+import NextBtn from "./NextBtn/NextBtn";
 
 export { 
     Header, 
