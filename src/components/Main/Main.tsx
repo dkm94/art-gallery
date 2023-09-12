@@ -26,7 +26,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const max:number = gallery.length;
     let activeSlideIndex: number = selectedGallery - 1;
     const slideLength:number = gallery.length;
-    const slideHeight: number = 280;
+    const slideHeight: number = 237;
     const activePageHeight: number = 22;
 
     const rotationDegre: number[] = [-5, 5, -10, 10];
