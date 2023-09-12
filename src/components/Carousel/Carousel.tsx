@@ -62,7 +62,7 @@ const Carousel = ({
     return (
         <div className={`carousel ${fadeOut ? "fade-out" : ""} ${animation === "fixcards" ? "zoom-in" : animation === "zoom-out" ? "zoom-out" : ""}`}>
             {errorMessage && <div className="error-message">{errorMessage}</div>}
-            {array?.map((item: Gallery, index) => (
+            {array && array.map((item: Gallery, index) => (
                 <Image 
                     index={index}
                     key={item.id}
