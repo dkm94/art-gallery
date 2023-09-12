@@ -27,131 +27,131 @@ export const backgrounds: BackgroundDetails[]  = [
     },
 ]
 
-export const artwork: Gallery[] = [
+export const sepia: Gallery[] = [
     {
         id: 1,
-        img: "/src/assets/artwork/pexels-adrien-olichon-3137078.jpg"
+        img: "src/assets/vitoria/pexels-vitória-santos-2842761.jpg"
     },
     {
         id: 2,
-        img: "/src/assets/artwork/pexels-anni-roenkae-2832382.jpg"
+        img: "src/assets/vitoria/pexels-vitória-santos-2863899.jpg"
     },
     {
         id: 3,
-        img: "/src/assets/artwork/pexels-anni-roenkae-2983141.jpg"
+        img: "src/assets/vitoria/pexels-vitória-santos-2922301.jpg"
     },
 ]
 
 export const fashion: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/fashion/pexels-cottonbro-studio-5582230.jpg"
+        img: "src/assets/esibatir/pexels-murat-esibatir-4355545.jpg"
     },
     {
         id: 2,
-        img: "src/assets/fashion/pexels-cottonbro-studio-5582420.jpg"
+        img: "src/assets/esibatir/pexels-murat-esibatir-4355628.jpg"
     },
     {
         id: 3,
-        img: "src/assets/fashion/pexels-cottonbro-studio-9861658.jpg"
+        img: "src/assets/esibatir/pexels-murat-esibatir-4355900.jpg"
     },
 ]
 
-export const portraits: Gallery[] = [
+export const ebony: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/portraits/pexels-breston-kenya-4244305.jpg"
+        img: "src/assets/kayode/pexels-abel-kayode-11592110.jpg"
     },
     {
         id: 2,
-        img: "src/assets/portraits/pexels-ike-louie-natividad-2709385.jpg"
+        img: "src/assets/kayode/pexels-abel-kayode-11038878.jpg"
     },
     {
         id: 3,
-        img: "src/assets/portraits/pexels-ike-louie-natividad-3310695.jpg"
+        img: "src/assets/kayode/pexels-abel-kayode-10850675.jpg"
     },
 ]
 
-export const nature: Gallery[] = [
+export const colorful: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/nature/pexels-jonatas-tinoco-4318822.jpg"
+        img: "src/assets/kenya/pexels-breston-kenya-4244305.jpg"
     },
     {
         id: 2,
-        img: "src/assets/nature/pexels-marlon-martinez-1450082.jpg"
+        img: "src/assets/kenya/pexels-breston-kenya-4256284.jpg"
     },
     {
         id: 3,
-        img: "src/assets/nature/pexels-michael-block-3225517.jpg"
+        img: "src/assets/kenya/pexels-breston-kenya-4256285.jpg"
     }
 ]
 
-export const wildlife: Gallery[] = [
+export const retro: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/wildlife/pexels-alex-andrews-2295744.jpg"
+        img: "src/assets/culha/pexels-ozan-çulha-17290634.jpg"
     },
     {
         id: 2,
-        img: "src/assets/wildlife/pexels-pixabay-53125.jpg"
+        img: "src/assets/culha/pexels-ozan-çulha-17203863.jpg"
     },
     {
         id: 3,
-        img: "src/assets/wildlife/pexels-richard-verbeek-572861.jpg"
+        img: "src/assets/culha/pexels-ozan-çulha-17273661.jpg"
     }
 ]
 
-export const wedding: Gallery[] = [
+export const fantasy: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/wedding/pexels-orione-conceição-3014764.jpg"
+        img: "src/assets/mondi/pexels-niko-mondì-14086439.jpg"
     },
     {
         id: 2,
-        img: "src/assets/wedding/pexels-orione-conceição-3014934.jpg"
+        img: "src/assets/mondi/pexels-niko-mondì-14672499.jpg"
     },
     {
         id: 3,
-        img: "src/assets/wedding/pexels-orione-conceição-3014937.jpg"
+        img: "src/assets/mondi/pexels-niko-mondì-14672501.jpg"
     }
 ]
 
 export const gallery: Section[] = [
     {
         id: 1,
-        title: "Fashion",
+        title: "Esibatir",
         background: backgrounds[0],
         gallery: fashion
     },
     {
         id: 2,
-        title: "Artworks",
+        title: "Vitória",
         background: backgrounds[1],
-        gallery: artwork
+        gallery: sepia
     },
     {
         id: 3,
-        title: "Portraits",
+        title: "Kayode",
         background: backgrounds[2],
-        gallery: portraits
+        gallery: ebony
     },
     {
         id: 4,
-        title: "Wildlife",
+        title: "Çulha",
         background: backgrounds[3],
-        gallery: wildlife
+        gallery: retro
     },
     {
         id: 5,
-        title: "Nature",
+        title: "Kenya",
         background: backgrounds[4],
-        gallery: nature
+        gallery: colorful
     },
     {
         id: 6,
-        title: "Wedding",
+        title: "MonDi",
         background: backgrounds[5],
-        gallery: wedding
+        gallery: fantasy
     }
 ]

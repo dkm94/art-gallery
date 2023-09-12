@@ -4,7 +4,7 @@ import { useEffect, useState, useMemo } from "react";
 
 import { Image } from "..";
 import { FormattedGallery, Gallery, ICarouselProps, Section } from "../../../types";
-import { artwork, fashion, portraits, wildlife, nature, wedding } from "../../constants";
+import { sepia, fashion, ebony, retro, colorful, fantasy } from "../../constants";
 
 const Carousel = ({ 
     gallery,
@@ -25,11 +25,11 @@ const Carousel = ({
     animation
 }: ICarouselProps) => {
 
-    const arrays = useMemo(() => [fashion, artwork, portraits, wildlife, nature, wedding], []);
+    const arrays = useMemo(() => [fashion, sepia, ebony, retro, colorful, fantasy], []);
     
     const [errorMessage, setErrorMessage] = useState<string>("");
 
-    if(!fashion || !wildlife || !artwork || !portraits || !nature || !wedding){
+    if(!fashion || !retro || !sepia || !ebony || !colorful || !fantasy){
         setErrorMessage("No data available");
     }
     

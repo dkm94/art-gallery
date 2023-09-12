@@ -173,15 +173,16 @@
     animation-delay: 1s;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    transform: translate(0px, 240px);
+    /* transform: translate(0px, 240px); */
+    transform: translate(0px, 640px);
 }
 .slide-third-img {
     animation-name: slide-third-img;
     animation-duration: 1s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
-    transform: translate(0px, 440px);
-    height: 350px;
+    transform: translate(0px, 640px);
+    /* maxheight: 350px; */
 }
 
 @keyframes slideToTop {
@@ -195,17 +196,17 @@
 
 @keyframes slide-first-img {
     from {
-        transform: translate(0px, 440px) ;
+        transform: translate(0px, 640px);
     } to {
-        transform: translate(0px, 0px);
+        transform: translate(0px, -150px);
     }
 }
 
 @keyframes slide-third-img {
     from {
-        transform: translate(0px, 640px) ;
+        transform: translate(0px, 640px);
     } to {
-        transform: translate(0px, 0px);
+        transform: translate(0px, -150px);
     }
 }
 @keyframes btns-opacity {
