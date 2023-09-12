@@ -10,6 +10,7 @@ import CardToGridBtn from "./CardToGridBtn/CardToGridBtn";
 import ViewBtn from "./ViewBtn/ViewBtn";
 import PrevBtn from "./PrevBtn/PrevBtn";
 import NextBtn from "./NextBtn/NextBtn";
+import Cursor from "./Cursor/Cursor";
 
 export { 
     Header, 
@@ -23,5 +24,6 @@ export {
     CardToGridBtn, 
     ViewBtn,
     NextBtn,
-    PrevBtn
+    PrevBtn,
+    Cursor
 }

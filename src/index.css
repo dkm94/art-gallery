@@ -5,10 +5,13 @@
 
 *{
   box-sizing: border-box;
+  cursor: none !important;
 }
 
 body {
   margin: 0;
+  overflow: hidden;
+
 }
 
 .app {
