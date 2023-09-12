@@ -2,28 +2,28 @@ import { Section, BackgroundDetails, Gallery } from "./../../types"
 
 export const backgrounds: BackgroundDetails[]  = [
     {
-        color: "#000000",
-        data: "https://www.transparenttextures.com/patterns/noisy.png"
+        color: "#9b685b",
+        data: "https://www.transparenttextures.com/patterns/broken-noise.png"
     },
     {
-        color: "#BB9C71",
-        data: "https://www.transparenttextures.com/patterns/noisy.png"
+        color: "#ad7d70",
+        data: "https://www.transparenttextures.com/patterns/broken-noise.png"
     },
     {
-        color: "#a77364",
-        data: "https://www.transparenttextures.com/patterns/noisy.png"
+        color: "#b58c82",
+        data: "https://www.transparenttextures.com/patterns/broken-noise.png"
     },
     {
-        color: "#8b0000",
-        data: "https://www.transparenttextures.com/patterns/noisy.png"
+        color: "#c19d93",
+        data: "https://www.transparenttextures.com/patterns/broken-noise.png"
     },
     {
-        color: "#81a4c6",
-        data: "https://www.transparenttextures.com/patterns/noisy.png"
+        color: "#ceafa7",
+        data: "https://www.transparenttextures.com/patterns/broken-noise.png"
     },
     {
-        color: "#4e9680",
-        data: "https://www.transparenttextures.com/patterns/noisy.png"
+        color: "#d8c2bc",
+        data: "https://www.transparenttextures.com/patterns/broken-noise.png"
     },
 ]
 
