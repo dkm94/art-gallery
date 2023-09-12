@@ -128,9 +128,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
       }
     }
 
-    console.log(thisGallery);
-    
-
   return (
     <div className='content'>
         <section className='left-col'>
@@ -141,7 +138,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
           animation={animation}
           />
           {thisGallery && <div data-id={thisGallery[1].id} className={`first-image ${animation === "fixcards" ? "slide-first-img" : ""}`}>
-            <img src={thisGallery[1].img} alt="" />
+            <img src={thisGallery[1].img || ""} alt="" />
           </div>}
           {thisGallery && <PrevBtn text="Back" getBack={getBack} />}
         </section>
@@ -175,7 +172,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
         <section className='right-col'>
           <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />
           {thisGallery && <div data-id={thisGallery[2].id} className={`third-image ${animation === "fixcards" ? "slide-third-img" : ""}`}>
-            <img src={thisGallery[2].img} alt="" />
+            <img src={thisGallery[2].img || ""} alt="" />
           </div>}
         </section>
     </div>
