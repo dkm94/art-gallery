@@ -1,0 +1,42 @@
+
+.view-btn-container {
+  position: absolute;
+  bottom: 40%;
+  left: 40%;
+  border-radius: 50%;
+  color: black;
+  mix-blend-mode: screen;
+  border: 1px solid #FFFFFF;
+  rotate: 0deg !important;
+  animation-duration: 1s;
+  animation-name: slideIn;
+  animation-fill-mode: forwards;
+}
+.view-btn {
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  margin: 4px;
+}
+
+.fixviewbtn {
+  rotate: 0deg !important;
+}
+
+@keyframes slideIn {
+    from {
+        bottom: 35%;
+        left: 40%;
+        rotate: 0deg !important;
+      }
+      to {
+        rotate: 0deg !important;
+        left: 40%;
+        bottom: 40%;
+      }
+}

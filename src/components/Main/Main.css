@@ -1,0 +1,226 @@
+.left-col, .right-col {
+    width: 20%;
+    position: relative;
+    overflow: hidden;
+}
+.left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.center-col {
+    width: 60%;
+    position: relative;
+    overflow: hidden;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    min-height: 87vh;
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 230px;
+    transform: translate(0px, 0px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation-name: slide-in-title;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.page-title > span {
+    text-align: center;
+    font-weight: normal;
+    font-size: 11rem;
+    margin: 0;
+    opacity: 0.6;
+}
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+.btns-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    animation-name: btns-opacity;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.disable-btn {
+    opacity: 0.5;
+}
+
+.prev-wrapper {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0px;
+    left: 65px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.next-wrapper {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0px;
+    right: 65px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Previous button */
+.prev-btn {
+    border: none;
+    background: none;
+    color: #f2ede6;
+    font-family: 'Prata', serif;
+    text-transform: uppercase;
+    position: absolute;
+    left: 0px;
+}
+/* Next button */
+.next-btn {
+    border: none;
+    background: none;
+    color: #f2ede6;
+    font-family: 'Prata', serif;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0px;
+}
+
+/* Previous line */
+.prev-line::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background-color: #f2ede6;
+    position: absolute;
+    left: 55px;
+}
+/* Next line */
+.next-line::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background-color: #f2ede6;
+    position: absolute;
+    right: 55px;
+}
+
+/* Previous button animation */
+.prev-btn-animation {
+    transition-property: left;
+    transition-duration: 1s;
+    left: 10px;
+}
+/* Previous line animation */
+.prev-line-animation::before {
+    transition-property: left;
+    transition-duration: 1s;
+    left: -35px;
+}
+
+/* Next button animation */
+.next-btn-animation {
+    transition-property: right;
+    transition-duration: 1s;
+    right: 10px;
+}
+/* Next line animation */
+.next-line-animation::before {
+    transition-property: right;
+    transition-duration: 1s;
+    right: -35px;
+}
+.slide-to-top {
+    animation-name: slideToTop;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.first-image {
+    position: absolute;
+    top: 450px;
+}
+.third-image {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+}
+
+.first-image > img, .third-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-first-img {
+    animation-name: slide-first-img;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    transform: translate(0px, 240px);
+}
+.slide-third-img {
+    animation-name: slide-third-img;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    transform: translate(0px, 440px);
+    height: 350px;
+}
+
+@keyframes slideToTop {
+    from {
+        transform: translate(0px, 0px);
+    } to {
+        transform: translate(0px, -430px);
+        color: azure;
+    }
+}
+
+@keyframes slide-first-img {
+    from {
+        transform: translate(0px, 440px) ;
+    } to {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes slide-third-img {
+    from {
+        transform: translate(0px, 640px) ;
+    } to {
+        transform: translate(0px, 0px);
+    }
+}
+@keyframes btns-opacity {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+@keyframes slide-in-title {
+    from {
+        transform: translate(0px, 200px);
+        bottom: -100px;
+    } to {
+        transform: translate(0px, 0px);
+        bottom: -80px;
+    }
+}

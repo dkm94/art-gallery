@@ -1,0 +1,56 @@
+.img {
+    position: absolute;
+    height: 90%;
+    width: 340px;
+}
+
+.rotate-2:nth-of-type(4) {
+    animation: 1s ease-in rotateAll forwards;
+
+}
+
+.rotate-2:nth-of-type(5) {
+    animation: 1s ease-in rotateAll forwards;
+}
+
+.rotate-2:nth-of-type(6) {
+    animation: 1s ease-in rotateAll forwards;
+} */
+
+/* Au clic de la dernière image, ajouter une classe d'animation */
+.swipe-right:last-of-type {
+    animation: 0.5s ease-in-out rotateX forwards;
+}
+
+.fixcards {
+    transform: rotate(0deg) !important;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes rotate1 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transition: transform 1s;
+    }
+}
+
+@keyframes rotateX {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transition: transform 0.5s;
+        margin-left: 400px;
+        opacity: 0;
+    }
+}

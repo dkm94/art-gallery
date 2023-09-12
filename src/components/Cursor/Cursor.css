@@ -1,0 +1,28 @@
+.cursor {
+    position: fixed; 
+	z-index: 1000; 
+	pointer-events: none;
+}
+
+.cursor:before { 
+	content:''; 
+	opacity: 0; 
+	position: absolute; 
+	top: 0; 
+	left: 0;
+	width: 40px; 
+	height: 40px; 
+	border: 1px solid #FFF; 
+    background: rgba(255, 255, 255, 0.25);
+	border-radius: 50%; 
+	transform: translate(-50%,-50%);  
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease;
+	
+}
+
+.cursor.hover:after { opacity: 0; }
+.cursor.hover:before { opacity: 1; }
