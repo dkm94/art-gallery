@@ -36,7 +36,7 @@ const ViewBtn = ({
   
   return (
       <div 
-        className={`view-btn-container ${showViewBtn ? "slide-in" : ""}`}
+        className={`view-btn-container`}
         onClick={() => handleBtn(galleryId)}
         style={{ transform: rotateBtn(), transition: "transform 1s ease-in" }}
       >
