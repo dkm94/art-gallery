@@ -1,5 +1,5 @@
 .progress-container {
-    position: relative;
+    /* position: relative; */
     top: 18%;
     left: 0px;
     animation-name: slide-in-progress;
@@ -11,7 +11,7 @@
 .active-page-container {
     position: relative;
     height: 23px;
-    top: 28%;
+    top: 0;
     overflow: hidden;
     width: 30px;
 }
@@ -24,7 +24,7 @@
 .progress-bar-container {
     position: relative;
     height: 150px;
-    top: 28%;
+    top: 0;
 }
 .progress-bar {
     width: 100%;
@@ -59,7 +59,7 @@
 .page-count-wrapper {
     position: relative;
     height: 25px;
-    top: 28%;
+    top: 0;
 }
 .page-count {
     position: absolute;

@@ -143,8 +143,10 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
           {thisGallery && <PrevBtn text="Back" getBack={getBack} />}
         </section>
         <section className='center-col'>
-            <CarouselTitle slideTransition={slideTransition} animation={animation} />
             <div className="carousel-wrapper">
+              <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
+                <PrevBtn text="Prev" setSlidePrev={setSlidePrev} slidePrev={slidePrev} selectedGallery={selectedGallery} prevOne={prevOne} />
+              </div>
               <Carousel 
                 gallery={gallery}
                 selectedGalleryName={selectedGalleryName} 
@@ -164,10 +166,10 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 animation={animation}
               />
               <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
-                <PrevBtn text="Prev" setSlidePrev={setSlidePrev} slidePrev={slidePrev} selectedGallery={selectedGallery} prevOne={prevOne} />
                 <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
               </div>
             </div>
+            <CarouselTitle slideTransition={slideTransition} animation={animation} />
         </section>
         <section className='right-col'>
           <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />

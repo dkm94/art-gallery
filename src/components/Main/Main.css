@@ -7,25 +7,29 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    justify-content: center;
 }
 .center-col {
     width: 60%;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
 }
 .content {
     display: flex;
     flex-direction: row;
-    min-height: 87vh;
+    min-height: 90vh;
     max-width: 1450px;
     margin-left: auto;
     margin-right: auto;
 }
 .page-title {
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     width: 100%;
-    height: 230px;
+    height: 20%;
     transform: translate(0px, 0px);
     display: flex;
     flex-direction: column;
@@ -33,27 +37,36 @@
     animation-name: slide-in-title;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    background-color: green;
 }
 .page-title > span {
     text-align: center;
     font-weight: normal;
-    font-size: 11rem;
+    font-size: 15vw;
     margin: 0;
     opacity: 0.6;
 }
 .carousel-wrapper {
-    position: relative;
+    /* position: relative; */
+    display: flex;
+    flex-direction: row;
     width: 100%;
+    background: red;
+    height: 80%;
 }
 .btns-wrapper {
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    transform: translate(-50%, -50%); */
+    width: 10%;
     animation-name: btns-opacity;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 }
 
 .disable-btn {
@@ -61,20 +74,20 @@
 }
 
 .prev-wrapper {
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     position: absolute;
-    top: 0px;
+    /* top: 0px; */
     left: 65px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 .next-wrapper {
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     position: absolute;
-    top: 0px;
+    /* top: 0px; */
     right: 65px;
     display: flex;
     justify-content: flex-end;
