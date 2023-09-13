@@ -8,7 +8,7 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <Burger />
-        <div className="artist">Adam Sorensen</div>
+        <div className="artist">Art Gallery</div>
         <a href="https://dribbble.com/shots/10722222-Adam-Sorensen-Portfolio" target="blank" className="ext-link">
           <img src={icon} alt="external link" height={20}/>
         </a>
