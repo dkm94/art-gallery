@@ -30,90 +30,90 @@ export const backgrounds: BackgroundDetails[]  = [
 export const sepia: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/vitoria/pexels-vitória-santos-2842761.jpg"
+        img: "./src/assets/vitoria/pexels-vitória-santos-2842761.jpg"
     },
     {
         id: 2,
-        img: "src/assets/vitoria/pexels-vitória-santos-2863899.jpg"
+        img: "./src/assets/vitoria/pexels-vitória-santos-2863899.jpg"
     },
     {
         id: 3,
-        img: "src/assets/vitoria/pexels-vitória-santos-2922301.jpg"
+        img: "./src/assets/vitoria/pexels-vitória-santos-2922301.jpg"
     },
 ]
 
 export const fashion: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/esibatir/pexels-murat-esibatir-4355545.jpg"
+        img: "./src/assets/esibatir/pexels-murat-esibatir-4355545.jpg"
     },
     {
         id: 2,
-        img: "src/assets/esibatir/pexels-murat-esibatir-4355628.jpg"
+        img: "./src/assets/esibatir/pexels-murat-esibatir-4355628.jpg"
     },
     {
         id: 3,
-        img: "src/assets/esibatir/pexels-murat-esibatir-4355900.jpg"
+        img: "./src/assets/esibatir/pexels-murat-esibatir-4355900.jpg"
     },
 ]
 
 export const ebony: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/kayode/pexels-abel-kayode-11592110.jpg"
+        img: "./src/assets/kayode/pexels-abel-kayode-11592110.jpg"
     },
     {
         id: 2,
-        img: "src/assets/kayode/pexels-abel-kayode-11038878.jpg"
+        img: "./src/assets/kayode/pexels-abel-kayode-11038878.jpg"
     },
     {
         id: 3,
-        img: "src/assets/kayode/pexels-abel-kayode-10850675.jpg"
+        img: "./src/assets/kayode/pexels-abel-kayode-10850675.jpg"
     },
 ]
 
 export const colorful: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/kenya/pexels-breston-kenya-4244305.jpg"
+        img: "./src/assets/kenya/pexels-breston-kenya-4244305.jpg"
     },
     {
         id: 2,
-        img: "src/assets/kenya/pexels-breston-kenya-4256284.jpg"
+        img: "./src/assets/kenya/pexels-breston-kenya-4256284.jpg"
     },
     {
         id: 3,
-        img: "src/assets/kenya/pexels-breston-kenya-4256285.jpg"
+        img: "./src/assets/kenya/pexels-breston-kenya-4256285.jpg"
     }
 ]
 
 export const retro: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/culha/pexels-ozan-çulha-17290634.jpg"
+        img: "./src/assets/culha/pexels-ozan-çulha-17290634.jpg"
     },
     {
         id: 2,
-        img: "src/assets/culha/pexels-ozan-çulha-17203863.jpg"
+        img: "./src/assets/culha/pexels-ozan-çulha-17203863.jpg"
     },
     {
         id: 3,
-        img: "src/assets/culha/pexels-ozan-çulha-17273661.jpg"
+        img: "./src/assets/culha/pexels-ozan-çulha-17273661.jpg"
     }
 ]
 
 export const fantasy: Gallery[] = [
     {
         id: 1,
-        img: "src/assets/mondi/pexels-niko-mondì-14086439.jpg"
+        img: "./src/assets/mondi/pexels-niko-mondì-14086439.jpg"
     },
     {
         id: 2,
-        img: "src/assets/mondi/pexels-niko-mondì-14672499.jpg"
+        img: "./src/assets/mondi/pexels-niko-mondì-14672499.jpg"
     },
     {
         id: 3,
-        img: "src/assets/mondi/pexels-niko-mondì-14672501.jpg"
+        img: "./src/assets/mondi/pexels-niko-mondì-14672501.jpg"
     }
 ]
 
