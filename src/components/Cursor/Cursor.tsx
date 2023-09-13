@@ -18,7 +18,7 @@ const Cursor = () => {
         document.removeEventListener("mousemove", onMouseMove);
     };
  
-    const onMouseMove = (e): void  => {
+    const onMouseMove = (e: { pageX: number; pageY: number; }): void  => {
         setPosition({x: e.pageX, y: e.pageY});         
     };  
 
