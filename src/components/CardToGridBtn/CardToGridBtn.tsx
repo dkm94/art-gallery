@@ -6,7 +6,7 @@ import useCurrentBackground from "../../hooks/useCurrentBackground";
 
 const CardToGridBtn = ({ display, setDisplay, mode, title }: ICardToGridBtnProps) => {
 
-    const { background } = useCurrentBackground((currentBackgroundCtx: { background: number }) => currentBackgroundCtx.background);
+    const { background } = useCurrentBackground();
 
     const selectButton = (mode: DisplayMode) => {
         setDisplay(mode);
