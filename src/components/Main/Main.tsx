@@ -26,7 +26,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const max:number = gallery.length;
     let activeSlideIndex: number = selectedGallery - 1;
     const slideLength:number = gallery.length;
-    const slideHeight: number = 237;
+    const slideHeight: number | undefined = document?.getElementById('title')?.offsetHeight;
     const activePageHeight: number = 22;
 
     const rotationDegre: number[] = [-5, 5, -10, 10];
@@ -105,15 +105,15 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
             if(activeSlideIndex === slideLength){
                 activeSlideIndex = 0;
             }
-            setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
-            setActivePageTransition(`translateY(-${activeSlideIndex * activePageHeight}px)`);
+            slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
+            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
         } else if(direction === "prev"){
             activeSlideIndex--;
             if(activeSlideIndex < 0){
                 activeSlideIndex = slideLength - 1;
             }
-            setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
-            setActivePageTransition(`translateY(-${activeSlideIndex * activePageHeight}px)`);
+            slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
+            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
         }
     }
 
