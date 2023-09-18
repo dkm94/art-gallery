@@ -27,7 +27,9 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     let activeSlideIndex: number = selectedGallery - 1;
     const slideLength:number = gallery.length;
     const slideHeight: number | undefined = document?.getElementById('title')?.offsetHeight;
-    const activePageHeight: number = 22;
+    // const activePageHeight: number = 22;
+    const titleHeight: number = document.getElementsByClassName("title")[0]?.offsetHeight;
+    console.log("🚀 ~ file: Main.tsx:32 ~ Main ~ titleHeight:", titleHeight)
 
     const rotationDegre: number[] = [-5, 5, -10, 10];
     const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
@@ -169,7 +171,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
               </div>
             </div>
-            <CarouselTitle slideTransition={slideTransition} animation={animation} />
+            <CarouselTitle slideTransition={slideTransition} animation={animation} height={titleHeight} />
         </section>
         <section className='right-col'>
           <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />
