@@ -178,7 +178,6 @@ const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideH
                 <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
               </div>
             </div>
-            {/* <CarouselTitle slideTransition={slideTransition} animation={animation} height={titleHeight} /> */}
         </section>
         <section className='right-col'>
           <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />

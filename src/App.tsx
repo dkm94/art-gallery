@@ -11,8 +11,7 @@ function App() {
   const [background, setBackground] = useState<number>(0);
   const [slideTransition, setSlideTransition] = useState<string>("");
   const [animation, setAnimation] = useState<string>("");
-
-  const slideHeight: number = document?.getElementsByClassName("title")[0]?.offsetHeight;
+  const [titleHeight, setTitleHeight] = useState<number>(0);
   
   // modifier le contexte et passer toute la gallery
   return (
@@ -29,12 +28,12 @@ function App() {
           setSlideTransition={setSlideTransition} 
           setAnimation={setAnimation} 
           animation={animation}
-          slideHeight={slideHeight}
+          slideHeight={titleHeight}
         />
         <CarouselTitle 
           slideTransition={slideTransition} 
           animation={animation} 
-          height={slideHeight} 
+          height={titleHeight} 
         />
       </div>
     </BackgroundCtx.Provider>

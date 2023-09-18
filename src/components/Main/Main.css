@@ -27,10 +27,11 @@
 }
 .title-container {
     /* height: 20%; */
+    position: relative;
 }
 #page-title {
     position: absolute;
-    top: 82%;
+    bottom: 0px;
     /* top: 100%; */
     width: 100%;
     transform: translate(0px, 0px);
@@ -42,10 +43,11 @@
     /* animation-fill-mode: forwards; */
     background-color: green;
 }
-#page-title > span {
+#page-title > div {
     text-align: center;
     font-weight: normal;
-    font-size: 13vw;
+    /* font-size: 13vw; */
+    font-size: 11vw;
     margin: 0;
     opacity: 0.6;
 }
@@ -251,7 +253,7 @@
 }
 
 @media only screen and (max-width: 576px) {
-    #page-title > span {
+    #page-title > div {
         color: red;
     }
 }
