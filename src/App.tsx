@@ -12,7 +12,7 @@ function App() {
   const [slideTransition, setSlideTransition] = useState<string>("");
   const [animation, setAnimation] = useState<string>("");
 
-  const slideHeight: number = document.getElementsByClassName("title")[0]?.offsetHeight;
+  const slideHeight: number = document?.getElementsByClassName("title")[0]?.offsetHeight;
   
   // modifier le contexte et passer toute la gallery
   return (

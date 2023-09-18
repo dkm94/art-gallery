@@ -26,11 +26,12 @@
     margin-right: auto;
 }
 .title-container {
-    height: 20%;
+    /* height: 20%; */
 }
 #page-title {
     position: absolute;
-    top: 80%;
+    top: 82%;
+    /* top: 100%; */
     width: 100%;
     transform: translate(0px, 0px);
     display: flex;
@@ -39,7 +40,7 @@
     animation-name: slide-in-title 1s 1s forwards;
     animation-duration: 1s;
     /* animation-fill-mode: forwards; */
-    /* background-color: green; */
+    background-color: green;
 }
 #page-title > span {
     text-align: center;
@@ -207,7 +208,7 @@
         /* top: 80%; */
         /* position: absolute; */
         transform: translate(0px, 0px);
-        color: blue;
+        color: #000;
 
     } to {
         /* top: 0%; */
@@ -246,5 +247,11 @@
     } to {
         transform: translate(0px, 0px);
         bottom: -80px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #page-title > span {
+        color: red;
     }
 }
