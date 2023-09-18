@@ -64,7 +64,8 @@ const Image = ({
       transition: "transform 1s ease-in-out",
       backgroundImage: `url(${src})`, 
       backgroundSize: "cover", 
-      display: index === 0 || index === 1 ? "none" : "block"
+      display: index === 0 || index === 1 ? "none" : "block",
+      backgroundPosition: "center"
     }}
     onMouseOver={displayBtn}
     onMouseOut={() => hideBtn(selectedImage)}

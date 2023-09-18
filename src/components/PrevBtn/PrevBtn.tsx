@@ -31,7 +31,7 @@ const PrevBtn = ({ text, setSlidePrev, slidePrev, selectedGallery, prevOne, getB
 
   return (
     <div className="prev-wrapper" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >
-        <button 
+        <button
         className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} 
         onClick={handleClick} 
         disabled={isDisabled()}

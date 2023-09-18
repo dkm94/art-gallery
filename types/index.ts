@@ -58,6 +58,7 @@ export interface ICarouselImageProps extends Pick<ICarouselProps, "setRotate" | 
 export interface ICarouselTitleProps {
     slideTransition: string;
     animation: string;
+    height: number;
 }
 
 export interface IProgressBarProps {
