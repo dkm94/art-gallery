@@ -39,7 +39,7 @@
     animation-name: slide-in-title 1s 1s forwards;
     animation-duration: 1s;
     /* animation-fill-mode: forwards; */
-    background-color: green;
+    /* background-color: green; */
 }
 #page-title > span {
     text-align: center;

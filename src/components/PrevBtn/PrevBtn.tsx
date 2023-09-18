@@ -1,6 +1,6 @@
 import { IPrevBtnProps } from "../../../types"
 
-const PrevBtn = ({ text, setSlidePrev, slidePrev, selectedGallery, prevOne, getBack }: IPrevBtnProps ) => {
+const PrevBtn = ({ mode, text, setSlidePrev, slidePrev, selectedGallery, prevOne, getBack }: IPrevBtnProps ) => {
   const handleMouseOver: React.MouseEventHandler<HTMLDivElement> = ():void => {
     if(typeof setSlidePrev !== "undefined"){
       setSlidePrev(true)
@@ -30,7 +30,7 @@ const PrevBtn = ({ text, setSlidePrev, slidePrev, selectedGallery, prevOne, getB
   }
 
   return (
-    <div className="prev-wrapper" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >
+    <div className="prev-wrapper" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={{ top: mode === "selected" ? "0" : ""} } >
         <button
         className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} 
         onClick={handleClick} 

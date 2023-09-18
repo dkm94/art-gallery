@@ -23,6 +23,8 @@ export type Section = {
 export type DisplayMode = "card" | "grid"
 export type DisplayTitle = "Card" | "Grid"
 
+export type Mode = "selected" | "not-selected"
+
 export interface ICurrentBackgroundCtx {
     background: number;
 }
@@ -90,6 +92,7 @@ export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" |
 
 export interface IPrevBtnProps {
     text: string;
+    mode: Mode;
     setSlidePrev?: React.Dispatch<React.SetStateAction<boolean>>;
     slidePrev?: boolean | undefined;
     selectedGallery?: number;

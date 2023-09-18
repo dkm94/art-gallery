@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { NextBtn, PrevBtn } from "..";
 import { DisplayMode, IMainProps, Gallery } from "../../../types";
-import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
+import { CardToGrid, Carousel, ProgressBar } from "..";
 
 const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideHeight, animation }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
@@ -141,12 +141,20 @@ const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideH
           {thisGallery && <div data-id={thisGallery[1].id} className={`first-image ${animation === "fixcards" ? "slide-first-img" : ""}`}>
             <img src={thisGallery[1].img || ""} alt="" />
           </div>}
-          {thisGallery && <PrevBtn text="Back" getBack={getBack} />}
+          {thisGallery && <PrevBtn key={"selected"} mode={"selected"} text="Back" getBack={getBack} />}
         </section>
         <section className='center-col'>
             <div className="carousel-wrapper">
               <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
-                <PrevBtn text="Prev" setSlidePrev={setSlidePrev} slidePrev={slidePrev} selectedGallery={selectedGallery} prevOne={prevOne} />
+                <PrevBtn 
+                  key={"not-selected"} 
+                  mode={"not-selected"} 
+                  text="Prev" 
+                  setSlidePrev={setSlidePrev} 
+                  slidePrev={slidePrev} 
+                  selectedGallery={selectedGallery} 
+                  prevOne={prevOne} 
+                />
               </div>
               <Carousel 
                 gallery={gallery}
