@@ -29,6 +29,10 @@ export interface ICurrentBackgroundCtx {
 export interface IMainProps {
     setBackground: React.Dispatch<React.SetStateAction<number>>;
     gallery: Section[];
+    setSlideTransition: React.Dispatch<React.SetStateAction<string>>;
+    setAnimation: React.Dispatch<React.SetStateAction<string>>;
+    slideHeight: number;
+    animation: string;
 }
 
 export interface ICarouselProps extends Pick<IMainProps, "gallery" > {

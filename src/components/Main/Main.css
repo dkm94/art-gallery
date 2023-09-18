@@ -190,6 +190,7 @@
     animation-fill-mode: forwards;
     /* transform: translate(0px, 240px); */
     transform: translate(0px, 640px);
+    z-index: 10;
 }
 .slide-third-img {
     animation-name: slide-third-img;
@@ -197,6 +198,7 @@
     animation-delay: 1s;
     animation-fill-mode: forwards;
     transform: translate(0px, 640px);
+    z-index: 10;
     /* maxheight: 350px; */
 }
 
@@ -210,7 +212,7 @@
     } to {
         /* top: 0%; */
         /* position: absolute; */
-        transform: translate(0px, -430px);
+        transform: translate(0px, -500px);
         color: red;
     }
 }

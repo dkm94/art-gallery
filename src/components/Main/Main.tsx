@@ -6,7 +6,7 @@ import { NextBtn, PrevBtn } from "..";
 import { DisplayMode, IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
 
-const Main = ({ setBackground, gallery }: IMainProps) => {
+const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideHeight, animation }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
@@ -18,18 +18,17 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
     const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
-    const [slideTransition, setSlideTransition] = useState<string>("");
+    // const [slideTransition, setSlideTransition] = useState<string>("");
     const [activePageTransition, setActivePageTransition] = useState<string>("");
     const [display, setDisplay] = useState<DisplayMode>("card");
-    const [animation, setAnimation] = useState<string>("");
+    // const [animation, setAnimation] = useState<string>("");
 
     const max:number = gallery.length;
     let activeSlideIndex: number = selectedGallery - 1;
     const slideLength:number = gallery.length;
-    const slideHeight: number | undefined = document?.getElementById('title')?.offsetHeight;
+    // const slideHeight: number | undefined = document?.getElementById('title')?.offsetHeight;
     // const activePageHeight: number = 22;
-    const titleHeight: number = document.getElementsByClassName("title")[0]?.offsetHeight;
-    console.log("🚀 ~ file: Main.tsx:32 ~ Main ~ titleHeight:", titleHeight)
+    // const titleHeight: number = document.getElementsByClassName("title")[0]?.offsetHeight;
 
     const rotationDegre: number[] = [-5, 5, -10, 10];
     const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
@@ -171,7 +170,7 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
               </div>
             </div>
-            <CarouselTitle slideTransition={slideTransition} animation={animation} height={titleHeight} />
+            {/* <CarouselTitle slideTransition={slideTransition} animation={animation} height={titleHeight} /> */}
         </section>
         <section className='right-col'>
           <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />
