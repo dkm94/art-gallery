@@ -1,12 +1,12 @@
 import "./Main.css";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { NextBtn, PrevBtn } from "..";
 import { DisplayMode, IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, ProgressBar } from "..";
 
-const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideHeight, animation }: IMainProps) => {
+const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideHeight, animation, setSlide }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
@@ -18,17 +18,16 @@ const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideH
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
     const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
-    // const [slideTransition, setSlideTransition] = useState<string>("");
     const [activePageTransition, setActivePageTransition] = useState<string>("");
     const [display, setDisplay] = useState<DisplayMode>("card");
-    // const [animation, setAnimation] = useState<string>("");
 
     const max:number = gallery.length;
     let activeSlideIndex: number = selectedGallery - 1;
     const slideLength:number = gallery.length;
-    // const slideHeight: number | undefined = document?.getElementById('title')?.offsetHeight;
-    // const activePageHeight: number = 22;
-    // const titleHeight: number = document.getElementsByClassName("title")[0]?.offsetHeight;
+
+    useEffect(() => {
+      setSlide(activeSlideIndex);
+    }, [activeSlideIndex, setSlide]);
 
     const rotationDegre: number[] = [-5, 5, -10, 10];
     const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
@@ -101,6 +100,8 @@ const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideH
     }
     
     const changeTitle = (direction: string): void => {
+        console.log(slideHeight);
+        
         if(direction === "next"){
             activeSlideIndex++;
             if(activeSlideIndex === slideLength){

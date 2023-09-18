@@ -35,6 +35,7 @@ export interface IMainProps {
     setAnimation: React.Dispatch<React.SetStateAction<string>>;
     slideHeight: number;
     animation: string;
+    setSlide: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface ICarouselProps extends Pick<IMainProps, "gallery" > {
@@ -65,6 +66,8 @@ export interface ICarouselTitleProps {
     slideTransition: string;
     animation: string;
     height: number;
+    setTitleHeight: React.Dispatch<React.SetStateAction<number>>;
+    slide: number;
 }
 
 export interface IProgressBarProps {
