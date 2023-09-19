@@ -6,18 +6,11 @@ import { ICarouselTitleProps } from '../../../types';
 import { gallery } from "../../constants";
 
 const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, slide }: ICarouselTitleProps) => {
-console.log("🚀 ~ file: Carousel.tsx:9 ~ CarouselTitle ~ animation:", animation)
 
   const calculateTransitionHeight = (): string => {
     // this function allows to recalculate the height of the title when the #page-title div is resized
     return `translateY(-${height * slide}px)`
   }
-
-  // const recalculateSlideToTop = (): string => {
-  //   // this function allows to recalculate the top value of the title to improve responsive design animations
-  //   // return animation === "fixcards" ? `translateY(-${height * 3.1}px)` : "translateY(0)"
-  //   return animation === "fixcards" ? `translateY(-300%)` : "translateY(0)"
-  // }
   
   useEffect(() => {
     const title = document?.getElementsByClassName("title")[0];

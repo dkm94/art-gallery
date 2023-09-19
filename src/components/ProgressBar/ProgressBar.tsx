@@ -1,12 +1,15 @@
+import { forwardRef } from "react";
 import { IProgressBarProps } from "../../../types";
 import "./ProgressBar.css";
 
-const ProgressBar = ({ 
+export type Ref = HTMLDivElement;
+
+const ProgressBar = forwardRef<Ref, IProgressBarProps>(({ 
     slideLength, 
     activePageTransition, 
     activeSlideIndex, 
-    animation 
-}: IProgressBarProps) => {
+    animation
+}, ref) => {
     const array: number[] = [];
     
     for(let i = 1; i <= slideLength; i++){
@@ -20,13 +23,13 @@ const ProgressBar = ({
   return (
     <div className={`progress-container ${animation === "fixcards" ? "fadeout" : "" }`}>
         <div className={`active-page-container`}>
-            <span className="active-page">
+            <div className="active-page">
                 {array.map((item, index) => {
                     return (
-                        <span key={index}  style={activePageTransition ? {transform: activePageTransition, transition: "transform .5s ease-in-out"} : {} }>{`0${item}`}</span>
+                        <div ref={ref} className="slide-nb" key={index}  style={activePageTransition ? {transform: activePageTransition, transition: "transform .5s ease-in-out"} : {} }>{`0${item}`}</div>
                     )
                 })}
-            </span>
+            </div>
         </div>
         <div className="progress-bar-container">
             <div className="progress-bar">
@@ -41,6 +44,6 @@ const ProgressBar = ({
         </div>
     </div>
   )
-}
+})
 
 export default ProgressBar

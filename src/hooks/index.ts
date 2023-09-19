@@ -1,3 +1,4 @@
 import CurrentBackgroundCtx from "../context/BackgroundCtx";
+import useResizeObserver from "./useResizeObserver";
 
-export { CurrentBackgroundCtx };
+export { CurrentBackgroundCtx, useResizeObserver };
