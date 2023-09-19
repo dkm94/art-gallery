@@ -207,15 +207,18 @@
 
 @keyframes slideToTop {
     from {
-        /* top: 80%; */
+        top: 80%;
         /* position: absolute; */
         transform: translate(0px, 0px);
         color: #000;
 
+
     } to {
         /* top: 0%; */
         /* position: absolute; */
-        transform: translate(0px, -500px);
+        transform: translateY(0px, -500px);
+        top: 10vh;
+        position: fixed;
         color: red;
     }
 }

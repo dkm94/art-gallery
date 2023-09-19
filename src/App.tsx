@@ -11,7 +11,8 @@ function App() {
   const [background, setBackground] = useState<number>(0);
   const [slideTransition, setSlideTransition] = useState<string>("");
   const [animation, setAnimation] = useState<string>("");
-  const defaultHeight: number = document?.getElementsByClassName("title")[0]?.offsetHeight;
+  const title: Element | null = document?.querySelector<HTMLElement>(".title");
+  const defaultHeight: number = title?.offsetHeight;
   const [titleHeight, setTitleHeight] = useState<number>(defaultHeight);
 
   // slide number is used to manage the title animation
