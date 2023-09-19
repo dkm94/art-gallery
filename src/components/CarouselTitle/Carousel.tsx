@@ -41,7 +41,7 @@ console.log("🚀 ~ file: Carousel.tsx:9 ~ CarouselTitle ~ animation:", animatio
       <div 
         id="page-title" 
         className={` ${animation === "fixcards" ? "slide-to-top" : ""}`}
-        style={{ height: height ? height : "100%"}}
+        style={{ height}}
       >{gallery?.map((item, index) => 
         { 
           return (

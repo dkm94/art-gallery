@@ -31,8 +31,8 @@
 }
 #page-title {
     position: absolute;
-    bottom: 0px;
-    /* top: 100%; */
+    /* bottom: 0px; */
+    top: 0;
     width: 100%;
     transform: translate(0px, 0px);
     display: flex;
@@ -41,7 +41,7 @@
     animation-name: slide-in-title 1s 1s forwards;
     animation-duration: 1s;
     /* animation-fill-mode: forwards; */
-    background-color: green;
+    /* background-color: green; */
 }
 #page-title > div {
     text-align: center;
@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    background: red;
+    /* background: red; */
     height: 80%;
 }
 .btns-wrapper {
@@ -166,6 +166,12 @@
 }
 .slide-to-top {
     animation: slideToTop 1s forwards;
+    /* transform: translate(0, 10vh); */
+    /* top: -90vh; */
+    /* top: 10vh; */
+    /* top: 10vh; */
+
+    /* top: 10vh; */
     /* animation-duration: 1s;
     animation-fill-mode: forwards; */
 }
@@ -207,19 +213,16 @@
 
 @keyframes slideToTop {
     from {
-        top: 80%;
-        /* position: absolute; */
-        transform: translate(0px, 0px);
+        top: 90vh;
+        transform: translate(0px, 90vh);
         color: #000;
 
 
     } to {
-        /* top: 0%; */
-        /* position: absolute; */
-        transform: translateY(0px, -500px);
-        top: 10vh;
+        transform: translate(0, 15vh);
+        /* top: 5vh; */
         position: fixed;
-        color: red;
+        /* color: red; */
     }
 }
 
