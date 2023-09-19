@@ -6,6 +6,7 @@ import { ICarouselTitleProps } from '../../../types';
 import { gallery } from "../../constants";
 
 const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, slide }: ICarouselTitleProps) => {
+  // TODO: use useRisizeObject hook
 
   const calculateTransitionHeight = (): string => {
     // this function allows to recalculate the height of the title when the #page-title div is resized

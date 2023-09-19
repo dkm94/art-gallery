@@ -264,7 +264,5 @@
 }
 
 @media only screen and (max-width: 576px) {
-    #page-title > div {
-        /* color: red; */
-    }
+    
 }
