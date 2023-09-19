@@ -30,13 +30,18 @@ const PrevBtn = ({ mode, text, setSlidePrev, slidePrev, selectedGallery, prevOne
   }
 
   return (
-    <div className="prev-wrapper" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} style={{ top: mode === "selected" ? "0" : ""} } >
-        <button
+    <div 
+      className="prev-wrapper" 
+      onMouseOver={handleMouseOver} 
+      onMouseOut={handleMouseOut} 
+      style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "20%" : ""} } 
+    >
+      <button
         className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} 
         onClick={handleClick} 
         disabled={isDisabled()}
-        >{text}</button>
-        <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
+      >{text}</button>
+      <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
     </div>
   )
 }

@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: column;
     height: 90vh;
+    overflow: visible;
 }
 .content {
     display: flex;
@@ -79,9 +80,9 @@
 }
 
 .prev-wrapper {
-    height: 100px;
+    /* height: 100px;
     width: 100px;
-    position: absolute;
+    position: absolute; */
     /* top: 0px; */
     left: 65px;
     display: flex;
@@ -90,9 +91,9 @@
     z-index: 1;
 }
 .next-wrapper {
-    height: 100px;
-    width: 100px;
-    position: absolute;
+    /* height: 6rem;
+    width: 6rem; */
+    /* position: absolute; */
     /* top: 0px; */
     right: 65px;
     display: flex;
@@ -129,6 +130,7 @@
     background-color: #f2ede6;
     position: absolute;
     left: 55px;
+    overflow: visible !important;
 }
 /* Next line */
 .next-line::before {
@@ -145,6 +147,7 @@
     transition-property: left;
     transition-duration: 1s;
     left: 10px;
+    
 }
 /* Previous line animation */
 .prev-line-animation::before {
