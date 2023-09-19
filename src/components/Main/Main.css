@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: start;
     justify-content: center;
+    overflow: visible;
 }
 .center-col {
     width: 60%;
@@ -264,6 +265,6 @@
 
 @media only screen and (max-width: 576px) {
     #page-title > div {
-        color: red;
+        /* color: red; */
     }
 }
