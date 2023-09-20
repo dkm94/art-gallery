@@ -23,12 +23,19 @@ export type Section = {
 export type DisplayMode = "card" | "grid"
 export type DisplayTitle = "Card" | "Grid"
 
+export type Mode = "selected" | "not-selected"
+
 export interface ICurrentBackgroundCtx {
     background: number;
 }
 export interface IMainProps {
     setBackground: React.Dispatch<React.SetStateAction<number>>;
     gallery: Section[];
+    setSlideTransition: React.Dispatch<React.SetStateAction<string>>;
+    setAnimation: React.Dispatch<React.SetStateAction<string>>;
+    slideHeight: number;
+    animation: string;
+    setSlide: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface ICarouselProps extends Pick<IMainProps, "gallery" > {
@@ -58,6 +65,9 @@ export interface ICarouselImageProps extends Pick<ICarouselProps, "setRotate" | 
 export interface ICarouselTitleProps {
     slideTransition: string;
     animation: string;
+    height: number;
+    setTitleHeight: React.Dispatch<React.SetStateAction<number>>;
+    slide: number;
 }
 
 export interface IProgressBarProps {
@@ -85,6 +95,7 @@ export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" |
 
 export interface IPrevBtnProps {
     text: string;
+    mode: Mode;
     setSlidePrev?: React.Dispatch<React.SetStateAction<boolean>>;
     slidePrev?: boolean | undefined;
     selectedGallery?: number;

@@ -1,12 +1,18 @@
 import "./Main.css";
 
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { NextBtn, PrevBtn } from "..";
 import { DisplayMode, IMainProps, Gallery } from "../../../types";
-import { CardToGrid, Carousel, CarouselTitle, ProgressBar } from "..";
+import { CardToGrid, Carousel, ProgressBar } from "..";
+import { useResizeObserver } from "../../hooks";
 
-const Main = ({ setBackground, gallery }: IMainProps) => {
+//TODO: Responsive design: hide vertical carousel, and display at the bottom of the page, on top of the title
+//TODO: Responsive design: hide card to grid vertical buttons, and display at the top of the page, on top of the image carousel
+
+//TODO: Lazy loading
+
+const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideHeight, animation, setSlide }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
@@ -18,17 +24,29 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
     const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
-    const [slideTransition, setSlideTransition] = useState<string>("");
+
+    // manage vertical carousel (showing active page number) 
+    const slideNb: Element | null = document?.querySelector<HTMLElement>(".slide-nb");
+    const defaultSlideNbHeight: number = slideNb?.offsetHeight;
+    const [activePageTransitionHeight, setActivePageTransitionHeight] = useState<number>(defaultSlideNbHeight);
     const [activePageTransition, setActivePageTransition] = useState<string>("");
+    const activePageRef = useRef<HTMLDivElement | null>(null);
+    useResizeObserver(activePageRef, (height) => {
+      setActivePageTransitionHeight(height);
+    });
+
     const [display, setDisplay] = useState<DisplayMode>("card");
-    const [animation, setAnimation] = useState<string>("");
 
     const max:number = gallery.length;
     let activeSlideIndex: number = selectedGallery - 1;
     const slideLength:number = gallery.length;
-    const slideHeight: number = 237;
-    const activePageHeight: number = 22;
 
+    useEffect(() => {
+      setSlide(activeSlideIndex);
+    }, [activeSlideIndex, setSlide]);
+
+    
+    
     const rotationDegre: number[] = [-5, 5, -10, 10];
     const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
 
@@ -105,15 +123,15 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
             if(activeSlideIndex === slideLength){
                 activeSlideIndex = 0;
             }
-            setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
-            setActivePageTransition(`translateY(-${activeSlideIndex * activePageHeight}px)`);
+            slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
+            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * activePageTransitionHeight}px)`);
         } else if(direction === "prev"){
             activeSlideIndex--;
             if(activeSlideIndex < 0){
                 activeSlideIndex = slideLength - 1;
             }
-            setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
-            setActivePageTransition(`translateY(-${activeSlideIndex * activePageHeight}px)`);
+            slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
+            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * activePageTransitionHeight}px)`);
         }
     }
 
@@ -136,15 +154,26 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
           activePageTransition={activePageTransition} 
           activeSlideIndex={activeSlideIndex} 
           animation={animation}
+          ref={activePageRef}
           />
           {thisGallery && <div data-id={thisGallery[1].id} className={`first-image ${animation === "fixcards" ? "slide-first-img" : ""}`}>
             <img src={thisGallery[1].img || ""} alt="" />
           </div>}
-          {thisGallery && <PrevBtn text="Back" getBack={getBack} />}
+          {thisGallery && <PrevBtn key={"selected"} mode={"selected"} text="Back" getBack={getBack} />}
         </section>
         <section className='center-col'>
-            <CarouselTitle slideTransition={slideTransition} animation={animation} />
             <div className="carousel-wrapper">
+              <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
+                <PrevBtn 
+                  key={"not-selected"} 
+                  mode={"not-selected"} 
+                  text="Prev" 
+                  setSlidePrev={setSlidePrev} 
+                  slidePrev={slidePrev} 
+                  selectedGallery={selectedGallery} 
+                  prevOne={prevOne} 
+                />
+              </div>
               <Carousel 
                 gallery={gallery}
                 selectedGalleryName={selectedGalleryName} 
@@ -164,7 +193,6 @@ const Main = ({ setBackground, gallery }: IMainProps) => {
                 animation={animation}
               />
               <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
-                <PrevBtn text="Prev" setSlidePrev={setSlidePrev} slidePrev={slidePrev} selectedGallery={selectedGallery} prevOne={prevOne} />
                 <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
               </div>
             </div>
