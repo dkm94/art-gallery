@@ -7,6 +7,11 @@ import { DisplayMode, IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, ProgressBar } from "..";
 import { useResizeObserver } from "../../hooks";
 
+//TODO: Responsive design: hide vertical carousel, and display at the bottom of the page, on top of the title
+//TODO: Responsive design: hide card to grid vertical buttons, and display at the top of the page, on top of the image carousel
+
+//TODO: Lazy loading
+
 const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideHeight, animation, setSlide }: IMainProps) => {
     const [array, setArray] = useState<Gallery[]>([]);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
