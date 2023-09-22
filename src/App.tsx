@@ -22,16 +22,12 @@ function App() {
   const { error, isPending, response } = useFetch("gallery.json", {});
 
   useEffect(() => {
-    console.count("App");
     if(response){
     const { gallery } = response;
     setContent(gallery);
   }
   }, [response])
 
-  console.log("conteeeeeeeeeeent", content);
-  
-    
   return (
     <BackgroundCtx.Provider value={{ background }}>
       <Cursor />

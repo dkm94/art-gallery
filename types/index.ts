@@ -107,6 +107,6 @@ export interface INextBtnProps {
     setSlideNext: React.Dispatch<React.SetStateAction<boolean>>;
     slideNext: boolean;
     selectedGallery: number;
-    max: number;
+    galleryLength: number;
     nextOne: () => void;
 }
