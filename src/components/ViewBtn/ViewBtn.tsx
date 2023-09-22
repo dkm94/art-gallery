@@ -13,6 +13,8 @@ const ViewBtn = ({
   setAnimation, 
   animation 
 }: IViewBtnProps) => {
+
+  console.count("ViewBtn");
   
   const handleBtn = (galleryId: number) => {
     showView(galleryId);
@@ -21,7 +23,6 @@ const ViewBtn = ({
   }
 
   useEffect(() => {
-    console.log(showViewBtn);
   }, [showViewBtn])
 
   const rotateBtn = (): string => {

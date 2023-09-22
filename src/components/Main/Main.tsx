@@ -20,18 +20,14 @@ const Main = ({
   slideHeight, 
   animation, 
   setSlide, 
-  isPending, 
   content,
-  error
 }: IMainProps) => {
-    // console.log("🚀 ~ file: Main.tsx:26 ~ content:", content)
-    // console.log("🚀 ~ file: Main.tsx:26 ~ gallery:", gallery)
     
     const [array, setArray] = useState<Gallery[]>([]);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [selectedGallery, setSelectedGallery] = useState<number>(1);
     const [thisGallery, setThisGallery] = useState<Gallery[] | undefined>(undefined);
-    const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0].title);
+    const [selectedGalleryName, setSelectedGalleryName] = useState<string>(content[0]?.title);
     const [rotate, setRotate] = useState<boolean>(false);
     const [slidePrev, setSlidePrev] = useState<boolean>(false);
     const [slideNext, setSlideNext] = useState<boolean>(false);
@@ -175,9 +171,7 @@ const Main = ({
           {thisGallery && <PrevBtn key={"selected"} mode={"selected"} text="Back" getBack={getBack} setSlidePrev={setSlidePrev}  />}
         </section>
         <section className='center-col'>
-          { isPending && <span>Loading...</span>}
-          { error && <span>{error}</span> }
-          { !isPending && !error && content && <div className="carousel-wrapper">
+          <div className="carousel-wrapper">
             <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
               <PrevBtn 
                 key={"not-selected"} 
@@ -210,7 +204,7 @@ const Main = ({
             <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
               <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
             </div>
-          </div>}
+          </div>
         </section>
         <section className='right-col'>
           <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />
