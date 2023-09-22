@@ -71,7 +71,7 @@ export interface ICarouselTitleProps {
 }
 
 export interface IProgressBarProps {
-    slideLength: number;
+    galleryLength: number;
     activePageTransition: string;
     activeSlideIndex: number;
     animation: string;

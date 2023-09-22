@@ -46,9 +46,8 @@ const Main = ({
 
     const [display, setDisplay] = useState<DisplayMode>("card");
 
-    const max:number = gallery.length;
+    const galleryLength:number = gallery.length;
     let activeSlideIndex: number = selectedGallery - 1;
-    const slideLength:number = gallery.length;
 
     useEffect(() => {
       setSlide(activeSlideIndex);
@@ -99,7 +98,7 @@ const Main = ({
       setTimeout(() => {
         changeTitle("next");
         moveCardToBack()
-        selectedGallery < max && setSelectedGallery(selectedGallery + 1);
+        selectedGallery < galleryLength && setSelectedGallery(selectedGallery + 1);
         setSelectedGalleryName(gallery[selectedGallery]?.title);
         setBackground(selectedGallery)
       }, 500);
@@ -127,7 +126,7 @@ const Main = ({
     const changeTitle = (direction: string): void => {
         if(direction === "next"){
             activeSlideIndex++;
-            if(activeSlideIndex === slideLength){
+            if(activeSlideIndex === galleryLength){
                 activeSlideIndex = 0;
             }
             slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
@@ -135,7 +134,7 @@ const Main = ({
         } else if(direction === "prev"){
             activeSlideIndex--;
             if(activeSlideIndex < 0){
-                activeSlideIndex = slideLength - 1;
+                activeSlideIndex = galleryLength - 1;
             }
             slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
             slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * activePageTransitionHeight}px)`);
@@ -157,7 +156,7 @@ const Main = ({
     <div className='content'>
         <section className='left-col'>
           <ProgressBar 
-          slideLength={slideLength} 
+          galleryLength={galleryLength} 
           activePageTransition={activePageTransition} 
           activeSlideIndex={activeSlideIndex} 
           animation={animation}
@@ -201,7 +200,7 @@ const Main = ({
               animation={animation}
             />
             <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
-              <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
+              <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} galleryLength={galleryLength} nextOne={nextOne} />
             </div>
           </div>
         </section>
