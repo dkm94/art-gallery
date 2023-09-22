@@ -12,10 +12,24 @@ import { useResizeObserver } from "../../hooks";
 
 //TODO: Lazy loading
 
-const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideHeight, animation, setSlide }: IMainProps) => {
+const Main = ({ 
+  setBackground, 
+  gallery, 
+  setSlideTransition, 
+  setAnimation, 
+  slideHeight, 
+  animation, 
+  setSlide, 
+  isPending, 
+  content,
+  error
+}: IMainProps) => {
+    // console.log("🚀 ~ file: Main.tsx:26 ~ content:", content)
+    // console.log("🚀 ~ file: Main.tsx:26 ~ gallery:", gallery)
+    
     const [array, setArray] = useState<Gallery[]>([]);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
-    const [selectedGallery, setSelectedGallery] = useState<number>(gallery[0].id);
+    const [selectedGallery, setSelectedGallery] = useState<number>(1);
     const [thisGallery, setThisGallery] = useState<Gallery[] | undefined>(undefined);
     const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0].title);
     const [rotate, setRotate] = useState<boolean>(false);
@@ -155,51 +169,53 @@ const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideH
           ref={activePageRef}
           />
           {thisGallery && <div data-id={thisGallery[1].id} className={`first-image ${animation === "fixcards" ? "slide-first-img" : ""}`}>
-            <img src={thisGallery[1].img || ""} alt="" />
+            <img src={thisGallery[1].img || ""} alt="" loading="lazy" />
           </div>}
                   
           {thisGallery && <PrevBtn key={"selected"} mode={"selected"} text="Back" getBack={getBack} setSlidePrev={setSlidePrev}  />}
         </section>
         <section className='center-col'>
-            <div className="carousel-wrapper">
-              <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
-                <PrevBtn 
-                  key={"not-selected"} 
-                  mode={"not-selected"} 
-                  text="Prev" 
-                  setSlidePrev={setSlidePrev} 
-                  slidePrev={slidePrev} 
-                  selectedGallery={selectedGallery} 
-                  prevOne={prevOne} 
-                />
-              </div>
-              <Carousel 
-                gallery={gallery}
-                selectedGalleryName={selectedGalleryName} 
-                setRotate={setRotate} 
-                rotate={rotate} 
-                setSwipe={setSwipe} 
-                swipe={swipe} 
-                fadeOut={fadeOut} 
-                setFadeOut={setFadeOut} 
-                array={array}
-                setArray={setArray}
-                showViewBtn={showViewBtn}
-                setShowViewBtn={setShowViewBtn}
-                showView={showView}
-                handleChangeRotation={handleChangeRotation}
-                setAnimation={setAnimation}
-                animation={animation}
+          { isPending && <span>Loading...</span>}
+          { error && <span>{error}</span> }
+          { !isPending && !error && content && <div className="carousel-wrapper">
+            <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
+              <PrevBtn 
+                key={"not-selected"} 
+                mode={"not-selected"} 
+                text="Prev" 
+                setSlidePrev={setSlidePrev} 
+                slidePrev={slidePrev} 
+                selectedGallery={selectedGallery} 
+                prevOne={prevOne} 
               />
-              <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
-                <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
-              </div>
             </div>
+            <Carousel 
+              gallery={gallery}
+              selectedGalleryName={selectedGalleryName} 
+              setRotate={setRotate} 
+              rotate={rotate} 
+              setSwipe={setSwipe} 
+              swipe={swipe} 
+              fadeOut={fadeOut} 
+              setFadeOut={setFadeOut} 
+              array={array}
+              setArray={setArray}
+              showViewBtn={showViewBtn}
+              setShowViewBtn={setShowViewBtn}
+              showView={showView}
+              handleChangeRotation={handleChangeRotation}
+              setAnimation={setAnimation}
+              animation={animation}
+            />
+            <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
+              <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} max={max} nextOne={nextOne} />
+            </div>
+          </div>}
         </section>
         <section className='right-col'>
           <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />
           {thisGallery && <div data-id={thisGallery[2].id} className={`third-image ${animation === "fixcards" ? "slide-third-img" : ""}`}>
-            <img src={thisGallery[2].img || ""} alt="" />
+            <img src={thisGallery[2].img || ""} alt="" loading="lazy" />
           </div>}
         </section>
     </div>

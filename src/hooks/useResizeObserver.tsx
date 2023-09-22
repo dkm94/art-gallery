@@ -23,7 +23,7 @@ const useResizeObserver = (elementRef : RefObject<HTMLElement | null>, callback:
         return () => {
         observer.unobserve(element);
         };
-}, [elementRef, callback]);
+    }, [elementRef, callback]);
 };
 
 export default useResizeObserver;

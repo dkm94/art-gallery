@@ -1,13 +1,15 @@
 import './App.css';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import useFetch from './hooks/useFetch';
 
 import { Cursor, Header, Main, CarouselTitle } from './components';
 import { BackgroundCtx } from './context';
 import { backgrounds, gallery } from './constants';
 
-
 function App() {
+  
+  const [content, setContent] = useState<any>([]);
   const [background, setBackground] = useState<number>(0);
   const [slideTransition, setSlideTransition] = useState<string>("");
   const [animation, setAnimation] = useState<string>("");
@@ -18,7 +20,13 @@ function App() {
   // slide number is used to manage the title animation
   const [slide, setSlide] = useState<number>(0);
   
-  // modifier le contexte et passer toute la gallery
+  const { error, isPending, response } = useFetch("gallery.json", {});
+
+  useEffect(() => {
+    const gallery = response?.gallery;
+    setContent(gallery);
+  }, [response])
+    
   return (
     <BackgroundCtx.Provider value={{ background }}>
       <Cursor />
@@ -35,6 +43,9 @@ function App() {
           animation={animation}
           slideHeight={titleHeight}
           setSlide={setSlide}
+          isPending={isPending}
+          error={error}
+          content={content}
         />
         <CarouselTitle 
           slideTransition={slideTransition} 

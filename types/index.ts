@@ -36,6 +36,9 @@ export interface IMainProps {
     slideHeight: number;
     animation: string;
     setSlide: React.Dispatch<React.SetStateAction<number>>;
+    isPending: boolean;
+    error: string | null;
+    content: Section[];
 }
 
 export interface ICarouselProps extends Pick<IMainProps, "gallery" > {
