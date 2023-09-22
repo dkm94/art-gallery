@@ -30,7 +30,7 @@ const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideH
     const defaultSlideNbHeight: number = slideNb?.offsetHeight;
     const [activePageTransitionHeight, setActivePageTransitionHeight] = useState<number>(defaultSlideNbHeight);
     const [activePageTransition, setActivePageTransition] = useState<string>("");
-    const activePageRef = useRef<HTMLDivElement | null>(null);
+    const activePageRef: React.MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
     useResizeObserver(activePageRef, (height) => {
       setActivePageTransitionHeight(height);
     });
@@ -45,8 +45,6 @@ const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideH
       setSlide(activeSlideIndex);
     }, [activeSlideIndex, setSlide]);
 
-    
-    
     const rotationDegre: number[] = [-5, 5, -10, 10];
     const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
 
@@ -159,7 +157,8 @@ const Main = ({ setBackground, gallery, setSlideTransition, setAnimation, slideH
           {thisGallery && <div data-id={thisGallery[1].id} className={`first-image ${animation === "fixcards" ? "slide-first-img" : ""}`}>
             <img src={thisGallery[1].img || ""} alt="" />
           </div>}
-          {thisGallery && <PrevBtn key={"selected"} mode={"selected"} text="Back" getBack={getBack} />}
+                  
+          {thisGallery && <PrevBtn key={"selected"} mode={"selected"} text="Back" getBack={getBack} setSlidePrev={setSlidePrev}  />}
         </section>
         <section className='center-col'>
             <div className="carousel-wrapper">
