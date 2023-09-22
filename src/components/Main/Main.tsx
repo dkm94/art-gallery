@@ -20,14 +20,13 @@ const Main = ({
   slideHeight, 
   animation, 
   setSlide, 
-  content,
 }: IMainProps) => {
     
     const [array, setArray] = useState<Gallery[]>([]);
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [selectedGallery, setSelectedGallery] = useState<number>(1);
     const [thisGallery, setThisGallery] = useState<Gallery[] | undefined>(undefined);
-    const [selectedGalleryName, setSelectedGalleryName] = useState<string>(content[0]?.title);
+    const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0]?.title);
     const [rotate, setRotate] = useState<boolean>(false);
     const [slidePrev, setSlidePrev] = useState<boolean>(false);
     const [slideNext, setSlideNext] = useState<boolean>(false);

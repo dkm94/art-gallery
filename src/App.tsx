@@ -5,7 +5,7 @@ import useFetch from './hooks/useFetch';
 
 import { Cursor, Header, Main, CarouselTitle } from './components';
 import { BackgroundCtx } from './context';
-import { backgrounds, gallery } from './constants';
+import { backgrounds } from './constants';
 
 function App() {
   const [content, setContent] = useState<any>([]);
@@ -46,13 +46,12 @@ function App() {
           <>
             <Main 
             setBackground={setBackground} 
-            gallery={gallery} 
+            gallery={content} 
             setSlideTransition={setSlideTransition} 
             setAnimation={setAnimation} 
             animation={animation}
             slideHeight={titleHeight}
             setSlide={setSlide}
-            content={content}
             />
             <CarouselTitle 
               slideTransition={slideTransition} 
