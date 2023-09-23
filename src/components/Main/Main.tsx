@@ -20,19 +20,33 @@ const Main = ({
   setSlide, 
 }: IMainProps) => {
     
+    // Formatted array of gallery with id and cover image
     const [array, setArray] = useState<Gallery[]>([]);
+
+    // Manage the rotation of the carousel
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
+    const [rotate, setRotate] = useState<boolean>(false);
+    const rotationDegre: number[] = [-5, 5, -10, 10];
+    const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
+
+    // Manage the selected gallery
     const [selectedGallery, setSelectedGallery] = useState<number>(1);
     const [thisGallery, setThisGallery] = useState<Gallery[] | undefined>(undefined);
     const [selectedGalleryName, setSelectedGalleryName] = useState<string>(gallery[0]?.title);
-    const [rotate, setRotate] = useState<boolean>(false);
+    
+    // Manage the slide of the carousel
     const [slidePrev, setSlidePrev] = useState<boolean>(false);
     const [slideNext, setSlideNext] = useState<boolean>(false);
+    let activeSlideIndex: number = selectedGallery - 1;
+
+    // Slides animations
     const [swipe, setSwipe] = useState<boolean>(false);
     const [fadeOut, setFadeOut] = useState<boolean>(false);
+
+    // Manage the view button
     const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
 
-    // manage vertical carousel (showing active page number) 
+    // Manage vertical carousel (showing active page number) 
     const slideNb: Element | null = document?.querySelector<HTMLElement>(".slide-nb");
     const defaultSlideNbHeight: number = slideNb?.offsetHeight;
     const [activePageTransitionHeight, setActivePageTransitionHeight] = useState<number>(defaultSlideNbHeight);
@@ -42,17 +56,14 @@ const Main = ({
       setActivePageTransitionHeight(height);
     });
 
+    // Manage the display mode
     const [display, setDisplay] = useState<DisplayMode>("card");
 
     const galleryLength:number = gallery.length;
-    let activeSlideIndex: number = selectedGallery - 1;
 
     useEffect(() => {
       setSlide(activeSlideIndex);
     }, [activeSlideIndex, setSlide]);
-
-    const rotationDegre: number[] = [-5, 5, -10, 10];
-    const oppositeRotationDegree:number[] = rotationDegre.map(element => element * -1);
 
     const moveCardToBack = ():void => {
       if(array.length > 0){
@@ -89,6 +100,7 @@ const Main = ({
       }
     }
 
+    // Display next slide
     const nextOne = ():void => {
       setFadeOut(true);
       setSwipe(true);
@@ -102,6 +114,7 @@ const Main = ({
       }, 500);
     }
     
+    // Display previous slide
     const prevOne = ():void => {
       setFadeOut(true);
       setSwipe(true);
@@ -116,11 +129,13 @@ const Main = ({
       }, 500);
     }
 
+    // Display the 3 images of the selected gallery
     const showView = (id:number) => {
       const thisGallery = gallery[id -1]
       setThisGallery(thisGallery.gallery);
     }
     
+    // Handle the carousel title animation
     const changeTitle = (direction: string): void => {
         if(direction === "next"){
             activeSlideIndex++;
@@ -139,6 +154,7 @@ const Main = ({
         }
     }
 
+    // Handle animation when the back button is clicked
     const getBack = () => {
       setThisGallery(undefined);
       setAnimation("zoom-out");
@@ -164,7 +180,15 @@ const Main = ({
             <img src={thisGallery[1].img || ""} alt="" loading="lazy" />
           </div>}
                   
-          {thisGallery && <PrevBtn key={"selected"} mode={"selected"} text="Back" getBack={getBack} setSlidePrev={setSlidePrev}  />}
+          {thisGallery && (
+            <PrevBtn 
+            key="selected" 
+            mode="selected"
+            text="Back" 
+            getBack={getBack} 
+            setSlidePrev={setSlidePrev}
+            />
+          )}
         </section>
         <section className='center-col'>
           <div className="carousel-wrapper">
@@ -198,7 +222,13 @@ const Main = ({
               animation={animation}
             />
             <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
-              <NextBtn setSlideNext={setSlideNext} slideNext={slideNext} selectedGallery={selectedGallery} galleryLength={galleryLength} nextOne={nextOne} />
+              <NextBtn 
+              setSlideNext={setSlideNext} 
+              slideNext={slideNext} 
+              selectedGallery={selectedGallery} 
+              galleryLength={galleryLength} 
+              nextOne={nextOne} 
+              />
             </div>
           </div>
         </section>
