@@ -8,18 +8,24 @@ import { BackgroundCtx } from './context';
 import { backgrounds } from './constants';
 
 function App() {
+  // Fetch data
+  const { error, isPending, response } = useFetch("gallery.json", {});
   const [content, setContent] = useState<any>([]);
+
+  // Screen's background
   const [background, setBackground] = useState<number>(0);
+
+  // Trigger slide animation
   const [slideTransition, setSlideTransition] = useState<string>("");
   const [animation, setAnimation] = useState<string>("");
+
+  // Title's height
   const title: Element | null = document?.querySelector<HTMLElement>(".title");
   const defaultHeight: number = title?.offsetHeight;
   const [titleHeight, setTitleHeight] = useState<number>(defaultHeight);
 
-  // slide number is used to manage the title animation
+  // Slide number is used to manage animations
   const [slide, setSlide] = useState<number>(0);
-  
-  const { error, isPending, response } = useFetch("gallery.json", {});
 
   useEffect(() => {
     if(response){
