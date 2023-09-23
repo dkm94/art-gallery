@@ -6,11 +6,12 @@ import useFetch from './hooks/useFetch';
 import { Cursor, Header, Main, CarouselTitle } from './components';
 import { BackgroundCtx } from './context';
 import { backgrounds } from './constants';
+import { Section } from '../types';
 
 function App() {
   // Fetch data
   const { error, isPending, response } = useFetch("gallery.json", {});
-  const [content, setContent] = useState<any>([]);
+  const [content, setContent] = useState<Section[]>([]);
 
   // Screen's background
   const [background, setBackground] = useState<number>(0);
