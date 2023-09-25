@@ -11,6 +11,7 @@ import ViewBtn from "./ViewBtn/ViewBtn";
 import PrevBtn from "./PrevBtn/PrevBtn";
 import NextBtn from "./NextBtn/NextBtn";
 import Cursor from "./Cursor/Cursor";
+import Loader from "./Loader/Loader";
 
 export { 
     Header, 
@@ -25,5 +26,6 @@ export {
     ViewBtn,
     NextBtn,
     PrevBtn,
-    Cursor
+    Cursor,
+    Loader
 }

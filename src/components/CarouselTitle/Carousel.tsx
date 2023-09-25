@@ -7,7 +7,6 @@ import { ICarouselTitleProps } from '../../../types';
 import { gallery } from "../../constants";
 
 const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, slide }: ICarouselTitleProps) => {
-  // TODO fix initial title animation 
 
   // Get the title's height
   const titleHeightRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
