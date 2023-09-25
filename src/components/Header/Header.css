@@ -69,4 +69,8 @@
         width: 100%;
         object-fit: contain;
     }
+    .artist {
+        letter-spacing: 8px;
+        font-size: 2.5vw;
+    }
 }

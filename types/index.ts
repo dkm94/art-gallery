@@ -24,9 +24,6 @@ export type Section = {
     gallery: Gallery[];
 };
 
-export type DisplayMode = "card" | "grid"
-export type DisplayTitle = "Card" | "Grid"
-
 export type Mode = "selected" | "not-selected"
 
 export interface ICurrentBackgroundCtx {
@@ -75,6 +72,7 @@ export interface ICarouselTitleProps {
 }
 
 export interface IProgressBarProps {
+    device: string;
     galleryLength: number;
     activePageTransition: string;
     activeSlideIndex: number;
@@ -82,14 +80,12 @@ export interface IProgressBarProps {
 }
 
 export interface ICardToGridProps {
-    display: DisplayMode;
-    setDisplay: React.Dispatch<React.SetStateAction<DisplayMode>>;
     animation: string;
+    device: string;
 }
 
-export interface ICardToGridBtnProps extends Omit<ICardToGridProps, "animation"> {
-    mode: DisplayMode;
-    title: DisplayTitle;
+export interface ICardToGridBtnProps {
+    title: string;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 

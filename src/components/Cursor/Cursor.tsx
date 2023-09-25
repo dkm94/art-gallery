@@ -3,6 +3,7 @@ import "./Cursor.css";
 import { useState, useEffect } from "react";
 
 const Cursor = () => {
+    // TODO: remove cursor on mobile device
     const [position, setPosition] = useState<Record<string, number>>({x: 0, y: 0});
 
     useEffect(() => {

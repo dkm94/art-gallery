@@ -4,11 +4,12 @@ import { useEffect, useState, useRef, MutableRefObject } from "react";
 import { useResizeObserver } from "../../hooks";
 
 import { NextBtn, PrevBtn } from "..";
-import { DisplayMode, IMainProps, Gallery } from "../../../types";
+import { IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, ProgressBar } from "..";
 
-//TODO: Responsive design: hide vertical carousel, and display at the bottom of the page, on top of the title
 //TODO: Responsive design: hide card to grid vertical buttons, and display at the top of the page, on top of the image carousel
+
+// TODO: block buttons onclick when animation is running
 
 const Main = ({ 
   setBackground, 
@@ -55,9 +56,6 @@ const Main = ({
     useResizeObserver(activePageRef, (height) => {
       setActivePageTransitionHeight(height);
     });
-
-    // Manage the display mode
-    const [display, setDisplay] = useState<DisplayMode>("card");
 
     const galleryLength:number = gallery.length;
 
@@ -169,7 +167,9 @@ const Main = ({
   return (
     <div className='content'>
         <section className='left-col'>
-          <ProgressBar 
+          <ProgressBar
+          key={1}
+          device="desktop"
           galleryLength={galleryLength} 
           activePageTransition={activePageTransition} 
           activeSlideIndex={activeSlideIndex} 
@@ -191,6 +191,7 @@ const Main = ({
           )}
         </section>
         <section className='center-col'>
+          <CardToGrid key={2} device={"mobile"} animation={animation} />
           <div className="carousel-wrapper">
             <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
               <PrevBtn 
@@ -231,9 +232,18 @@ const Main = ({
               />
             </div>
           </div>
+          <ProgressBar
+          key={2}
+          device="mobile"
+          galleryLength={galleryLength} 
+          activePageTransition={activePageTransition} 
+          activeSlideIndex={activeSlideIndex} 
+          animation={animation}
+          ref={activePageRef}
+          />
         </section>
         <section className='right-col'>
-          <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />
+          <CardToGrid key={1} device={"desktop"} animation={animation} />
           {thisGallery && <div data-id={thisGallery[2].id} className={`third-image ${animation === "fixcards" ? "slide-third-img" : ""}`}>
             <img src={thisGallery[2].img || ""} alt="" loading="lazy" />
           </div>}

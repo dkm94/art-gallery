@@ -2,7 +2,7 @@
     position: absolute;
     height: 80%;
     /* width: 340px; */
-    width: 46%;
+    width: 50%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
@@ -54,5 +54,11 @@
         transition: transform 0.5s;
         margin-left: 400px;
         opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .img {
+       height: 76%;
     }
 }

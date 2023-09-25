@@ -4,13 +4,15 @@ import "./ProgressBar.css";
 
 export type Ref = HTMLDivElement;
 
-const ProgressBar = forwardRef<Ref, IProgressBarProps>(({ 
+const ProgressBar = forwardRef<Ref, IProgressBarProps>(({
+    device, 
     galleryLength, 
     activePageTransition, 
-    activeSlideIndex, 
+    activeSlideIndex,
     animation
 }, ref) => {
     const array: number[] = [];
+    console.log("🚀 ~ file: ProgressBar.tsx:9 ~ key:", device)
     
     for(let i = 1; i <= galleryLength; i++){
         array.push(i);
@@ -21,7 +23,7 @@ const ProgressBar = forwardRef<Ref, IProgressBarProps>(({
       };
 
   return (
-    <div className={`progress-container ${animation === "fixcards" ? "fadeout" : "" }`}>
+    <div className={`${device === "desktop" ? "progress-container" : "progress-container-mobile"} ${animation === "fixcards" ? "fadeout" : "" }`}>
         <div className={`active-page-container`}>
             <div className="active-page">
                 {array.map((item, index) => {
