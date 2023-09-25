@@ -7,6 +7,7 @@ import { ICarouselTitleProps } from '../../../types';
 import { gallery } from "../../constants";
 
 const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, slide }: ICarouselTitleProps) => {
+  // TODO fix initial title animation 
 
   // Get the title's height
   const titleHeightRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
@@ -22,12 +23,16 @@ const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, sli
   return (
     
     <div 
-      className={`title-container ${typeof height !== "number" ? "slide-to-top" : ""}`} 
-      style={{ height, top: `-${height}px` }}
+      className={`title-container`} 
+      style={{ 
+        height, 
+        top: animation === "fixcards" ? "10vh" : "0px", 
+        backgroundColor: "green", 
+        transform: animation === "fixcards" ? `translateY(-95vh)` : `translateY(-${height}px)`, 
+        transition: "transform .5s ease-in-out" }}
     >
       <div 
         id="page-title"
-        className={` ${animation === "fixcards" ? "slide-to-top" : ""}`}
         style={{ height}}
       >{gallery?.map((item, index) => 
         { 
