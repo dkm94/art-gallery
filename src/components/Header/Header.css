@@ -46,3 +46,27 @@
         transform: translate(0px, 0px);
     }
 }
+
+@media screen and (max-width: 768px) {
+    .artist {
+        font-size: 2vw;
+    }
+    .header-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .button-burger {
+        width: 44px !important;
+        gap: 6px !important;
+    }
+    .ext-link {
+        width: 44px !important;
+    }
+    .ext-link > img {
+        width: 100%;
+        object-fit: contain;
+    }
+}
