@@ -5,19 +5,19 @@ import "./ProgressBar.css";
 export type Ref = HTMLDivElement;
 
 const ProgressBar = forwardRef<Ref, IProgressBarProps>(({ 
-    slideLength, 
+    galleryLength, 
     activePageTransition, 
     activeSlideIndex, 
     animation
 }, ref) => {
     const array: number[] = [];
     
-    for(let i = 1; i <= slideLength; i++){
+    for(let i = 1; i <= galleryLength; i++){
         array.push(i);
     }
 
     const progressBarStyle:Record<string, string> = {
-        backgroundSize: `${((activeSlideIndex + 1) / (slideLength)) * 100}% 100%`
+        backgroundSize: `${((activeSlideIndex + 1) / (galleryLength)) * 100}% 100%`
       };
 
   return (
@@ -40,7 +40,7 @@ const ProgressBar = forwardRef<Ref, IProgressBarProps>(({
             </div>
         </div>
         <div className="page-count-wrapper">
-            <span className="page-count">{`0${slideLength}`}</span>
+            <span className="page-count">{`0${galleryLength}`}</span>
         </div>
     </div>
   )

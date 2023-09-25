@@ -1,3 +1,7 @@
+export type ErrorProps = {
+    message: string
+}
+
 export type BackgroundDetails = {
     color: string;
     data: string;
@@ -71,7 +75,7 @@ export interface ICarouselTitleProps {
 }
 
 export interface IProgressBarProps {
-    slideLength: number;
+    galleryLength: number;
     activePageTransition: string;
     activeSlideIndex: number;
     animation: string;
@@ -107,6 +111,6 @@ export interface INextBtnProps {
     setSlideNext: React.Dispatch<React.SetStateAction<boolean>>;
     slideNext: boolean;
     selectedGallery: number;
-    max: number;
+    galleryLength: number;
     nextOne: () => void;
 }

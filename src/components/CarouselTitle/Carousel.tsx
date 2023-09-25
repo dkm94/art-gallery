@@ -1,45 +1,42 @@
 import "./Carousel.css";
 
-import { useEffect } from "react";
+import { MutableRefObject, useRef } from "react";
+import { useResizeObserver } from "../../hooks";
 
 import { ICarouselTitleProps } from '../../../types';
 import { gallery } from "../../constants";
 
 const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, slide }: ICarouselTitleProps) => {
-  // TODO: use useRisizeObject hook
+
+  // Get the title's height
+  const titleHeightRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
+  useResizeObserver(titleHeightRef, (height) => {
+    setTitleHeight(height);
+  });
 
   const calculateTransitionHeight = (): string => {
     // this function allows to recalculate the height of the title when the #page-title div is resized
     return `translateY(-${height * slide}px)`
   }
-  
-  useEffect(() => {
-    const title = document?.getElementsByClassName("title")[0];
-
-    // ResizeObserver is needed to make sure animations are still smooth when the title is resized; 
-    // dynamic height values are used to manage animations
-    const observer: ResizeObserver = new ResizeObserver((entries) => {
-      const divElement: ResizeObserverEntry = entries[0];
-      const height: number = divElement.contentRect.height;
-      setTitleHeight(height);
-    })
-    title && observer.observe(title);
-  }, [setTitleHeight])
 
   return (
     
     <div 
-      className={`title-container ${typeof height !== "number" ? "slide-to-top" : ""}`} 
-      style={{ height, top: `-${height}px` }}
+      className={`title-container`} 
+      style={{ 
+        height, 
+        top: animation === "fixcards" ? "10vh" : "0px", 
+        transform: animation === "fixcards" ? `translateY(-95vh)` : `translateY(-${height}px)`, 
+        transition: "transform .5s ease-in-out" }}
     >
       <div 
-        id="page-title" 
-        className={` ${animation === "fixcards" ? "slide-to-top" : ""}`}
+        id="page-title"
         style={{ height}}
       >{gallery?.map((item, index) => 
         { 
           return (
           <div 
+            ref={titleHeightRef}
             key={index} 
             className={`title ${animation === "fixcards" ? "title-opacity" : ""}`} 
             style={slideTransition ? {transform: calculateTransitionHeight(), transition: "transform .5s ease-in-out"} : {} }>

@@ -29,6 +29,8 @@ const PrevBtn = ({ mode, text, setSlidePrev, slidePrev, selectedGallery, prevOne
     return false;
   }
 
+  //TODO: onmouse pour gérer le hover (je pense que ça ne fonctionne pas à cause du composant Cursor) // Ajouter grâce à la classe btn-expand
+
   return (
     <div 
       className="prev-wrapper" 
@@ -37,7 +39,7 @@ const PrevBtn = ({ mode, text, setSlidePrev, slidePrev, selectedGallery, prevOne
       style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "20%" : ""} } 
     >
       <button
-        className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} 
+        className={`prev-btn btn-expand ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} 
         onClick={handleClick} 
         disabled={isDisabled()}
       >{text}</button>

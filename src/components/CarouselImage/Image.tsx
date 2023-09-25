@@ -19,7 +19,7 @@ const Image = ({
   setAnimation,
   animation
 }: ICarouselImageProps) => {
-  
+
   const [coverId, setCoverId] = useState<number>(0);
   const [selectedImage, setSelectedImage] = useState<number>(0);
   
