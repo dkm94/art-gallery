@@ -3,7 +3,7 @@ import './App.css';
 import { useState, useEffect } from "react";
 import useFetch from './hooks/useFetch';
 
-import { Cursor, Header, Main, CarouselTitle, Loader } from './components';
+import { Cursor, Header, Main, CarouselTitle, Loader, Error } from './components';
 import { BackgroundCtx } from './context';
 import { backgrounds } from './constants';
 import { Section } from '../types';
@@ -44,7 +44,7 @@ function App() {
       >
         <Header />
         { isPending && <Loader />}
-        { error && <span>{error}</span> }
+        { error && <Error message={error} /> }
         { !isPending && !error && response && content.length > 0 && (
           <>
             <Main 

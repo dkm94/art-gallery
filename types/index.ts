@@ -1,3 +1,7 @@
+export type ErrorProps = {
+    message: string
+}
+
 export type BackgroundDetails = {
     color: string;
     data: string;

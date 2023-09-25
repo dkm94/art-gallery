@@ -12,6 +12,7 @@ import PrevBtn from "./PrevBtn/PrevBtn";
 import NextBtn from "./NextBtn/NextBtn";
 import Cursor from "./Cursor/Cursor";
 import Loader from "./Loader/Loader";
+import Error from "./Error/Error";
 
 export { 
     Header, 
@@ -27,5 +28,6 @@ export {
     NextBtn,
     PrevBtn,
     Cursor,
-    Loader
+    Loader,
+    Error
 }
