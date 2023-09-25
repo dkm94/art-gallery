@@ -1,6 +1,6 @@
 import "./Main.css";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, MutableRefObject } from "react";
 import { useResizeObserver } from "../../hooks";
 
 import { NextBtn, PrevBtn } from "..";
@@ -51,7 +51,7 @@ const Main = ({
     const defaultSlideNbHeight: number = slideNb?.offsetHeight;
     const [activePageTransitionHeight, setActivePageTransitionHeight] = useState<number>(defaultSlideNbHeight);
     const [activePageTransition, setActivePageTransition] = useState<string>("");
-    const activePageRef: React.MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
+    const activePageRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
     useResizeObserver(activePageRef, (height) => {
       setActivePageTransitionHeight(height);
     });
