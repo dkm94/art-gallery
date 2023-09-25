@@ -7,8 +7,6 @@ import { NextBtn, PrevBtn } from "..";
 import { IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, ProgressBar } from "..";
 
-//TODO: Responsive design: hide card to grid vertical buttons, and display at the top of the page, on top of the image carousel
-
 // TODO: block buttons onclick when animation is running
 
 const Main = ({ 
@@ -46,6 +44,10 @@ const Main = ({
 
     // Manage the view button
     const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
+
+    // handle disable button
+    const [disablePrev, setDisablePrev] = useState<boolean>(false);
+    const [disableNext, setDisableNext] = useState<boolean>(false);
 
     // Manage vertical carousel (showing active page number) 
     const slideNb: Element | null = document?.querySelector<HTMLElement>(".slide-nb");
@@ -103,12 +105,14 @@ const Main = ({
       setFadeOut(true);
       setSwipe(true);
       setOppositeDegree(!oppositeDegree);
+      setDisableNext(true);
       setTimeout(() => {
         changeTitle("next");
         moveCardToBack()
         selectedGallery < galleryLength && setSelectedGallery(selectedGallery + 1);
         setSelectedGalleryName(gallery[selectedGallery]?.title);
-        setBackground(selectedGallery)
+        setBackground(selectedGallery);
+        setDisableNext(false);
       }, 500);
     }
     
@@ -117,13 +121,15 @@ const Main = ({
       setFadeOut(true);
       setSwipe(true);
       setOppositeDegree(!oppositeDegree);
+      setDisablePrev(true);
       setTimeout(() => {
         changeTitle("prev");
         bringCardToFront()
         selectedGallery > 0 && setSelectedGallery(selectedGallery - 1);
         const x:number = selectedGallery - 1;
         setSelectedGalleryName(gallery[x - 1]?.title);
-        setBackground(x - 1)
+        setBackground(x - 1);
+        setDisablePrev(false);
       }, 500);
     }
 
@@ -201,7 +207,9 @@ const Main = ({
                 setSlidePrev={setSlidePrev} 
                 slidePrev={slidePrev} 
                 selectedGallery={selectedGallery} 
-                prevOne={prevOne} 
+                prevOne={prevOne}
+                disablePrev={disablePrev}
+                setDisablePrev={setDisablePrev}
               />
             </div>
             <Carousel 
@@ -228,12 +236,14 @@ const Main = ({
               slideNext={slideNext} 
               selectedGallery={selectedGallery} 
               galleryLength={galleryLength} 
-              nextOne={nextOne} 
+              nextOne={nextOne}
+              disableNext={disableNext}
+              setDisableNext={setDisableNext}
               />
             </div>
           </div>
           <ProgressBar
-          key={2}
+          key={3}
           device="mobile"
           galleryLength={galleryLength} 
           activePageTransition={activePageTransition} 
@@ -243,7 +253,7 @@ const Main = ({
           />
         </section>
         <section className='right-col'>
-          <CardToGrid key={1} device={"desktop"} animation={animation} />
+          <CardToGrid key={4} device={"desktop"} animation={animation} />
           {thisGallery && <div data-id={thisGallery[2].id} className={`third-image ${animation === "fixcards" ? "slide-third-img" : ""}`}>
             <img src={thisGallery[2].img || ""} alt="" loading="lazy" />
           </div>}

@@ -99,6 +99,8 @@ export interface IPrevBtnProps {
     setSlidePrev?: React.Dispatch<React.SetStateAction<boolean>>;
     slidePrev?: boolean | undefined;
     selectedGallery?: number;
+    disablePrev?: boolean;
+    setDisablePrev?: React.Dispatch<React.SetStateAction<boolean>>;
     prevOne?: () => void;
     getBack?: () => void;
 }
@@ -109,4 +111,6 @@ export interface INextBtnProps {
     selectedGallery: number;
     galleryLength: number;
     nextOne: () => void;
+    disableNext: boolean;
+    setDisableNext: React.Dispatch<React.SetStateAction<boolean>>;
 }

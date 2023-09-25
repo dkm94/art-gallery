@@ -12,7 +12,6 @@ const ProgressBar = forwardRef<Ref, IProgressBarProps>(({
     animation
 }, ref) => {
     const array: number[] = [];
-    console.log("🚀 ~ file: ProgressBar.tsx:9 ~ key:", device)
     
     for(let i = 1; i <= galleryLength; i++){
         array.push(i);
