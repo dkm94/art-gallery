@@ -14,7 +14,7 @@ const ViewBtn = ({
   animation 
 }: IViewBtnProps) => {
 
-  console.count("ViewBtn");
+  // console.count("ViewBtn");
   
   const handleBtn = (galleryId: number) => {
     showView(galleryId);

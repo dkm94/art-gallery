@@ -1,11 +1,11 @@
 import "./Main.css";
 
 import { useEffect, useState, useRef } from "react";
+import { useResizeObserver } from "../../hooks";
 
 import { NextBtn, PrevBtn } from "..";
 import { DisplayMode, IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, ProgressBar } from "..";
-import { useResizeObserver } from "../../hooks";
 
 //TODO: Responsive design: hide vertical carousel, and display at the bottom of the page, on top of the title
 //TODO: Responsive design: hide card to grid vertical buttons, and display at the top of the page, on top of the image carousel
