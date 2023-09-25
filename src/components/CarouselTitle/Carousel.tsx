@@ -27,7 +27,6 @@ const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, sli
       style={{ 
         height, 
         top: animation === "fixcards" ? "10vh" : "0px", 
-        backgroundColor: "green", 
         transform: animation === "fixcards" ? `translateY(-95vh)` : `translateY(-${height}px)`, 
         transition: "transform .5s ease-in-out" }}
     >
