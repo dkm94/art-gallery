@@ -1,7 +1,6 @@
 import "./Main.css";
 
-import { useEffect, useState, useRef, MutableRefObject } from "react";
-import { useResizeObserver } from "../../hooks";
+import { useEffect, useState } from "react";
 
 import { NextBtn, PrevBtn } from "..";
 import { IMainProps, Gallery } from "../../../types";
@@ -53,11 +52,8 @@ const Main = ({
     const slideNb: Element | null = document?.querySelector<HTMLElement>(".slide-nb");
     const defaultSlideNbHeight: number = slideNb?.offsetHeight;
     const [activePageTransitionHeight, setActivePageTransitionHeight] = useState<number>(defaultSlideNbHeight);
+    
     const [activePageTransition, setActivePageTransition] = useState<string>("");
-    const activePageRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
-    useResizeObserver(activePageRef, (height) => {
-      setActivePageTransitionHeight(height);
-    });
 
     const galleryLength:number = gallery.length;
 
@@ -147,14 +143,14 @@ const Main = ({
                 activeSlideIndex = 0;
             }
             slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
-            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * activePageTransitionHeight}px)`);
+            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * 21.5}px)`);
         } else if(direction === "prev"){
             activeSlideIndex--;
             if(activeSlideIndex < 0){
                 activeSlideIndex = galleryLength - 1;
             }
             slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
-            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * activePageTransitionHeight}px)`);
+            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * 21.5}px)`);
         }
     }
 
@@ -177,10 +173,11 @@ const Main = ({
           key={1}
           device="desktop"
           galleryLength={galleryLength} 
-          activePageTransition={activePageTransition} 
+          activePageTransition={activePageTransition}
+          height={activePageTransitionHeight}
           activeSlideIndex={activeSlideIndex} 
           animation={animation}
-          ref={activePageRef}
+          setActivePageTransitionHeight={setActivePageTransitionHeight}
           />
           {thisGallery && <div data-id={thisGallery[1].id} className={`first-image ${animation === "fixcards" ? "slide-first-img" : ""}`}>
             <img src={thisGallery[1].img || ""} alt="" loading="lazy" />
@@ -249,7 +246,8 @@ const Main = ({
           activePageTransition={activePageTransition} 
           activeSlideIndex={activeSlideIndex} 
           animation={animation}
-          ref={activePageRef}
+          height={activePageTransitionHeight}
+          setActivePageTransitionHeight={setActivePageTransitionHeight}
           />
         </section>
         <section className='right-col'>

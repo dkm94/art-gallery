@@ -77,6 +77,8 @@ export interface IProgressBarProps {
     activePageTransition: string;
     activeSlideIndex: number;
     animation: string;
+    height: number;
+    setActivePageTransitionHeight: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface ICardToGridProps {

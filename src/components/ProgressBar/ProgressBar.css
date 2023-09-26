@@ -115,9 +115,6 @@
         margin-right: 10px;
     }
     .active-page-container {
-        width: 16px;
-    }
-    .page-count, .slide-nb {
-        /* font-size: 2vw; */
+        left: 8px;
     }
 }
