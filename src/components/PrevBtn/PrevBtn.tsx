@@ -32,8 +32,6 @@ const PrevBtn = ({
     }
   }, [selectedGallery, setDisablePrev])
 
-  //TODO: onmouse pour gérer le hover (je pense que ça ne fonctionne pas à cause du composant Cursor) // Ajouter grâce à la classe btn-expand
-
   return (
     <div 
       className="prev-wrapper" 
@@ -42,7 +40,7 @@ const PrevBtn = ({
       style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "20%" : ""} } 
     >
       <button
-        className={`prev-btn btn-expand ${slidePrev ? "prev-btn-animation" : ""} ${disablePrev ? "disable-btn" : ""}`} 
+        className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${disablePrev ? "disable-btn" : ""}`} 
         onClick={handleClick} 
         disabled={disablePrev}
       >{text}</button>
