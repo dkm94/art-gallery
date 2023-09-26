@@ -22,6 +22,7 @@ export type Section = {
     title: string;
     background: BackgroundDetails;
     gallery: Gallery[];
+    external: string;
 };
 
 export type Mode = "selected" | "not-selected"
@@ -84,11 +85,13 @@ export interface IProgressBarProps {
 export interface ICardToGridProps {
     animation: string;
     device: string;
+    url: string;
 }
 
 export interface ICardToGridBtnProps {
     title: string;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    url: string;
 }
 
 export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "showView" | "galleryId" | "setShowViewBtn" | "setAnimation" | "animation" > {

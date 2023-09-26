@@ -48,6 +48,7 @@
 @media screen and (max-width: 768px) {
     .card-to-grid-mobile {
         display: flex;
+        z-index: 1000;
     }
     .card-to-grid__btn {
         height: fit-content;

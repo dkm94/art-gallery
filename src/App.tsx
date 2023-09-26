@@ -31,8 +31,7 @@ function App() {
 
   useEffect(() => {
     if(response){
-    const { gallery } = response;
-    setContent(gallery);
+    setContent(response);
   }
   }, [response])
 
