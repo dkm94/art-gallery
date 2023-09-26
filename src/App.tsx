@@ -62,6 +62,7 @@ function App() {
               height={titleHeight}
               setTitleHeight={setTitleHeight}
               slide={slide}
+              gallery={content}
             />
           </>
           

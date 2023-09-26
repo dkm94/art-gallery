@@ -6,8 +6,6 @@ import { NextBtn, PrevBtn } from "..";
 import { IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, ProgressBar } from "..";
 
-// TODO: block buttons onclick when animation is running
-
 const Main = ({ 
   setBackground, 
   gallery, 

@@ -14,8 +14,6 @@ const ViewBtn = ({
   animation 
 }: IViewBtnProps) => {
 
-  // console.count("ViewBtn");
-  
   const handleBtn = (galleryId: number) => {
     showView(galleryId);
     setAnimation("fixcards")
