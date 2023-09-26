@@ -21,6 +21,9 @@ const Main = ({
     // Formatted array of gallery with id and cover image
     const [array, setArray] = useState<Gallery[]>([]);
 
+    // External link
+    const [url, setUrl] = useState<string>("");
+
     // Manage the rotation of the carousel
     const [oppositeDegree, setOppositeDegree] = useState<boolean>(false);
     const [rotate, setRotate] = useState<boolean>(false);
@@ -59,7 +62,8 @@ const Main = ({
 
     useEffect(() => {
       setSlide(activeSlideIndex);
-    }, [activeSlideIndex, setSlide]);
+      setUrl(gallery[selectedGallery - 1].external);
+    }, [activeSlideIndex, gallery, selectedGallery, setSlide]);
 
     const moveCardToBack = ():void => {
       if(array.length > 0){
@@ -194,7 +198,7 @@ const Main = ({
           )}
         </section>
         <section className='center-col'>
-          <CardToGrid key={2} device={"mobile"} animation={animation} />
+          <CardToGrid key={2} device={"mobile"} animation={animation} url={url} />
           <div className="carousel-wrapper">
             <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
               <PrevBtn 
@@ -251,7 +255,7 @@ const Main = ({
           />
         </section>
         <section className='right-col'>
-          <CardToGrid key={4} device={"desktop"} animation={animation} />
+          <CardToGrid key={4} device={"desktop"} animation={animation} url={url} />
           {thisGallery && <div data-id={thisGallery[2].id} className={`third-image ${animation === "fixcards" ? "slide-third-img" : ""}`}>
             <img src={thisGallery[2].img || ""} alt="" loading="lazy" />
           </div>}

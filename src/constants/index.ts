@@ -150,7 +150,7 @@ export const gallery: Section[] = [
     },
     {
         id: 6,
-        title: "MonDi",
+        title: "MonDì",
         background: backgrounds[5],
         gallery: fantasy
     }
