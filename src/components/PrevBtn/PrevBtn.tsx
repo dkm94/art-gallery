@@ -40,7 +40,7 @@ const PrevBtn = ({
       style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "20%" : ""} } 
     >
       <button
-        className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""}${disablePrev ? "disable-btn" : ""}`} 
+        className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${disablePrev ? "disable-btn" : ""}`} 
         onClick={handleClick} 
         disabled={disablePrev}
       >{text}</button>

@@ -286,6 +286,12 @@
     .prev-btn-animation {
         left: 0px;
     }
+    .next-btn, .prev-btn {
+        border: 1px solid #f2ede6;
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+    }
 }
 
 @media only screen and (max-width: 576px) {
