@@ -316,4 +316,16 @@
     #page-title > div {
         font-size: 20vw;
     }
+    .next-btn, .prev-btn {
+        border: 1px solid #f2ede6;
+        border-radius: 50%;
+        height: 55px;
+        width: 55px;
+    }
+    .prev-btn {
+        left: -10px;
+    }
+    .next-btn {
+        right: -10px;
+    }
 }
