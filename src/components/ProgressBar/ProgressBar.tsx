@@ -1,18 +1,26 @@
-import { forwardRef } from "react";
+import { MutableRefObject, useRef } from "react";
+import { useResizeObserver } from "../../hooks";
+
 import { IProgressBarProps } from "../../../types";
 import "./ProgressBar.css";
 
 export type Ref = HTMLDivElement;
 
-const ProgressBar = forwardRef<Ref, IProgressBarProps>(({
+const ProgressBar = ({
     device, 
     galleryLength, 
     activePageTransition, 
     activeSlideIndex,
     animation,
-    height
-}, ref) => {
+    height,
+    setActivePageTransitionHeight
+}: IProgressBarProps) => {
     const array: number[] = [];
+
+    const elementRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
+    useResizeObserver(elementRef, (height) => {
+        setActivePageTransitionHeight(height);
+    });
     
     for(let i = 1; i <= galleryLength; i++){
         array.push(i);
@@ -28,7 +36,7 @@ const ProgressBar = forwardRef<Ref, IProgressBarProps>(({
             <div className="active-page" style={{ height }}>
                 {array.map((item, index) => {
                     return (
-                        <div ref={ref} className="slide-nb" key={index}  style={activePageTransition ? {transform: activePageTransition, transition: "transform .5s ease-in-out"} : {} }>{`0${item}`}</div>
+                        <div ref={elementRef} className="slide-nb" key={index}  style={activePageTransition ? {transform: activePageTransition, transition: "transform .5s ease-in-out"} : {} }>{`0${item}`}</div>
                     )
                 })}
             </div>
@@ -46,6 +54,6 @@ const ProgressBar = forwardRef<Ref, IProgressBarProps>(({
         </div>
     </div>
   )
-})
+};
 
 export default ProgressBar

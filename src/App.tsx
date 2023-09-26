@@ -22,7 +22,8 @@ function App() {
 
   // Title's height
   const title: Element | null = document?.querySelector<HTMLElement>(".title");
-  const defaultHeight: number = title?.offsetHeight;
+  const defaultHeight: number = title instanceof HTMLElement ? title.offsetHeight : 0;
+
   const [titleHeight, setTitleHeight] = useState<number>(defaultHeight);
 
   // Slide number is used to manage animations

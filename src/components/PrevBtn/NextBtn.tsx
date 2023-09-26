@@ -1,6 +1,6 @@
 import { INextBtnProps } from "../../../types"
 
-const NextBtn = ({ setSlideNext, slideNext, selectedGallery, max, nextOne }: INextBtnProps ) => {
+const NextBtn = ({ setSlideNext, slideNext, selectedGallery, galleryLength, nextOne }: INextBtnProps ) => {
   const handleMouseOver: React.MouseEventHandler<HTMLButtonElement> = () => {
     if(typeof setSlideNext !== "undefined"){
       setSlideNext(true)
@@ -16,9 +16,9 @@ const NextBtn = ({ setSlideNext, slideNext, selectedGallery, max, nextOne }: INe
   return (
     <div className="next-wrapper" onMouseOver={() => handleMouseOver} onMouseOut={() => handleMouseOut} >
         <button 
-        className={`next-btn ${slideNext ? "next-btn-animation" : ""} ${selectedGallery === max ? "disable-btn" : ""}`} 
+        className={`next-btn ${slideNext ? "next-btn-animation" : ""} ${selectedGallery === galleryLength ? "disable-btn" : ""}`} 
         onClick={nextOne} 
-        disabled={selectedGallery === max}>Next</button>
+        disabled={selectedGallery === galleryLength}>Next</button>
         <div className={`next-line ${slideNext ? "next-line-animation" : ""}`}/>
     </div>
   )
