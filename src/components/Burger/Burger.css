@@ -45,9 +45,7 @@
     border-radius: 3px;
     transition: rotate 0.8s ease-in-out, width 1s ease-in-out, box-shadow 0.4s ease-in-out;
 }
-.button-burger__line:first-child {
-    /* width: 60%; */
-}
+
 .button-burger__line:nth-child(2) {
     width: 60%;
 }

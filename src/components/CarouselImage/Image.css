@@ -1,7 +1,6 @@
 .img {
     position: absolute;
     height: 80%;
-    /* width: 340px; */
     width: 50%;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
@@ -19,7 +18,7 @@
     animation: 1s ease-in rotateAll forwards;
 } */
 
-/* Au clic de la dernière image, ajouter une classe d'animation */
+/* Carousel animation, swipe cover */
 .swipe-right:last-of-type {
     animation: 0.5s ease-in-out rotateX forwards;
 }

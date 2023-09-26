@@ -28,13 +28,11 @@
     margin-right: auto;
 }
 .title-container {
-    /* height: 20%; */
     width: 100%;
     position: relative;
 }
 #page-title {
     position: absolute;
-    /* bottom: 0px; */
     top: 0;
     width: 100%;
     transform: translate(0px, 0px);
@@ -43,23 +41,18 @@
     overflow: hidden;
     animation-name: slide-in-title 1s 1s forwards;
     animation-duration: 1s;
-    /* animation-fill-mode: forwards; */
-    /* background-color: green; */
 }
 #page-title > div {
     text-align: center;
     font-weight: normal;
-    /* font-size: 13vw; */
     font-size: 11vw;
     margin: 0;
     opacity: 0.6;
 }
 .carousel-wrapper {
-    /* position: relative; */
     display: flex;
     flex-direction: row;
     width: 100%;
-    /* background: red; */
     height: 80%;
 }
 .btns-wrapper {
@@ -78,10 +71,6 @@
 }
 
 .prev-wrapper {
-    /* height: 100px;
-    width: 100px;
-    position: absolute; */
-    /* top: 0px; */
     left: 65px;
     display: flex;
     justify-content: flex-start;
@@ -89,10 +78,6 @@
     z-index: 1;
 }
 .next-wrapper {
-    /* height: 6rem;
-    width: 6rem; */
-    /* position: absolute; */
-    /* top: 0px; */
     right: 65px;
     display: flex;
     justify-content: flex-end;
@@ -168,14 +153,6 @@
 }
 .slide-to-top {
     animation: slideToTop 1s forwards;
-    /* transform: translate(0, 10vh); */
-    /* top: -90vh; */
-    /* top: 10vh; */
-    /* top: 10vh; */
-
-    /* top: 10vh; */
-    /* animation-duration: 1s;
-    animation-fill-mode: forwards; */
 }
 
 .first-image {
@@ -199,7 +176,6 @@
     animation-delay: 1s;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    /* transform: translate(0px, 240px); */
     transform: translate(0px, 640px);
     z-index: 10;
 }
@@ -210,7 +186,6 @@
     animation-fill-mode: forwards;
     transform: translate(0px, 640px);
     z-index: 10;
-    /* maxheight: 350px; */
 }
 
 @keyframes slideToTop {
@@ -222,9 +197,7 @@
 
     } to {
         transform: translate(0, 15vh);
-        /* top: 5vh; */
         position: fixed;
-        /* color: red; */
     }
 }
 
