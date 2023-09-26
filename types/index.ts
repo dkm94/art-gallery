@@ -1,4 +1,3 @@
-import { gallery } from './../src/constants/index';
 export type ErrorProps = {
     message: string
 }

@@ -28,7 +28,7 @@ const Image = ({
   const firstImageId = firstCover?.getAttribute("data-id");
 
   useEffect(() => {
-    setCoverId(Number(firstImageId)); // Id 1ère image de couverture, change à chaque clic de NEXT
+    setCoverId(Number(firstImageId)); //First image's cover's id, changing on click
   }, [firstImageId])
   
   useEffect(() => {
