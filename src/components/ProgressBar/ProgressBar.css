@@ -1,12 +1,19 @@
 .progress-container {
-    /* position: relative; */
-    top: 18%;
+    position: absolute;
+    top: 27%;
     left: 0px;
     animation-name: slide-in-progress;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     width: 30px;
     padding-left: 50px;
+}
+.progress-container-mobile {
+    display: none;
+    animation-name: slide-in-progress;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    width: 30px;
 }
 .active-page-container {
     position: relative;
@@ -84,5 +91,30 @@
         transform: translate(-140px, 0px);
     } to {
         transform: translate(0px, 0px);
+    }
+}
+@media only screen and (max-width: 768px) {
+    .progress-container-mobile {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+    .progress {
+        transform: unset;
+        top: 8px;
+        left: 0px;
+    }
+    .progress-bar {
+        width: 140px;
+        height: 20px;
+    }
+    .progress-bar-container {
+        height: fit-content;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .active-page-container {
+        left: 8px;
     }
 }

@@ -24,9 +24,6 @@ export type Section = {
     gallery: Gallery[];
 };
 
-export type DisplayMode = "card" | "grid"
-export type DisplayTitle = "Card" | "Grid"
-
 export type Mode = "selected" | "not-selected"
 
 export interface ICurrentBackgroundCtx {
@@ -75,21 +72,22 @@ export interface ICarouselTitleProps {
 }
 
 export interface IProgressBarProps {
+    device: string;
     galleryLength: number;
     activePageTransition: string;
     activeSlideIndex: number;
     animation: string;
+    height: number;
+    setActivePageTransitionHeight: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface ICardToGridProps {
-    display: DisplayMode;
-    setDisplay: React.Dispatch<React.SetStateAction<DisplayMode>>;
     animation: string;
+    device: string;
 }
 
-export interface ICardToGridBtnProps extends Omit<ICardToGridProps, "animation"> {
-    mode: DisplayMode;
-    title: DisplayTitle;
+export interface ICardToGridBtnProps {
+    title: string;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -103,6 +101,8 @@ export interface IPrevBtnProps {
     setSlidePrev?: React.Dispatch<React.SetStateAction<boolean>>;
     slidePrev?: boolean | undefined;
     selectedGallery?: number;
+    disablePrev?: boolean;
+    setDisablePrev?: React.Dispatch<React.SetStateAction<boolean>>;
     prevOne?: () => void;
     getBack?: () => void;
 }
@@ -113,4 +113,6 @@ export interface INextBtnProps {
     selectedGallery: number;
     galleryLength: number;
     nextOne: () => void;
+    disableNext: boolean;
+    setDisableNext: React.Dispatch<React.SetStateAction<boolean>>;
 }

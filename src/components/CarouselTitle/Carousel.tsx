@@ -24,14 +24,14 @@ const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, sli
     <div 
       className={`title-container`} 
       style={{ 
-        height, 
+        // height, 
         top: animation === "fixcards" ? "10vh" : "0px", 
         transform: animation === "fixcards" ? `translateY(-95vh)` : `translateY(-${height}px)`, 
         transition: "transform .5s ease-in-out" }}
     >
       <div 
         id="page-title"
-        style={{ height}}
+        // style={{ height }}
       >{gallery?.map((item, index) => 
         { 
           return (

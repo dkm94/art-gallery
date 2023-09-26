@@ -4,11 +4,13 @@ import "./ProgressBar.css";
 
 export type Ref = HTMLDivElement;
 
-const ProgressBar = forwardRef<Ref, IProgressBarProps>(({ 
+const ProgressBar = forwardRef<Ref, IProgressBarProps>(({
+    device, 
     galleryLength, 
     activePageTransition, 
-    activeSlideIndex, 
-    animation
+    activeSlideIndex,
+    animation,
+    height
 }, ref) => {
     const array: number[] = [];
     
@@ -21,9 +23,9 @@ const ProgressBar = forwardRef<Ref, IProgressBarProps>(({
       };
 
   return (
-    <div className={`progress-container ${animation === "fixcards" ? "fadeout" : "" }`}>
+    <div className={`${device === "desktop" ? "progress-container" : "progress-container-mobile"} ${animation === "fixcards" ? "fadeout" : "" }`}>
         <div className={`active-page-container`}>
-            <div className="active-page">
+            <div className="active-page" style={{ height }}>
                 {array.map((item, index) => {
                     return (
                         <div ref={ref} className="slide-nb" key={index}  style={activePageTransition ? {transform: activePageTransition, transition: "transform .5s ease-in-out"} : {} }>{`0${item}`}</div>

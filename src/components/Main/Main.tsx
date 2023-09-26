@@ -1,14 +1,12 @@
 import "./Main.css";
 
-import { useEffect, useState, useRef, MutableRefObject } from "react";
-import { useResizeObserver } from "../../hooks";
+import { useEffect, useState } from "react";
 
 import { NextBtn, PrevBtn } from "..";
-import { DisplayMode, IMainProps, Gallery } from "../../../types";
+import { IMainProps, Gallery } from "../../../types";
 import { CardToGrid, Carousel, ProgressBar } from "..";
 
-//TODO: Responsive design: hide vertical carousel, and display at the bottom of the page, on top of the title
-//TODO: Responsive design: hide card to grid vertical buttons, and display at the top of the page, on top of the image carousel
+// TODO: block buttons onclick when animation is running
 
 const Main = ({ 
   setBackground, 
@@ -46,18 +44,16 @@ const Main = ({
     // Manage the view button
     const [showViewBtn, setShowViewBtn] = useState<boolean>(false);
 
+    // handle disable button
+    const [disablePrev, setDisablePrev] = useState<boolean>(false);
+    const [disableNext, setDisableNext] = useState<boolean>(false);
+
     // Manage vertical carousel (showing active page number) 
     const slideNb: Element | null = document?.querySelector<HTMLElement>(".slide-nb");
     const defaultSlideNbHeight: number = slideNb?.offsetHeight;
     const [activePageTransitionHeight, setActivePageTransitionHeight] = useState<number>(defaultSlideNbHeight);
+    
     const [activePageTransition, setActivePageTransition] = useState<string>("");
-    const activePageRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
-    useResizeObserver(activePageRef, (height) => {
-      setActivePageTransitionHeight(height);
-    });
-
-    // Manage the display mode
-    const [display, setDisplay] = useState<DisplayMode>("card");
 
     const galleryLength:number = gallery.length;
 
@@ -105,12 +101,14 @@ const Main = ({
       setFadeOut(true);
       setSwipe(true);
       setOppositeDegree(!oppositeDegree);
+      setDisableNext(true);
       setTimeout(() => {
         changeTitle("next");
         moveCardToBack()
         selectedGallery < galleryLength && setSelectedGallery(selectedGallery + 1);
         setSelectedGalleryName(gallery[selectedGallery]?.title);
-        setBackground(selectedGallery)
+        setBackground(selectedGallery);
+        setDisableNext(false);
       }, 500);
     }
     
@@ -119,13 +117,15 @@ const Main = ({
       setFadeOut(true);
       setSwipe(true);
       setOppositeDegree(!oppositeDegree);
+      setDisablePrev(true);
       setTimeout(() => {
         changeTitle("prev");
         bringCardToFront()
         selectedGallery > 0 && setSelectedGallery(selectedGallery - 1);
         const x:number = selectedGallery - 1;
         setSelectedGalleryName(gallery[x - 1]?.title);
-        setBackground(x - 1)
+        setBackground(x - 1);
+        setDisablePrev(false);
       }, 500);
     }
 
@@ -143,14 +143,14 @@ const Main = ({
                 activeSlideIndex = 0;
             }
             slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
-            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * activePageTransitionHeight}px)`);
+            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * 21.5}px)`);
         } else if(direction === "prev"){
             activeSlideIndex--;
             if(activeSlideIndex < 0){
                 activeSlideIndex = galleryLength - 1;
             }
             slideHeight && setSlideTransition(`translateY(-${activeSlideIndex * slideHeight}px)`);
-            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * activePageTransitionHeight}px)`);
+            slideHeight && setActivePageTransition(`translateY(-${activeSlideIndex * 21.5}px)`);
         }
     }
 
@@ -169,12 +169,15 @@ const Main = ({
   return (
     <div className='content'>
         <section className='left-col'>
-          <ProgressBar 
+          <ProgressBar
+          key={1}
+          device="desktop"
           galleryLength={galleryLength} 
-          activePageTransition={activePageTransition} 
+          activePageTransition={activePageTransition}
+          height={activePageTransitionHeight}
           activeSlideIndex={activeSlideIndex} 
           animation={animation}
-          ref={activePageRef}
+          setActivePageTransitionHeight={setActivePageTransitionHeight}
           />
           {thisGallery && <div data-id={thisGallery[1].id} className={`first-image ${animation === "fixcards" ? "slide-first-img" : ""}`}>
             <img src={thisGallery[1].img || ""} alt="" loading="lazy" />
@@ -191,6 +194,7 @@ const Main = ({
           )}
         </section>
         <section className='center-col'>
+          <CardToGrid key={2} device={"mobile"} animation={animation} />
           <div className="carousel-wrapper">
             <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
               <PrevBtn 
@@ -200,7 +204,9 @@ const Main = ({
                 setSlidePrev={setSlidePrev} 
                 slidePrev={slidePrev} 
                 selectedGallery={selectedGallery} 
-                prevOne={prevOne} 
+                prevOne={prevOne}
+                disablePrev={disablePrev}
+                setDisablePrev={setDisablePrev}
               />
             </div>
             <Carousel 
@@ -227,13 +233,25 @@ const Main = ({
               slideNext={slideNext} 
               selectedGallery={selectedGallery} 
               galleryLength={galleryLength} 
-              nextOne={nextOne} 
+              nextOne={nextOne}
+              disableNext={disableNext}
+              setDisableNext={setDisableNext}
               />
             </div>
           </div>
+          <ProgressBar
+          key={3}
+          device="mobile"
+          galleryLength={galleryLength} 
+          activePageTransition={activePageTransition} 
+          activeSlideIndex={activeSlideIndex} 
+          animation={animation}
+          height={activePageTransitionHeight}
+          setActivePageTransitionHeight={setActivePageTransitionHeight}
+          />
         </section>
         <section className='right-col'>
-          <CardToGrid display={display} setDisplay={setDisplay} animation={animation} />
+          <CardToGrid key={4} device={"desktop"} animation={animation} />
           {thisGallery && <div data-id={thisGallery[2].id} className={`third-image ${animation === "fixcards" ? "slide-third-img" : ""}`}>
             <img src={thisGallery[2].img || ""} alt="" loading="lazy" />
           </div>}
