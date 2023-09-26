@@ -300,6 +300,7 @@
     }
     .prev-btn {
         left: -10px;
+        top: 0px;
     }
     .next-btn {
         right: -10px;
