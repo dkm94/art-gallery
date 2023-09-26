@@ -70,6 +70,7 @@ export interface ICarouselTitleProps {
     height: number;
     setTitleHeight: React.Dispatch<React.SetStateAction<number>>;
     slide: number;
+    gallery: Section[];
 }
 
 export interface IProgressBarProps {

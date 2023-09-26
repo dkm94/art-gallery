@@ -20,11 +20,10 @@
 }
 
 .artist {
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    text-align: center;
     place-self: center;
     text-transform: uppercase;
-    /* font-size: 1.2rem; */
     font-size: 1.2vw;
     letter-spacing: 11px;
 }
@@ -58,6 +57,10 @@
 }
 
 @media screen and (max-width: 576px) {
+    .header-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
     .button-burger {
         width: 44px !important;
         gap: 6px !important;
