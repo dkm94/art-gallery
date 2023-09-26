@@ -4,9 +4,8 @@ import { MutableRefObject, useRef } from "react";
 import { useResizeObserver } from "../../hooks";
 
 import { ICarouselTitleProps } from '../../../types';
-import { gallery } from "../../constants";
 
-const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, slide }: ICarouselTitleProps) => {
+const CarouselTitle = ({ slideTransition, animation, height, setTitleHeight, slide, gallery }: ICarouselTitleProps) => {
 
   // Get the title's height
   const titleHeightRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
