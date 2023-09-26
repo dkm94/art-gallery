@@ -26,3 +26,7 @@
 
 .cursor.hover:after { opacity: 0; }
 .cursor.hover:before { opacity: 1; }
+
+@media screen and (max-width: 768px) {
+	.cursor { display: none; }
+}
