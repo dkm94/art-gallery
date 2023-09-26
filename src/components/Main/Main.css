@@ -234,8 +234,11 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .left-col, .right-col, .prev-line, .next-line {
+    .right-col, .prev-line, .next-line, .first-image, .progress-container {
         display: none;
+    }
+    .left-col {
+        width: 0;
     }
     .center-col {
         width: 100%;
