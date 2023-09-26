@@ -50,7 +50,7 @@ const Main = ({
 
     // Manage vertical carousel (showing active page number) 
     const slideNb: Element | null = document?.querySelector<HTMLElement>(".slide-nb");
-    const defaultSlideNbHeight: number = slideNb?.offsetHeight;
+    const defaultSlideNbHeight: number = (slideNb as HTMLElement)?.offsetHeight || 0;
     const [activePageTransitionHeight, setActivePageTransitionHeight] = useState<number>(defaultSlideNbHeight);
     
     const [activePageTransition, setActivePageTransition] = useState<string>("");
