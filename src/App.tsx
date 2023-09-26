@@ -12,7 +12,6 @@ function App() {
   // Fetch data
   const { error, isPending, response } = useFetch("gallery.json", {});
   const [content, setContent] = useState<Section[]>([]);
-  console.log("🚀 ~ file: App.tsx:15 ~ App ~ content:", content)
 
   // Screen's background
   const [background, setBackground] = useState<number>(0);
@@ -32,8 +31,7 @@ function App() {
 
   useEffect(() => {
     if(response){
-    const { gallery } = response;
-    setContent(gallery);
+    setContent(response);
   }
   }, [response])
 

@@ -13,7 +13,8 @@ const useFetch = (url:string, options:any) => {
                     ...options
                     });
                 const json: any = await res.json();
-                setResponse(json);
+                const { gallery } = json;
+                setResponse(gallery);
             } catch (error: any) {
                 console.error(error);
                 setError(error.message);
