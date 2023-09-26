@@ -3,7 +3,6 @@ import { useEffect, RefObject } from "react";
 type ResizeCallback = (height: number) => void;
 
 const useResizeObserver = (elementRef : RefObject<HTMLElement | null>, callback:ResizeCallback) => {
-    console.log("🚀 ~ file: useResizeObserver.tsx:6 ~ useResizeObserver ~ elementRef:", elementRef)
     useEffect(() => {
     const element = elementRef.current;
 
@@ -15,8 +14,7 @@ const useResizeObserver = (elementRef : RefObject<HTMLElement | null>, callback:
         if (entries.length > 0) {
         const divElement = entries[0];
         const height = divElement?.contentRect.height;
-        // console.log("🚀 ~ file: useResizeObserver.tsx:17 ~ observer ~ height:", height)
-        callback(height);
+        height > 0 && callback(height);
         }
     });
 
