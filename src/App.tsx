@@ -1,21 +1,72 @@
 import './App.css';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import useFetch from './hooks/useFetch';
 
-import { Cursor, Header, Main } from './components';
+import { Cursor, Header, Main, CarouselTitle, Loader, Error } from './components';
 import { BackgroundCtx } from './context';
-import { backgrounds, gallery } from './constants';
-
+import { backgrounds } from './constants';
+import { Section } from '../types';
 
 function App() {
+  // Fetch data
+  const { error, isPending, response } = useFetch("gallery.json", {});
+  const [content, setContent] = useState<Section[]>([]);
+
+  // Screen's background
   const [background, setBackground] = useState<number>(0);
-  // modifier le contexte et passer toute la gallery
+
+  // Trigger slide animation
+  const [slideTransition, setSlideTransition] = useState<string>("");
+  const [animation, setAnimation] = useState<string>("");
+
+  // Title's height
+  const title: Element | null = document?.querySelector<HTMLElement>(".title");
+  const defaultHeight: number = title?.offsetHeight;
+  const [titleHeight, setTitleHeight] = useState<number>(defaultHeight);
+
+  // Slide number is used to manage animations
+  const [slide, setSlide] = useState<number>(0);
+
+  useEffect(() => {
+    if(response){
+    const { gallery } = response;
+    setContent(gallery);
+  }
+  }, [response])
+
   return (
     <BackgroundCtx.Provider value={{ background }}>
       <Cursor />
-      <div className={`app bg-fade-out`} style={{ backgroundColor: backgrounds[background].color, backgroundImage: `url(${backgrounds[background].data})`}} >
+      <div 
+        className={`app bg-fade-out`} 
+        style={{ backgroundColor: backgrounds[background].color, backgroundImage: `url(${backgrounds[background].data})`}} 
+      >
         <Header />
-        <Main setBackground={setBackground} gallery={gallery} />
+        { isPending && <Loader />}
+        { error && <Error message={error} /> }
+        { !isPending && !error && response && content.length > 0 && (
+          <>
+            <Main 
+            setBackground={setBackground} 
+            gallery={content} 
+            setSlideTransition={setSlideTransition} 
+            setAnimation={setAnimation} 
+            animation={animation}
+            slideHeight={titleHeight}
+            setSlide={setSlide}
+            />
+            <CarouselTitle 
+              slideTransition={slideTransition} 
+              animation={animation} 
+              height={titleHeight}
+              setTitleHeight={setTitleHeight}
+              slide={slide}
+            />
+          </>
+          
+        )}
+        
       </div>
     </BackgroundCtx.Provider>
   )

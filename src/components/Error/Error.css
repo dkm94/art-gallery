@@ -1,0 +1,32 @@
+.error-container {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error-container > span:nth-child(1) {
+    font-size: 5vw;
+    font-weight: bold;
+}
+.error-container > span:nth-child(2) {
+    font-size: 2vw;
+}
+
+@media screen and (max-width: 768px) {
+    .error-container > span:nth-child(1) {
+        font-size: 5vw;
+        font-weight: bold;
+    }
+    .error-container > span:nth-child(2) {
+        font-size: 3vw;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .error-container > span:nth-child(2) {
+        font-size: 3.5vw;
+    }
+}

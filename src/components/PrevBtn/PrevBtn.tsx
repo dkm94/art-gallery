@@ -1,42 +1,52 @@
+import { useEffect } from "react";
+
 import { IPrevBtnProps } from "../../../types"
 
-const PrevBtn = ({ text, setSlidePrev, slidePrev, selectedGallery, prevOne, getBack }: IPrevBtnProps ) => {
-  const handleMouseOver: React.MouseEventHandler<HTMLDivElement> = ():void => {
-    if(typeof setSlidePrev !== "undefined"){
-      setSlidePrev(true)
-    }
-  }
-  const handleMouseOut: React.MouseEventHandler<HTMLDivElement> = ():void => {
-    if(typeof setSlidePrev !== "undefined"){
-      setSlidePrev(false)
-    }
-  }
+const PrevBtn = ({ 
+  mode,
+  text,
+  setSlidePrev, 
+  slidePrev, 
+  selectedGallery, 
+  prevOne, 
+  getBack, 
+  disablePrev, 
+  setDisablePrev 
+}: IPrevBtnProps ) => {
+
+  const handleMouseOver: React.MouseEventHandler<HTMLDivElement> = ():void => setSlidePrev && setSlidePrev(true);
+
+  const handleMouseOut: React.MouseEventHandler<HTMLDivElement> = ():void => setSlidePrev && setSlidePrev(false);
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = ():void => {
-    if(typeof prevOne !== "undefined"){
-      prevOne()
-      return;
-    }
-    if(typeof getBack !== "undefined"){
-      getBack()
-    }
+    prevOne ? prevOne() : getBack && getBack();
   }
 
-  const isDisabled = ():boolean => {
-    if(typeof selectedGallery !== "undefined" && selectedGallery < 2){
-      return true;
+  useEffect(() => {
+    if(setDisablePrev){
+      if(selectedGallery && selectedGallery < 2){
+        setDisablePrev(true);
+      } else {
+        setDisablePrev(false);
+      }
     }
-    return false;
-  }
+  }, [selectedGallery, setDisablePrev])
+
+  //TODO: onmouse pour gérer le hover (je pense que ça ne fonctionne pas à cause du composant Cursor) // Ajouter grâce à la classe btn-expand
 
   return (
-    <div className="prev-wrapper" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >
-        <button 
-        className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${selectedGallery === 1 ? "disable-btn" : ""}`} 
+    <div 
+      className="prev-wrapper" 
+      onMouseOver={handleMouseOver} 
+      onMouseOut={handleMouseOut} 
+      style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "20%" : ""} } 
+    >
+      <button
+        className={`prev-btn btn-expand ${slidePrev ? "prev-btn-animation" : ""} ${disablePrev ? "disable-btn" : ""}`} 
         onClick={handleClick} 
-        disabled={isDisabled()}
-        >{text}</button>
-        <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
+        disabled={disablePrev}
+      >{text}</button>
+      <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
     </div>
   )
 }

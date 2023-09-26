@@ -1,14 +1,16 @@
 .header {
     display: flex;
     justify-content: center;
-    padding-top: 45px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-bottom: 0;
+    height: 10vh;
 }
 
 .header-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
     max-width: 1450px;
     width: 100%;
     animation-name: slide-in-top;
@@ -20,8 +22,10 @@
 .artist {
     margin-left: auto;
     margin-right: auto;
+    place-self: center;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
+    font-size: 1.2vw;
     letter-spacing: 11px;
 }
 
@@ -40,5 +44,33 @@
     } to {
         opacity: 1;
         transform: translate(0px, 0px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .artist {
+        font-size: 2vw;
+    }
+    .header-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .button-burger {
+        width: 44px !important;
+        gap: 6px !important;
+    }
+    .ext-link {
+        width: 44px !important;
+    }
+    .ext-link > img {
+        width: 100%;
+        object-fit: contain;
+    }
+    .artist {
+        letter-spacing: 8px;
+        font-size: 2.5vw;
     }
 }
