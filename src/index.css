@@ -1,3 +1,7 @@
+html {
+  overflow: hidden;
+}
+
 :root {
   font-family: 'Prata', serif;
   color: #f2ede6;
