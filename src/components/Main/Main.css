@@ -255,6 +255,7 @@
     }
     .prev-wrapper, .next-wrapper {
         position: absolute !important;
+        z-index: 1000;
     }
     .next-btn-animation {
         right: 0px;
@@ -300,7 +301,7 @@
     }
     .prev-btn {
         left: -10px;
-        top: 0px;
+        /* top: 0px; */
     }
     .next-btn {
         right: -10px;

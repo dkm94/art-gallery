@@ -13,6 +13,7 @@ const PrevBtn = ({
   disablePrev, 
   setDisablePrev 
 }: IPrevBtnProps ) => {
+  console.log("🚀 ~ file: PrevBtn.tsx:16 ~ mode:", mode)
 
   const handleMouseOver: React.MouseEventHandler<HTMLDivElement> = ():void => setSlidePrev && setSlidePrev(true);
 
@@ -37,7 +38,7 @@ const PrevBtn = ({
       className="prev-wrapper" 
       onMouseOver={handleMouseOver} 
       onMouseOut={handleMouseOut} 
-      style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "20%" : ""} } 
+      style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "25%" : ""} } 
     >
       <button
         className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${disablePrev ? "disable-btn" : ""}`} 

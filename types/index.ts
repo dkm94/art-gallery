@@ -56,9 +56,10 @@ export interface ICarouselProps extends Pick<IMainProps, "gallery" > {
     handleChangeRotation: (index: number) => string;
     setAnimation: React.Dispatch<React.SetStateAction<string>>;
     animation: string;
+    thisGallery: Gallery[] | undefined;
 }
 
-export interface ICarouselImageProps extends Pick<ICarouselProps, "setRotate" | "rotate" | "swipe" | "showViewBtn" | "setShowViewBtn" | "showView" | "handleChangeRotation" | "setAnimation" | "animation"  > {
+export interface ICarouselImageProps extends Pick<ICarouselProps, "setRotate" | "rotate" | "swipe" | "showViewBtn" | "setShowViewBtn" | "showView" | "handleChangeRotation" | "setAnimation" | "animation" | "thisGallery"  > {
     index: number;
     galleryId: number;
     src: string | null;

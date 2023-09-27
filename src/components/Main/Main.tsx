@@ -228,6 +228,7 @@ const Main = ({
               handleChangeRotation={handleChangeRotation}
               setAnimation={setAnimation}
               animation={animation}
+              thisGallery={thisGallery}
             />
             <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
               <NextBtn 
