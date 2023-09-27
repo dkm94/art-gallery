@@ -44,7 +44,6 @@ const PrevBtn = ({
         className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${disablePrev ? "disable-btn" : ""}`} 
         onClick={handleClick} 
         disabled={disablePrev}
-        // style={{ top: mode === "selected" ? "0px" : ""}}
       >{text}</button>
       <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
     </div>
