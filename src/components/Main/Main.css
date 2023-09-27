@@ -16,13 +16,13 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: 90dvh;
     overflow: visible;
 }
 .content {
     display: flex;
     flex-direction: row;
-    min-height: 90vh;
+    min-height: 90dvh;
     max-width: 1450px;
     margin-left: auto;
     margin-right: auto;
@@ -190,13 +190,13 @@
 
 @keyframes slideToTop {
     from {
-        top: 90vh;
-        transform: translate(0px, 90vh);
+        top: 90dvh;
+        transform: translate(0px, 90dvh);
         color: #000;
 
 
     } to {
-        transform: translate(0, 15vh);
+        transform: translate(0, 15dvh);
         position: fixed;
     }
 }
