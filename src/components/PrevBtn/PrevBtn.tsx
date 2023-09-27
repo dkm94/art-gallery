@@ -38,13 +38,13 @@ const PrevBtn = ({
       className="prev-wrapper" 
       onMouseOver={handleMouseOver} 
       onMouseOut={handleMouseOut} 
-      style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "20%" : ""} } 
+      style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "25%" : ""} } 
     >
       <button
         className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${disablePrev ? "disable-btn" : ""}`} 
         onClick={handleClick} 
         disabled={disablePrev}
-        style={{ top: mode === "selected" ? "0px" : ""}}
+        // style={{ top: mode === "selected" ? "0px" : ""}}
       >{text}</button>
       <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
     </div>

@@ -17,7 +17,8 @@ const Image = ({
   showView,
   handleChangeRotation,
   setAnimation,
-  animation
+  animation,
+  thisGallery
 }: ICarouselImageProps) => {
 
   const [coverId, setCoverId] = useState<number>(0);
@@ -65,7 +66,8 @@ const Image = ({
       backgroundImage: `url(${src})`, 
       backgroundSize: "cover", 
       display: index === 0 || index === 1 ? "none" : "block",
-      backgroundPosition: "center"
+      backgroundPosition: "center",
+      // width: `${thisGallery ? "65%" : "50%"}`,
     }}
     onMouseOver={displayBtn}
     onMouseOut={() => hideBtn(selectedImage)}

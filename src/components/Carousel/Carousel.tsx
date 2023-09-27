@@ -21,7 +21,8 @@ const Carousel = ({
     showView,
     handleChangeRotation,
     setAnimation,
-    animation
+    animation,
+    thisGallery
 }: ICarouselProps) => {
     
     useEffect(() => {
@@ -67,6 +68,7 @@ const Carousel = ({
                     handleChangeRotation={handleChangeRotation}
                     setAnimation={setAnimation}
                     animation={animation}
+                    thisGallery={thisGallery}
                     />))}
                 </div>
             )
