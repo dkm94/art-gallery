@@ -1,7 +1,7 @@
 import "./Header.css";
 
 import { Burger } from "..";
-import icon from "../../assets/dribble.png"
+import icon from "../../assets/github.png"
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
       <div className="header-container">
         <Burger />
         <div className="artist">Art Gallery</div>
-        <a href="https://dribbble.com/shots/10722222-Adam-Sorensen-Portfolio" target="blank" className="ext-link">
+        <a href="https://github.com/dkm94/art-gallery" target="blank" className="ext-link">
           <img src={icon} alt="external link" height={20}/>
         </a>
       </div>
