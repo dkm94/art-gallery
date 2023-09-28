@@ -23,7 +23,7 @@
 - [About the project](#about-the-project)
 - [Links](#links)
 - [Built with](#built-with)
-- [Project folder description (src)](#project-folder-description-src)
+- [Project folder description](#project-folder-description)
 - [Credits](#credits)
 
 ## About the project
@@ -46,7 +46,7 @@ Frontend
 * ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
 
-## Project folder description (src)
+## Project folder description
 
 * public: images and data
 * src: assets, components, constants, context, hooks and entry points
