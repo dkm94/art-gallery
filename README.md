@@ -36,7 +36,7 @@
 ## Links
 
 The project is based on this prototype:<br />
-✐ **Dribbble**: https://www.figma.com/file/8WgQuNX3rIicR8ZLqHVYod/Soccer?type=design&node-id=0%3A1&t=3eFeRSvXqnsVCsQD-1
+✐ **Dribbble**: https://dribbble.com/shots/10722222-Adam-Sorensen-Portfolio
 
 
 ## Built with
