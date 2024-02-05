@@ -1,0 +1,15 @@
+.carousel-btn-ctn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .line { 
+        display: none;
+    }
+    .button-text {
+        transform: none !important;
+    }
+}

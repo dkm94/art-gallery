@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import "./PrevBtn.css";
+
+import { CSSProperties, useEffect, useState } from "react";
 
 import { IPrevBtnProps } from "../../../types"
 
@@ -13,15 +15,42 @@ const PrevBtn = ({
   disablePrev, 
   setDisablePrev 
 }: IPrevBtnProps ) => {
-  console.log("🚀 ~ file: PrevBtn.tsx:16 ~ mode:", mode)
-
-  const handleMouseOver: React.MouseEventHandler<HTMLDivElement> = ():void => setSlidePrev && setSlidePrev(true);
-
-  const handleMouseOut: React.MouseEventHandler<HTMLDivElement> = ():void => setSlidePrev && setSlidePrev(false);
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = ():void => {
     prevOne ? prevOne() : getBack && getBack();
   }
+
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    setSlidePrev && setSlidePrev(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setSlidePrev && setSlidePrev(false);
+  };
+
+  const containerStyle: CSSProperties = {
+    position: mode === "selected" ? "absolute" : "unset", 
+    top: mode === "selected" ? "25%" : ""
+  }
+
+  const lineStyle: CSSProperties = {
+    height: '1px',
+    width: '35px',
+    transition: 'transform 0.3s ease',
+    transform: isHovered ? 'translateX(45px)' : 'translateX(0)',
+    backgroundColor: '#f2ede6',
+  };
+
+  const textStyle: CSSProperties = {
+    flex: 1,
+    textAlign: 'center',
+    transition: 'transform 0.3s ease',
+    transform: isHovered ? 'translateX(-45px)' : 'translateX(0)',
+  };
 
   useEffect(() => {
     if(setDisablePrev){
@@ -35,17 +64,19 @@ const PrevBtn = ({
 
   return (
     <div 
-      className="prev-wrapper" 
-      onMouseOver={handleMouseOver} 
-      onMouseOut={handleMouseOut} 
-      style={{ position: mode === "selected" ? "absolute" : "unset", top: mode === "selected" ? "25%" : ""} } 
+    className="prev-wrapper" 
+    style={containerStyle} 
     >
       <button
-        className={`prev-btn ${slidePrev ? "prev-btn-animation" : ""} ${disablePrev ? "disable-btn" : ""}`} 
-        onClick={handleClick} 
-        disabled={disablePrev}
-      >{text}</button>
-      <div className={`prev-line ${slidePrev ? "prev-line-animation" : ""}`}/>
+      className={`prev-btn carousel-btn-ctn ${disablePrev ? "disable-btn" : ""}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick} 
+      disabled={disablePrev}
+      >
+        <div className="line" style={lineStyle}></div>
+        <div className="button-text" style={textStyle}>{text}</div>
+      </button>
     </div>
   )
 }

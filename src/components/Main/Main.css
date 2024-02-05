@@ -105,26 +105,6 @@
     right: 0px;
 }
 
-/* Previous line */
-.prev-line::before {
-    content: "";
-    width: 40px;
-    height: 1px;
-    background-color: #f2ede6;
-    position: absolute;
-    left: 55px;
-    overflow: visible !important;
-}
-/* Next line */
-.next-line::before {
-    content: "";
-    width: 40px;
-    height: 1px;
-    background-color: #f2ede6;
-    position: absolute;
-    right: 55px;
-}
-
 /* Previous button animation */
 .prev-btn-animation {
     transition-property: left;
@@ -132,25 +112,7 @@
     left: 10px;
     
 }
-/* Previous line animation */
-.prev-line-animation::before {
-    transition-property: left;
-    transition-duration: 1s;
-    left: -35px;
-}
 
-/* Next button animation */
-.next-btn-animation {
-    transition-property: right;
-    transition-duration: 1s;
-    right: 10px;
-}
-/* Next line animation */
-.next-line-animation::before {
-    transition-property: right;
-    transition-duration: 1s;
-    right: -35px;
-}
 .slide-to-top {
     animation: slideToTop 1s forwards;
 }
@@ -186,6 +148,14 @@
     animation-fill-mode: forwards;
     transform: translate(0px, 640px);
     z-index: 10;
+}
+
+@keyframes slideToTheLeft {
+    from {
+        left: 0px;
+    } to {
+        left: -35px;
+    }
 }
 
 @keyframes slideToTop {
@@ -234,7 +204,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .right-col, .prev-line, .next-line, .first-image, .progress-container {
+    .right-col, .next-line, .first-image, .progress-container {
         display: none;
     }
     .left-col {
