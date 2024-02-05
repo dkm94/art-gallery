@@ -22,6 +22,7 @@ const Carousel = ({
     handleChangeRotation,
     setAnimation,
     animation,
+    slideHeight,
 }: ICarouselProps) => {
     
     useEffect(() => {
@@ -68,6 +69,7 @@ const Carousel = ({
                     setAnimation={setAnimation}
                     animation={animation}
                     item={item}
+                    slideHeight={slideHeight}
                     />))}
                 </div>
             )

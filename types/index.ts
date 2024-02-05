@@ -56,9 +56,10 @@ export interface ICarouselProps extends Pick<IMainProps, "gallery" > {
     handleChangeRotation: (index: number) => string;
     setAnimation: React.Dispatch<React.SetStateAction<string>>;
     animation: string;
+    slideHeight: number;
 }
 
-export interface ICarouselImageProps extends Pick<ICarouselProps, "setRotate" | "rotate" | "swipe" | "showViewBtn" | "setShowViewBtn" | "showView" | "handleChangeRotation" | "setAnimation" | "animation"  > {
+export interface ICarouselImageProps extends Pick<ICarouselProps, "setRotate" | "rotate" | "swipe" | "showViewBtn" | "setShowViewBtn" | "showView" | "handleChangeRotation" | "setAnimation" | "animation" | "slideHeight"  > {
     index: number;
     galleryId: number;
     src: string | null;
@@ -96,8 +97,9 @@ export interface ICardToGridBtnProps {
     url: string;
 }
 
-export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "showView" | "galleryId" | "setShowViewBtn" | "setAnimation" | "animation" > {
+export interface IViewBtnProps extends Pick<ICarouselImageProps, "showViewBtn" | "showView" | "galleryId" | "setShowViewBtn" | "setAnimation" | "animation" | "slideHeight" > {
     rotationDegree: string;
+    isHovered: boolean;
 }
 
 export interface IPrevBtnProps {

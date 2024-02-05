@@ -1,17 +1,18 @@
 
 .view-btn-container {
   position: absolute;
-  bottom: 40%;
+  bottom: 0;
   left: 40%;
   border-radius: 50%;
   color: black;
   mix-blend-mode: screen;
   border: 1px solid #FFFFFF;
-  rotate: 0deg !important;
-  animation-duration: 1s;
+  /* rotate: 0deg !important; */
+  /* animation-duration: 1s;
   animation-name: slideIn;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards; */
 }
+
 .view-btn {
   width: 60px;
   height: 60px;

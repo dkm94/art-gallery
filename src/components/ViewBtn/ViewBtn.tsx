@@ -1,6 +1,6 @@
 import "./ViewBtn.css";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { IViewBtnProps } from "../../../types";
 
@@ -11,8 +11,34 @@ const ViewBtn = ({
   setShowViewBtn, 
   rotationDegree, 
   setAnimation, 
-  animation 
+  animation,
+  isHovered,
+  slideHeight,
 }: IViewBtnProps) => {
+  console.log("🚀 ~ slideHeight:", slideHeight)
+
+  const rotateBtn = (deg: string): string => {
+    if (deg === "rotate(-5deg)" && animation === "") {
+      return `rotate(5deg)`;
+    } else if (deg === "rotate(5deg)" && animation === ""){
+      return `rotate(-5deg)`;
+    } else {
+      return `rotate(0deg)`;
+    }
+  }
+  
+  const buttonPath = (galleryId: number) => {
+    if(galleryId % 2 === 0) {
+      return "translateX(0px)"
+    } else {
+      return "translateX(-15px)"
+    }
+  }
+
+  const [hoveredStyle, setHoveredStyle] = useState({
+    transform: `${rotateBtn(rotationDegree)} translateY(0) ${buttonPath(galleryId)}`,
+    transition: "transform 0.3s ease-in-out",
+  });
 
   const handleBtn = (galleryId: number) => {
     showView(galleryId);
@@ -21,23 +47,17 @@ const ViewBtn = ({
   }
 
   useEffect(() => {
-  }, [showViewBtn])
-
-  const rotateBtn = (): string => {
-    if (rotationDegree === "rotate(-5deg)" && animation === "") {
-      return `rotate(5deg)`;
-    } else if (rotationDegree === "rotate(5deg)" && animation === ""){
-      return `rotate(-5deg)`;
-    } else {
-      return `rotate(0deg)`;
-    }
-  }
+    setHoveredStyle({
+      transform: isHovered ? `${rotateBtn(rotationDegree)} translateY(-250%) ${buttonPath(galleryId)}`  : `${rotateBtn(rotationDegree)} translateY(0) ${buttonPath(galleryId)}`,
+      transition: "transform 0.3s ease-in-out",
+    });
+  }, [isHovered]);
   
   return (
       <div 
         className={`view-btn-container`}
         onClick={() => handleBtn(galleryId)}
-        style={{ transform: rotateBtn(), transition: "transform 1s ease-in" }}
+        style={hoveredStyle}  
       >
       <div className="view-btn" >
       View

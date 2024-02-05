@@ -18,6 +18,9 @@ const PrevBtn = ({
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = ():void => {
     prevOne ? prevOne() : getBack && getBack();
+    if(text === "Back") {
+      setIsHovered(false);
+    }
   }
 
   const [isHovered, setIsHovered] = useState(false);

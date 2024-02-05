@@ -228,6 +228,7 @@ const Main = ({
               handleChangeRotation={handleChangeRotation}
               setAnimation={setAnimation}
               animation={animation}
+              slideHeight={slideHeight}
             />
             <div className={`btns-wrapper ${animation === "fixcards" ? "fadeout" : ""}`}>
               <NextBtn 
