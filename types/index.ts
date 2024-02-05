@@ -62,6 +62,7 @@ export interface ICarouselImageProps extends Pick<ICarouselProps, "setRotate" | 
     index: number;
     galleryId: number;
     src: string | null;
+    item: Gallery;
 }
 
 export interface ICarouselTitleProps {

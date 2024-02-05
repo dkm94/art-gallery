@@ -67,6 +67,7 @@ const Carousel = ({
                     handleChangeRotation={handleChangeRotation}
                     setAnimation={setAnimation}
                     animation={animation}
+                    item={item}
                     />))}
                 </div>
             )

@@ -18,6 +18,7 @@ const Image = ({
   handleChangeRotation,
   setAnimation,
   animation,
+  item
 }: ICarouselImageProps) => {
 
   const [coverId, setCoverId] = useState<number>(0);
@@ -41,16 +42,16 @@ const Image = ({
     }
   }, [setRotate])
 
-  const displayBtn = ():void => {
+  const handleMouseEnter = ():void => {
     if(galleryId === coverId && animation === "") {
       setSelectedImage(galleryId)
       setShowViewBtn(true)
     }
   }  
 
-  const hideBtn = (selectedId: number):void => {
-    setSelectedImage(selectedId)
+  const handleMouseLeave = (): void => {
     setShowViewBtn(false)
+    setSelectedImage(0)
   }
   
   return (
@@ -67,10 +68,10 @@ const Image = ({
       display: index === 0 || index === 1 ? "none" : "block",
       backgroundPosition: "center",
     }}
-    onMouseOver={displayBtn}
-    onMouseOut={() => hideBtn(selectedImage)}
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}
     >
-      {showViewBtn && 
+      {showViewBtn && selectedImage === item?.id && 
       <ViewBtn 
       key={index} 
       showViewBtn={showViewBtn} 
