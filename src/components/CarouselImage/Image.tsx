@@ -18,10 +18,13 @@ const Image = ({
   handleChangeRotation,
   setAnimation,
   animation,
+  item,
+  slideHeight
 }: ICarouselImageProps) => {
 
   const [coverId, setCoverId] = useState<number>(0);
   const [selectedImage, setSelectedImage] = useState<number>(0);
+  const [isHovered, setIsHovered] = useState(false);
   
   const imageList = document.querySelectorAll(".img");
   const firstCover = imageList[imageList.length - 1];
@@ -41,16 +44,18 @@ const Image = ({
     }
   }, [setRotate])
 
-  const displayBtn = ():void => {
+  const handleMouseEnter = ():void => {
     if(galleryId === coverId && animation === "") {
       setSelectedImage(galleryId)
       setShowViewBtn(true)
+      setIsHovered(true)
     }
   }  
 
-  const hideBtn = (selectedId: number):void => {
-    setSelectedImage(selectedId)
+  const handleMouseLeave = (): void => {
     setShowViewBtn(false)
+    setSelectedImage(0)
+    setIsHovered(false);
   }
   
   return (
@@ -67,10 +72,10 @@ const Image = ({
       display: index === 0 || index === 1 ? "none" : "block",
       backgroundPosition: "center",
     }}
-    onMouseOver={displayBtn}
-    onMouseOut={() => hideBtn(selectedImage)}
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}
     >
-      {showViewBtn && 
+      {showViewBtn && selectedImage === item?.id && 
       <ViewBtn 
       key={index} 
       showViewBtn={showViewBtn} 
@@ -80,6 +85,8 @@ const Image = ({
       setAnimation={setAnimation}
       rotationDegree={handleChangeRotation(index)}
       animation={animation}
+      slideHeight={slideHeight}
+      isHovered={isHovered}
       />}
     </div>
   )

@@ -1,6 +1,6 @@
 import "./ViewBtn.css";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { IViewBtnProps } from "../../../types";
 
@@ -11,8 +11,33 @@ const ViewBtn = ({
   setShowViewBtn, 
   rotationDegree, 
   setAnimation, 
-  animation 
+  animation,
+  isHovered
 }: IViewBtnProps) => {
+  
+  const rotateBtn = (deg: string): string => {
+    if (deg === "rotate(-5deg)" && animation === "") {
+      return `rotate(5deg)`;
+    } else if (deg === "rotate(5deg)" && animation === ""){
+      return `rotate(-5deg)`;
+    } else {
+      return `rotate(0deg)`;
+    }
+  }
+  
+  const buttonPath = (galleryId: number) => {
+    if(galleryId % 2 === 0) {
+      return "translateX(-50%)"
+    } else {
+      return "translateX(-50%)"
+    }
+  }
+
+  // const [hoveredStyle, setHoveredStyle] = useState({
+  //   transform: `${rotateBtn(rotationDegree)} translate(-50%, 100%)`,
+  //   transition: "transform 0.3s ease-in-out",
+  //   bottom: "40%"
+  // });
 
   const handleBtn = (galleryId: number) => {
     showView(galleryId);
@@ -20,27 +45,28 @@ const ViewBtn = ({
     setShowViewBtn(false)
   }
 
-  useEffect(() => {
-  }, [showViewBtn])
-
-  const rotateBtn = (): string => {
-    if (rotationDegree === "rotate(-5deg)" && animation === "") {
-      return `rotate(5deg)`;
-    } else if (rotationDegree === "rotate(5deg)" && animation === ""){
-      return `rotate(-5deg)`;
-    } else {
-      return `rotate(0deg)`;
-    }
-  }
+  // useEffect(() => {
+  //   setHoveredStyle({
+  //     // transform: isHovered ? `${rotateBtn(rotationDegree)} ${buttonPath(galleryId)}`  : `${rotateBtn(rotationDegree)} ${buttonPath(galleryId)}`,
+  //     transform: isHovered ? `${rotateBtn(rotationDegree)} ${buttonPath(galleryId)}`  : `${rotateBtn(rotationDegree)} ${buttonPath(galleryId)}`,
+  //     transition: "transform 0.3s ease-in-out",
+  //     bottom: "40%"
+  //   });
+  // }, [isHovered]);
   
   return (
+    <div className="view-btn-wrapper">
       <div 
-        className={`view-btn-container`}
+        className={`view-btn-container ${isHovered ? "fadeIn" : "fadeOut"}`}
         onClick={() => handleBtn(galleryId)}
-        style={{ transform: rotateBtn(), transition: "transform 1s ease-in" }}
+        // style={hoveredStyle} 
+        style={{
+            transform: `translate(-50%, -50%) ${isHovered ? `${rotateBtn(rotationDegree)}`  : `${rotateBtn(rotationDegree)}`}`,
+        }} 
       >
-      <div className="view-btn" >
-      View
+        <div className="view-btn" >
+        View
+        </div>
       </div>
     </div>
   )
