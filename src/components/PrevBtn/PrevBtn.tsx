@@ -74,7 +74,7 @@ const PrevBtn = ({
       className={`prev-btn carousel-btn-ctn ${disablePrev ? "disable-btn" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleClick} 
+      onClick={disablePrev ? () => {} : handleClick}
       disabled={disablePrev}
       >
         <div className="line" style={lineStyle}></div>

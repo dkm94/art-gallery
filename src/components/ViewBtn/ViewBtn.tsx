@@ -12,11 +12,9 @@ const ViewBtn = ({
   rotationDegree, 
   setAnimation, 
   animation,
-  isHovered,
-  slideHeight,
+  isHovered
 }: IViewBtnProps) => {
-  console.log("🚀 ~ slideHeight:", slideHeight)
-
+  
   const rotateBtn = (deg: string): string => {
     if (deg === "rotate(-5deg)" && animation === "") {
       return `rotate(5deg)`;
@@ -29,16 +27,17 @@ const ViewBtn = ({
   
   const buttonPath = (galleryId: number) => {
     if(galleryId % 2 === 0) {
-      return "translateX(0px)"
+      return "translateX(-50%)"
     } else {
-      return "translateX(-15px)"
+      return "translateX(-50%)"
     }
   }
 
-  const [hoveredStyle, setHoveredStyle] = useState({
-    transform: `${rotateBtn(rotationDegree)} translateY(0) ${buttonPath(galleryId)}`,
-    transition: "transform 0.3s ease-in-out",
-  });
+  // const [hoveredStyle, setHoveredStyle] = useState({
+  //   transform: `${rotateBtn(rotationDegree)} translate(-50%, 100%)`,
+  //   transition: "transform 0.3s ease-in-out",
+  //   bottom: "40%"
+  // });
 
   const handleBtn = (galleryId: number) => {
     showView(galleryId);
@@ -46,21 +45,28 @@ const ViewBtn = ({
     setShowViewBtn(false)
   }
 
-  useEffect(() => {
-    setHoveredStyle({
-      transform: isHovered ? `${rotateBtn(rotationDegree)} translateY(-250%) ${buttonPath(galleryId)}`  : `${rotateBtn(rotationDegree)} translateY(0) ${buttonPath(galleryId)}`,
-      transition: "transform 0.3s ease-in-out",
-    });
-  }, [isHovered]);
+  // useEffect(() => {
+  //   setHoveredStyle({
+  //     // transform: isHovered ? `${rotateBtn(rotationDegree)} ${buttonPath(galleryId)}`  : `${rotateBtn(rotationDegree)} ${buttonPath(galleryId)}`,
+  //     transform: isHovered ? `${rotateBtn(rotationDegree)} ${buttonPath(galleryId)}`  : `${rotateBtn(rotationDegree)} ${buttonPath(galleryId)}`,
+  //     transition: "transform 0.3s ease-in-out",
+  //     bottom: "40%"
+  //   });
+  // }, [isHovered]);
   
   return (
+    <div className="view-btn-wrapper">
       <div 
-        className={`view-btn-container`}
+        className={`view-btn-container ${isHovered ? "fadeIn" : "fadeOut"}`}
         onClick={() => handleBtn(galleryId)}
-        style={hoveredStyle}  
+        // style={hoveredStyle} 
+        style={{
+            transform: `translate(-50%, -50%) ${isHovered ? `${rotateBtn(rotationDegree)}`  : `${rotateBtn(rotationDegree)}`}`,
+        }} 
       >
-      <div className="view-btn" >
-      View
+        <div className="view-btn" >
+        View
+        </div>
       </div>
     </div>
   )

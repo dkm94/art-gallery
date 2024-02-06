@@ -25,7 +25,6 @@ const Image = ({
   const [coverId, setCoverId] = useState<number>(0);
   const [selectedImage, setSelectedImage] = useState<number>(0);
   const [isHovered, setIsHovered] = useState(false);
-  console.log("🚀 ~ isHovered:", isHovered)
   
   const imageList = document.querySelectorAll(".img");
   const firstCover = imageList[imageList.length - 1];
@@ -49,7 +48,6 @@ const Image = ({
     if(galleryId === coverId && animation === "") {
       setSelectedImage(galleryId)
       setShowViewBtn(true)
-
       setIsHovered(true)
     }
   }  
@@ -57,7 +55,7 @@ const Image = ({
   const handleMouseLeave = (): void => {
     setShowViewBtn(false)
     setSelectedImage(0)
-    setIsHovered(false)
+    setIsHovered(false);
   }
   
   return (
@@ -87,8 +85,8 @@ const Image = ({
       setAnimation={setAnimation}
       rotationDegree={handleChangeRotation(index)}
       animation={animation}
-      isHovered={isHovered}
       slideHeight={slideHeight}
+      isHovered={isHovered}
       />}
     </div>
   )

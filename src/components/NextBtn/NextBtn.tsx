@@ -53,7 +53,7 @@ const NextBtn = ({
     <div className="next-wrapper">
        <button 
         className={`next-btn carousel-btn-ctn ${slideNext ? "next-btn-animation" : ""} ${disableNext ? "disable-btn" : ""}`} 
-        onClick={nextOne} 
+        onClick={disableNext ? () => {} : nextOne} 
         disabled={disableNext}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

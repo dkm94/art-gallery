@@ -1,16 +1,20 @@
+.view-btn-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
 
 .view-btn-container {
   position: absolute;
-  bottom: 0;
-  left: 40%;
+  /* bottom: 0; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
   border-radius: 50%;
   color: black;
   mix-blend-mode: screen;
   border: 1px solid #FFFFFF;
-  /* rotate: 0deg !important; */
-  /* animation-duration: 1s;
-  animation-name: slideIn;
-  animation-fill-mode: forwards; */
 }
 
 .view-btn {
@@ -40,4 +44,32 @@
         left: 40%;
         bottom: 40%;
       }
+}
+
+.fadeIn {
+	opacity: 1;
+  animation: fadeIn 1s;
+  animation-fill-mode: forwards;
+}
+.fadeOut {
+	opacity: 0;
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to
+  {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  } to
+  {
+    opacity: 0;
+  }
 }
