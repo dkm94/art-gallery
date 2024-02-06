@@ -8,7 +8,7 @@ const PrevBtn = ({
   mode,
   text,
   setSlidePrev, 
-  slidePrev, 
+  // slidePrev, 
   selectedGallery, 
   prevOne, 
   getBack, 

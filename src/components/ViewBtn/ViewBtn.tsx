@@ -1,11 +1,11 @@
 import "./ViewBtn.css";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 import { IViewBtnProps } from "../../../types";
 
 const ViewBtn = ({ 
-  showViewBtn, 
+  // showViewBtn, 
   showView, 
   galleryId, 
   setShowViewBtn, 
@@ -25,13 +25,13 @@ const ViewBtn = ({
     }
   }
   
-  const buttonPath = (galleryId: number) => {
-    if(galleryId % 2 === 0) {
-      return "translateX(-50%)"
-    } else {
-      return "translateX(-50%)"
-    }
-  }
+  // const buttonPath = (galleryId: number) => {
+  //   if(galleryId % 2 === 0) {
+  //     return "translateX(-50%)"
+  //   } else {
+  //     return "translateX(-50%)"
+  //   }
+  // }
 
   // const [hoveredStyle, setHoveredStyle] = useState({
   //   transform: `${rotateBtn(rotationDegree)} translate(-50%, 100%)`,
